@@ -86,7 +86,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\dropper.png" />
+    <Content Include="img\eye-slash.png" />
+    <Content Include="img\eye.png" />
     <Content Include="img\paint.png" />
+    <Content Include="img\plus.png" />
     <Content Include="img\rueda.png" />
     <Content Include="img\trash.png" />
   </ItemGroup>
