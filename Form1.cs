@@ -26,15 +26,11 @@ namespace CC
             InitializeComponent();
             //bmp = Segmento.Eje(bmp, Color.Red);
             //ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-            
-
         }
         //int Widt = (ulong)ventana.Width;
         //TODO
         /* 1. Obtener valores del pictureBox
-         * 2. Ver problema de axis.y alreves
          * 3. Mejorar botones
-         * 4. Añadir parte para dibujar varias circunferencias
          */
         private void btnPixel_Click(object sender, EventArgs e)
         {   
@@ -65,8 +61,8 @@ namespace CC
 
         private void btnCirculo_Click(object sender, EventArgs e)
         {
-            Circunferencia circulo = new Circunferencia(2);
-            bmp = circulo.Encender(bmp, color);
+            Circunferencia circulo = new Circunferencia();
+            bmp = circulo.Encender(bmp, color,2);
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
 
@@ -126,10 +122,10 @@ namespace CC
         private void btnCC_Click(object sender, EventArgs e)
         {
             Circunferencia c = new Circunferencia();
-            c.CircunferenciasConcentricas(bmp, Color.Red,4);
-            c.CircunferenciasConcentricas(bmp, Color.Blue, 1);
-            c.CircunferenciasConcentricas(bmp, Color.Green, 7);
-            c.CircunferenciasConcentricas(bmp, Color.Indigo, 3);
+            c.Encender(bmp, Color.Red,4);
+            c.Encender(bmp, Color.Red,1);
+            c.Encender(bmp, Color.Red,7);
+            c.Encender(bmp, Color.Red,3);
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
 
         }

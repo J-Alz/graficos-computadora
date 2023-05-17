@@ -9,56 +9,31 @@ namespace CC
 {
     internal class Circunferencia:Vector
     {
-        float Rd;
+
         static float pi = 3.1416f;
-        public Circunferencia(float Rd)
-        {
-            this.Rd = Rd;
-        }
+        static float dt = 0.0001f;
+
         public Circunferencia() { }
-        public new Bitmap Encender(Bitmap bmp, Color color)
+        public Bitmap Encender(Bitmap bmp, Color color, float Rd, float x, float y)
         {
-            float t = -pi;
-            float dt = 0.001f;
-            Vector vector = new Vector(5, -1);
-            do
-            {
-                vector.X0 = X0 + Rd * (float)Math.Cos(t);
-                vector.Y0 = Y0 + Rd * (float)Math.Sin(t);
-                bmp = vector.Encender(bmp, color);
-                t += dt;
-            } while (t <= pi);
-
-            return bmp;
-        }
-        public Bitmap Encender(Bitmap bmp, Color color, float Rd, float x0, float y0)
-        {
-            float t = -pi;
-            float dt = 0.001f;
-            Vector vector = new Vector(5, -1);
-            do
-            {
-                vector.X0 = x0 + Rd * (float)Math.Cos(t);
-                vector.Y0 = y0 + Rd * (float)Math.Sin(t);
-                bmp = vector.Encender(bmp, color);
-                t += dt;
-            } while (t <= pi);
-
-            return bmp;
-        }
-        public Bitmap CircunferenciasConcentricas(Bitmap bmp, Color color, float Rd) 
-        {
-            float t = -pi;
-            float dt = 0.001f;
             Vector vector = new Vector();
-            do
+            for (float t = -pi; t <= pi; t += dt)
+            {
+                vector.X0 = x + Rd * (float)Math.Cos(t);
+                vector.Y0 = y + Rd * (float)Math.Sin(t);
+                bmp = vector.Encender(bmp, color);
+            }
+            return bmp;
+        }
+        public Bitmap Encender(Bitmap bmp, Color color, float Rd)
+        {
+            Vector vector = new Vector();
+            for(float t = -pi; t <= pi; t += dt)
             {
                 vector.X0 = X0 + Rd * (float)Math.Cos(t);
                 vector.Y0 = Y0 + Rd * (float)Math.Sin(t);
                 bmp = vector.Encender(bmp, color);
-                t += dt;
-            } while (t <= pi);
-
+            }
             return bmp;
         }
     }
