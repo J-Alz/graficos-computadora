@@ -13,6 +13,7 @@ namespace CC
     {
         float xf;
         float yf;
+        static float dt = 0.0001f;
         public Segmento(float xf, float yf)
         {
             this.xf = xf;
@@ -32,10 +33,9 @@ namespace CC
             } while (t <= 1);
             return bmp;
         }
-        public static Bitmap Eje(Bitmap bmp, Color color)
+        public static Bitmap AxisY(Bitmap bmp, Color color)
         {
-            float t = -6.15f;
-            float dt = 0.0001f;
+            float t = Pixel.Y1;
             Vector vector = new Vector();
             do
             {
@@ -43,23 +43,23 @@ namespace CC
                 vector.Y0 = t;
                 bmp = vector.Encender(bmp, color);
                 t += dt;
-            } while (t <= 8);
-            //-8,0
-            t = -8f;
-            dt = 0.0001f;
-            vector = new Vector();
+            } while (t <= Pixel.Y2);
+            return bmp;
+        }
+        public static Bitmap AxisX(Bitmap bmp, Color color)
+        {
+            float t = Pixel.X1;
+            Vector vector = new Vector();
             do
             {
                 vector.X0 = t;
                 vector.Y0 = 0;
                 bmp = vector.Encender(bmp, color);
                 t += dt;
-            } while (t <= 8);
-
-
-
+            } while (t <= Pixel.X2);
             return bmp;
         }
+
         public static Bitmap L(Bitmap bmp, Color color)
         {
             float t = 2;
@@ -68,7 +68,7 @@ namespace CC
             do
             {
                 vector.X0 = t;
-                vector.Y0 = -(float)((1.17*Math.Pow(t,3)) - (12 * Math.Pow(t,2)) + 39.83 * t - 33);
+                vector.Y0 = (float)((1.17*Math.Pow(t,3)) - (12 * Math.Pow(t,2)) + 39.83 * t - 33);
                 bmp  = vector.Encender(bmp, color);
                 t += dt;
             } while (t <= 5);
@@ -83,7 +83,7 @@ namespace CC
             do
             {
                 vector.X0 = t;
-                vector.Y0 = -(float)((-0.625 * Math.Pow(t, 2)) + ((1) * Math.Pow(t, 1)) + (4.625)); ;
+                vector.Y0 = (float)((-0.625 * Math.Pow(t, 2)) + ((1) * Math.Pow(t, 1)) + (4.625)); ;
                 bmp = vector.Encender(bmp, color);
                 t += dt;
             } while (t <= 5);

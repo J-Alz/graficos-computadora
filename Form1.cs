@@ -35,7 +35,6 @@ namespace CC
          * 2. Ver problema de axis.y alreves
          * 3. Mejorar botones
          * 4. Añadir parte para dibujar varias circunferencias
-         * 5. Mejorar graficación de ejes, para cuando cambie el tamaño de la ventana
          */
         private void btnPixel_Click(object sender, EventArgs e)
         {   
@@ -107,20 +106,21 @@ namespace CC
         {
             if (!showAxis)
             {
-                bmp = Segmento.Eje(bmp, Color.Red);
-                ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+                Segmento.AxisY(bmp, Color.Red);
+                Segmento.AxisX(bmp, Color.Red);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye_slash;
                 showAxis = true;
                 toolTip.SetToolTip(this.btnShowAxis, "Borrar Ejes");
             }
             else
             {
-                bmp = Segmento.Eje(bmp, Color.White);
-                ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+                Segmento.AxisY(bmp, Color.White);
+                Segmento.AxisX(bmp, Color.White);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye;
                 showAxis = false;
                 toolTip.SetToolTip(this.btnShowAxis, "Dibujar Ejes");
             }
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
 
         private void btnCC_Click(object sender, EventArgs e)
@@ -137,10 +137,10 @@ namespace CC
         private void bttnL_Click(object sender, EventArgs e)
         {
             Circunferencia c = new Circunferencia();
-            c.Encender(bmp, color, 0.3f, 2, -8);
-            c.Encender(bmp, color, 0.3f, 3, -10);
-            c.Encender(bmp, color, 0.3f, 4, -9);
-            c.Encender(bmp, color, 0.3f, 5, -12);
+            c.Encender(bmp, color, 0.3f, 2, 8);
+            c.Encender(bmp, color, 0.3f, 3, 10);
+            c.Encender(bmp, color, 0.3f, 4, 9);
+            c.Encender(bmp, color, 0.3f, 5, 12);
             bmp = Segmento.L(bmp, Color.Red);
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
@@ -148,9 +148,9 @@ namespace CC
         private void btnInter_Click(object sender, EventArgs e)
         {
             Circunferencia c = new Circunferencia();
-            c.Encender(bmp, color, 0.3f, -1, -3);
-            c.Encender(bmp, color, 0.3f, 1, -5);
-            c.Encender(bmp, color, 0.3f, 3, -2);
+            c.Encender(bmp, color, 0.3f, -1, 3);
+            c.Encender(bmp, color, 0.3f, 1, 5);
+            c.Encender(bmp, color, 0.3f, 3, 2);
             bmp = Segmento.L2(bmp, Color.Red);
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }

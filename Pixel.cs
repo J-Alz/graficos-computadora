@@ -23,6 +23,24 @@ namespace CC
         static float y1 = -12.3f;//-7//-6.15
         static float y2 = 12.3f;
         
+        public static float X1 
+        {
+            get {return x1; }
+        }
+        public static float X2
+        {
+            get { return x2; }
+        }
+        public static float Y1
+        {
+            get { return y1; }
+        }
+        public static float Y2
+        {
+            get { return y2; }
+        }
+
+
         public Pixel(){}
 
         public static Bitmap Encender(Bitmap bmp, int x, int y, Color color)
@@ -38,7 +56,7 @@ namespace CC
         public static void Pantalla(double x, double y, out int sx, out int sy)
         {
             sx = (int)(((x - x1) / (x1 - x2)) * (sx1 - sx2)) + sx1;
-            sy = (int)(((y - y1) / (y1 - y2)) * (sy1 - sy2)) + sy1;     
+            sy = (int)(((y - y2) / (y2 - y1)) * (sy1 - sy2)) + sy1;     
         }
 
     }

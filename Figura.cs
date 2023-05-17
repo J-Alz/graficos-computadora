@@ -53,7 +53,7 @@ namespace CC
             do
             {
                 vector.X0 = t;
-                vector.Y0 = -(float)Math.Pow(2,t);
+                vector.Y0 = (float)Math.Pow(2,t);
                 bmp = vector.Encender(bmp, Color.Black);
                 t += dt;
             } while (t <= 6);
@@ -61,7 +61,7 @@ namespace CC
             do
             {
                 vector.X0 = t;
-                vector.Y0 = -(float)(1 + (0.69 * t) + 0.24 * (float)Math.Pow(t,2));
+                vector.Y0 = (float)(1 + (0.69 * t) + 0.24 * (float)Math.Pow(t,2));
                 bmp = vector.Encender(bmp, Color.Green);
                 t += dt;
             } while (t <= 6);
@@ -70,7 +70,7 @@ namespace CC
             do
             {
                 vector.X0 = t;
-                vector.Y0 = -(float)(1 + (0.69 * t) + (0.24 * (float)Math.Pow(t,2)) + (0.05 * Math.Pow(t,3)));
+                vector.Y0 = (float)(1 + (0.69 * t) + (0.24 * (float)Math.Pow(t,2)) + (0.05 * Math.Pow(t,3)));
                 bmp = vector.Encender(bmp, Color.Blue);
                 t += dt;
             } while (t <= 6);
