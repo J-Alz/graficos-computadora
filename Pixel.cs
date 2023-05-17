@@ -18,10 +18,10 @@ namespace CC
         static int sy2 = 540;
 
         //Ventana real
-        static int x1 = -8;
-        static int x2 = 8;
-        static float y1 = -6.15f;//-7
-        static float y2 = 6.15f;
+        static int x1 = -16;//-8
+        static int x2 = 16;//8
+        static float y1 = -12.3f;//-7//-6.15
+        static float y2 = 12.3f;
         
         public Pixel(){}
 

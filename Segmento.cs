@@ -60,5 +60,35 @@ namespace CC
 
             return bmp;
         }
+        public static Bitmap L(Bitmap bmp, Color color)
+        {
+            float t = 2;
+            float dt = 0.0001f;
+            Vector vector = new Vector();
+            do
+            {
+                vector.X0 = t;
+                vector.Y0 = -(float)((1.17*Math.Pow(t,3)) - (12 * Math.Pow(t,2)) + 39.83 * t - 33);
+                bmp  = vector.Encender(bmp, color);
+                t += dt;
+            } while (t <= 5);
+
+            return bmp;
+        }
+        public static Bitmap L2(Bitmap bmp, Color color)
+        {
+            float t = -1.1f;
+            float dt = 0.0001f;
+            Vector vector = new Vector();
+            do
+            {
+                vector.X0 = t;
+                vector.Y0 = -(float)((-0.625 * Math.Pow(t, 2)) + ((1) * Math.Pow(t, 1)) + (4.625)); ;
+                bmp = vector.Encender(bmp, color);
+                t += dt;
+            } while (t <= 5);
+
+            return bmp;
+        }
     }
 }

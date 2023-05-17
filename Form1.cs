@@ -24,8 +24,8 @@ namespace CC
         public Form1()
         {
             InitializeComponent();
-            bmp = Segmento.Eje(bmp, Color.Red);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            //bmp = Segmento.Eje(bmp, Color.Red);
+            //ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
             
 
         }
@@ -34,6 +34,8 @@ namespace CC
         /* 1. Obtener valores del pictureBox
          * 2. Ver problema de axis.y alreves
          * 3. Mejorar botones
+         * 4. Añadir parte para dibujar varias circunferencias
+         * 5. Mejorar graficación de ejes, para cuando cambie el tamaño de la ventana
          */
         private void btnPixel_Click(object sender, EventArgs e)
         {   
@@ -119,6 +121,38 @@ namespace CC
                 showAxis = false;
                 toolTip.SetToolTip(this.btnShowAxis, "Dibujar Ejes");
             }
+        }
+
+        private void btnCC_Click(object sender, EventArgs e)
+        {
+            Circunferencia c = new Circunferencia();
+            c.CircunferenciasConcentricas(bmp, Color.Red,4);
+            c.CircunferenciasConcentricas(bmp, Color.Blue, 1);
+            c.CircunferenciasConcentricas(bmp, Color.Green, 7);
+            c.CircunferenciasConcentricas(bmp, Color.Indigo, 3);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+
+        }
+
+        private void bttnL_Click(object sender, EventArgs e)
+        {
+            Circunferencia c = new Circunferencia();
+            c.Encender(bmp, color, 0.3f, 2, -8);
+            c.Encender(bmp, color, 0.3f, 3, -10);
+            c.Encender(bmp, color, 0.3f, 4, -9);
+            c.Encender(bmp, color, 0.3f, 5, -12);
+            bmp = Segmento.L(bmp, Color.Red);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+        }
+
+        private void btnInter_Click(object sender, EventArgs e)
+        {
+            Circunferencia c = new Circunferencia();
+            c.Encender(bmp, color, 0.3f, -1, -3);
+            c.Encender(bmp, color, 0.3f, 1, -5);
+            c.Encender(bmp, color, 0.3f, 3, -2);
+            bmp = Segmento.L2(bmp, Color.Red);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
     }
 }

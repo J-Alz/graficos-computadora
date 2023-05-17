@@ -46,6 +46,9 @@ namespace CC
             this.ventana = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCC = new System.Windows.Forms.Button();
+            this.bttnL = new System.Windows.Forms.Button();
+            this.btnInter = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
@@ -53,6 +56,9 @@ namespace CC
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnInter);
+            this.groupBox1.Controls.Add(this.bttnL);
+            this.groupBox1.Controls.Add(this.btnCC);
             this.groupBox1.Controls.Add(this.btnShowAxis);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.btnColor);
@@ -83,7 +89,7 @@ namespace CC
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 354);
+            this.button1.Location = new System.Drawing.Point(26, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 13;
@@ -105,7 +111,7 @@ namespace CC
             // 
             // btnCurva2
             // 
-            this.btnCurva2.Location = new System.Drawing.Point(26, 325);
+            this.btnCurva2.Location = new System.Drawing.Point(26, 269);
             this.btnCurva2.Name = "btnCurva2";
             this.btnCurva2.Size = new System.Drawing.Size(127, 23);
             this.btnCurva2.TabIndex = 9;
@@ -115,7 +121,7 @@ namespace CC
             // 
             // btnCurva1
             // 
-            this.btnCurva1.Location = new System.Drawing.Point(26, 296);
+            this.btnCurva1.Location = new System.Drawing.Point(26, 227);
             this.btnCurva1.Name = "btnCurva1";
             this.btnCurva1.Size = new System.Drawing.Size(127, 23);
             this.btnCurva1.TabIndex = 8;
@@ -125,7 +131,7 @@ namespace CC
             // 
             // btnCirculo
             // 
-            this.btnCirculo.Location = new System.Drawing.Point(26, 219);
+            this.btnCirculo.Location = new System.Drawing.Point(26, 138);
             this.btnCirculo.Name = "btnCirculo";
             this.btnCirculo.Size = new System.Drawing.Size(127, 23);
             this.btnCirculo.TabIndex = 7;
@@ -135,7 +141,7 @@ namespace CC
             // 
             // btnVector
             // 
-            this.btnVector.Location = new System.Drawing.Point(26, 161);
+            this.btnVector.Location = new System.Drawing.Point(26, 109);
             this.btnVector.Name = "btnVector";
             this.btnVector.Size = new System.Drawing.Size(127, 23);
             this.btnVector.TabIndex = 6;
@@ -145,7 +151,7 @@ namespace CC
             // 
             // btnPixel
             // 
-            this.btnPixel.Location = new System.Drawing.Point(26, 122);
+            this.btnPixel.Location = new System.Drawing.Point(26, 80);
             this.btnPixel.Name = "btnPixel";
             this.btnPixel.Size = new System.Drawing.Size(127, 23);
             this.btnPixel.TabIndex = 5;
@@ -155,7 +161,7 @@ namespace CC
             // 
             // btnSegmento
             // 
-            this.btnSegmento.Location = new System.Drawing.Point(26, 258);
+            this.btnSegmento.Location = new System.Drawing.Point(26, 185);
             this.btnSegmento.Name = "btnSegmento";
             this.btnSegmento.Size = new System.Drawing.Size(127, 23);
             this.btnSegmento.TabIndex = 4;
@@ -194,6 +200,36 @@ namespace CC
             this.ventana.TabIndex = 0;
             this.ventana.TabStop = false;
             // 
+            // btnCC
+            // 
+            this.btnCC.Location = new System.Drawing.Point(42, 336);
+            this.btnCC.Name = "btnCC";
+            this.btnCC.Size = new System.Drawing.Size(111, 62);
+            this.btnCC.TabIndex = 16;
+            this.btnCC.Text = "Circunferencias Concéntricas";
+            this.btnCC.UseVisualStyleBackColor = true;
+            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
+            // 
+            // bttnL
+            // 
+            this.bttnL.Location = new System.Drawing.Point(26, 423);
+            this.bttnL.Name = "bttnL";
+            this.bttnL.Size = new System.Drawing.Size(75, 23);
+            this.bttnL.TabIndex = 17;
+            this.bttnL.Text = "Interpolacion L";
+            this.bttnL.UseVisualStyleBackColor = true;
+            this.bttnL.Click += new System.EventHandler(this.bttnL_Click);
+            // 
+            // btnInter
+            // 
+            this.btnInter.Location = new System.Drawing.Point(26, 481);
+            this.btnInter.Name = "btnInter";
+            this.btnInter.Size = new System.Drawing.Size(75, 23);
+            this.btnInter.TabIndex = 18;
+            this.btnInter.Text = "button2";
+            this.btnInter.UseVisualStyleBackColor = true;
+            this.btnInter.Click += new System.EventHandler(this.btnInter_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -228,6 +264,9 @@ namespace CC
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnShowAxis;
+        private System.Windows.Forms.Button btnCC;
+        private System.Windows.Forms.Button bttnL;
+        private System.Windows.Forms.Button btnInter;
     }
 }
 
