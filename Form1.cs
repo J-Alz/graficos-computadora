@@ -21,6 +21,7 @@ namespace CC
         
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
+        Segmento segmento = new Segmento();
         public Form1()
         {
             InitializeComponent();
@@ -30,7 +31,9 @@ namespace CC
         //int Widt = (ulong)ventana.Width;
         //TODO
         /* 1. Obtener valores del pictureBox
+         * 2. Acomodar nombres de funciones y variables
          * 3. Mejorar botones
+         * 
          */
         private void btnPixel_Click(object sender, EventArgs e)
         {   
@@ -102,16 +105,16 @@ namespace CC
         {
             if (!showAxis)
             {
-                Segmento.AxisY(bmp, Color.Red);
-                Segmento.AxisX(bmp, Color.Red);
+                segmento.AxisY(bmp, Color.Red);
+                segmento.AxisX(bmp, Color.Red);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye_slash;
                 showAxis = true;
                 toolTip.SetToolTip(this.btnShowAxis, "Borrar Ejes");
             }
             else
             {
-                Segmento.AxisY(bmp, Color.White);
-                Segmento.AxisX(bmp, Color.White);
+                segmento.AxisY(bmp, Color.White);
+                segmento.AxisX(bmp, Color.White);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye;
                 showAxis = false;
                 toolTip.SetToolTip(this.btnShowAxis, "Dibujar Ejes");
@@ -148,6 +151,25 @@ namespace CC
             c.Encender(bmp, color, 0.3f, 1, 5);
             c.Encender(bmp, color, 0.3f, 3, 2);
             bmp = Segmento.L2(bmp, Color.Red);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+        }
+
+
+        private void btnScanUni_Click(object sender, EventArgs e)
+        {
+            Pixel.ScanUniColor(bmp, Color.Yellow);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+        }
+
+        private void btnScanBi_Click(object sender, EventArgs e)
+        {
+            Pixel.ScanBiColor(bmp);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+        }
+
+        private void btnScanRGB_Click(object sender, EventArgs e)
+        {
+            Pixel.ScanRGB(bmp);
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
     }

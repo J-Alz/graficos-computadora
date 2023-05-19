@@ -32,6 +32,9 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnInter = new System.Windows.Forms.Button();
+            this.bttnL = new System.Windows.Forms.Button();
+            this.btnCC = new System.Windows.Forms.Button();
             this.btnShowAxis = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
@@ -46,46 +49,78 @@ namespace CC
             this.ventana = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCC = new System.Windows.Forms.Button();
-            this.bttnL = new System.Windows.Forms.Button();
-            this.btnInter = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnScanUni = new System.Windows.Forms.Button();
+            this.btnScanBi = new System.Windows.Forms.Button();
+            this.btnScanRGB = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnScanRGB);
+            this.groupBox1.Controls.Add(this.btnScanBi);
+            this.groupBox1.Controls.Add(this.btnScanUni);
             this.groupBox1.Controls.Add(this.btnInter);
             this.groupBox1.Controls.Add(this.bttnL);
             this.groupBox1.Controls.Add(this.btnCC);
-            this.groupBox1.Controls.Add(this.btnShowAxis);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btnColor);
             this.groupBox1.Controls.Add(this.btnCurva2);
             this.groupBox1.Controls.Add(this.btnCurva1);
             this.groupBox1.Controls.Add(this.btnCirculo);
             this.groupBox1.Controls.Add(this.btnVector);
             this.groupBox1.Controls.Add(this.btnPixel);
             this.groupBox1.Controls.Add(this.btnSegmento);
-            this.groupBox1.Controls.Add(this.btnClear);
-            this.groupBox1.Location = new System.Drawing.Point(12, 27);
+            this.groupBox1.Location = new System.Drawing.Point(12, 90);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 566);
+            this.groupBox1.Size = new System.Drawing.Size(200, 503);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
+            // btnInter
+            // 
+            this.btnInter.Location = new System.Drawing.Point(101, 106);
+            this.btnInter.Name = "btnInter";
+            this.btnInter.Size = new System.Drawing.Size(84, 23);
+            this.btnInter.TabIndex = 18;
+            this.btnInter.Text = "Interpolacion";
+            this.btnInter.UseVisualStyleBackColor = true;
+            this.btnInter.Click += new System.EventHandler(this.btnInter_Click);
+            // 
+            // bttnL
+            // 
+            this.bttnL.Location = new System.Drawing.Point(101, 77);
+            this.bttnL.Name = "bttnL";
+            this.bttnL.Size = new System.Drawing.Size(84, 23);
+            this.bttnL.TabIndex = 17;
+            this.bttnL.Text = "Interpolacion L";
+            this.bttnL.UseVisualStyleBackColor = true;
+            this.bttnL.Click += new System.EventHandler(this.bttnL_Click);
+            // 
+            // btnCC
+            // 
+            this.btnCC.Location = new System.Drawing.Point(6, 77);
+            this.btnCC.Name = "btnCC";
+            this.btnCC.Size = new System.Drawing.Size(89, 36);
+            this.btnCC.TabIndex = 16;
+            this.btnCC.Text = "Circunferencias Concéntricas";
+            this.btnCC.UseVisualStyleBackColor = true;
+            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
+            // 
             // btnShowAxis
             // 
             this.btnShowAxis.Image = global::CC.Properties.Resources.eye;
-            this.btnShowAxis.Location = new System.Drawing.Point(6, 19);
+            this.btnShowAxis.Location = new System.Drawing.Point(12, 19);
             this.btnShowAxis.Name = "btnShowAxis";
             this.btnShowAxis.Size = new System.Drawing.Size(30, 30);
             this.btnShowAxis.TabIndex = 15;
@@ -95,11 +130,11 @@ namespace CC
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 307);
+            this.button1.Location = new System.Drawing.Point(72, 135);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(47, 23);
             this.button1.TabIndex = 13;
-            this.button1.Text = "variable";
+            this.button1.Text = "Taylor";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -107,7 +142,7 @@ namespace CC
             // 
             this.btnColor.AutoSize = true;
             this.btnColor.Image = global::CC.Properties.Resources.paint;
-            this.btnColor.Location = new System.Drawing.Point(42, 19);
+            this.btnColor.Location = new System.Drawing.Point(48, 19);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(30, 30);
             this.btnColor.TabIndex = 10;
@@ -117,29 +152,29 @@ namespace CC
             // 
             // btnCurva2
             // 
-            this.btnCurva2.Location = new System.Drawing.Point(26, 269);
+            this.btnCurva2.Location = new System.Drawing.Point(150, 48);
             this.btnCurva2.Name = "btnCurva2";
-            this.btnCurva2.Size = new System.Drawing.Size(127, 23);
+            this.btnCurva2.Size = new System.Drawing.Size(47, 23);
             this.btnCurva2.TabIndex = 9;
-            this.btnCurva2.Text = "curva 2";
+            this.btnCurva2.Text = "Espiral";
             this.btnCurva2.UseVisualStyleBackColor = true;
             this.btnCurva2.Click += new System.EventHandler(this.btnCurva2_Click);
             // 
             // btnCurva1
             // 
-            this.btnCurva1.Location = new System.Drawing.Point(26, 227);
+            this.btnCurva1.Location = new System.Drawing.Point(97, 48);
             this.btnCurva1.Name = "btnCurva1";
-            this.btnCurva1.Size = new System.Drawing.Size(127, 23);
+            this.btnCurva1.Size = new System.Drawing.Size(50, 23);
             this.btnCurva1.TabIndex = 8;
-            this.btnCurva1.Text = "curva 1";
+            this.btnCurva1.Text = "Lazo";
             this.btnCurva1.UseVisualStyleBackColor = true;
             this.btnCurva1.Click += new System.EventHandler(this.btnCurva1_Click);
             // 
             // btnCirculo
             // 
-            this.btnCirculo.Location = new System.Drawing.Point(26, 138);
+            this.btnCirculo.Location = new System.Drawing.Point(6, 48);
             this.btnCirculo.Name = "btnCirculo";
-            this.btnCirculo.Size = new System.Drawing.Size(127, 23);
+            this.btnCirculo.Size = new System.Drawing.Size(89, 23);
             this.btnCirculo.TabIndex = 7;
             this.btnCirculo.Text = "Circunferencia";
             this.btnCirculo.UseVisualStyleBackColor = true;
@@ -147,9 +182,9 @@ namespace CC
             // 
             // btnVector
             // 
-            this.btnVector.Location = new System.Drawing.Point(26, 109);
+            this.btnVector.Location = new System.Drawing.Point(60, 19);
             this.btnVector.Name = "btnVector";
-            this.btnVector.Size = new System.Drawing.Size(127, 23);
+            this.btnVector.Size = new System.Drawing.Size(46, 23);
             this.btnVector.TabIndex = 6;
             this.btnVector.Text = "Vector";
             this.btnVector.UseVisualStyleBackColor = true;
@@ -157,9 +192,10 @@ namespace CC
             // 
             // btnPixel
             // 
-            this.btnPixel.Location = new System.Drawing.Point(26, 80);
+            this.btnPixel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPixel.Location = new System.Drawing.Point(6, 19);
             this.btnPixel.Name = "btnPixel";
-            this.btnPixel.Size = new System.Drawing.Size(127, 23);
+            this.btnPixel.Size = new System.Drawing.Size(48, 23);
             this.btnPixel.TabIndex = 5;
             this.btnPixel.Text = "Pixel";
             this.btnPixel.UseVisualStyleBackColor = true;
@@ -167,9 +203,9 @@ namespace CC
             // 
             // btnSegmento
             // 
-            this.btnSegmento.Location = new System.Drawing.Point(26, 185);
+            this.btnSegmento.Location = new System.Drawing.Point(112, 19);
             this.btnSegmento.Name = "btnSegmento";
-            this.btnSegmento.Size = new System.Drawing.Size(127, 23);
+            this.btnSegmento.Size = new System.Drawing.Size(68, 23);
             this.btnSegmento.TabIndex = 4;
             this.btnSegmento.Text = "Segmento";
             this.btnSegmento.UseVisualStyleBackColor = true;
@@ -178,7 +214,7 @@ namespace CC
             // btnClear
             // 
             this.btnClear.Image = global::CC.Properties.Resources.trash;
-            this.btnClear.Location = new System.Drawing.Point(78, 19);
+            this.btnClear.Location = new System.Drawing.Point(84, 19);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(30, 30);
             this.btnClear.TabIndex = 1;
@@ -206,36 +242,6 @@ namespace CC
             this.ventana.TabIndex = 0;
             this.ventana.TabStop = false;
             // 
-            // btnCC
-            // 
-            this.btnCC.Location = new System.Drawing.Point(42, 336);
-            this.btnCC.Name = "btnCC";
-            this.btnCC.Size = new System.Drawing.Size(111, 62);
-            this.btnCC.TabIndex = 16;
-            this.btnCC.Text = "Circunferencias Concéntricas";
-            this.btnCC.UseVisualStyleBackColor = true;
-            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
-            // 
-            // bttnL
-            // 
-            this.bttnL.Location = new System.Drawing.Point(26, 423);
-            this.bttnL.Name = "bttnL";
-            this.bttnL.Size = new System.Drawing.Size(75, 23);
-            this.bttnL.TabIndex = 17;
-            this.bttnL.Text = "Interpolacion L";
-            this.bttnL.UseVisualStyleBackColor = true;
-            this.bttnL.Click += new System.EventHandler(this.bttnL_Click);
-            // 
-            // btnInter
-            // 
-            this.btnInter.Location = new System.Drawing.Point(26, 481);
-            this.btnInter.Name = "btnInter";
-            this.btnInter.Size = new System.Drawing.Size(75, 23);
-            this.btnInter.TabIndex = 18;
-            this.btnInter.Text = "button2";
-            this.btnInter.UseVisualStyleBackColor = true;
-            this.btnInter.Click += new System.EventHandler(this.btnInter_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -255,6 +261,12 @@ namespace CC
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -263,17 +275,53 @@ namespace CC
             this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
             this.verToolStripMenuItem.Text = "Ver";
             // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
             // defaultToolStripMenuItem
             // 
             this.defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.defaultToolStripMenuItem.Text = "Default";
+            // 
+            // btnScanUni
+            // 
+            this.btnScanUni.Location = new System.Drawing.Point(6, 119);
+            this.btnScanUni.Name = "btnScanUni";
+            this.btnScanUni.Size = new System.Drawing.Size(60, 41);
+            this.btnScanUni.TabIndex = 20;
+            this.btnScanUni.Text = "Barrido unicolor";
+            this.btnScanUni.UseVisualStyleBackColor = true;
+            this.btnScanUni.Click += new System.EventHandler(this.btnScanUni_Click);
+            // 
+            // btnScanBi
+            // 
+            this.btnScanBi.Location = new System.Drawing.Point(125, 135);
+            this.btnScanBi.Name = "btnScanBi";
+            this.btnScanBi.Size = new System.Drawing.Size(55, 41);
+            this.btnScanBi.TabIndex = 21;
+            this.btnScanBi.Text = "Barrido bicolor";
+            this.btnScanBi.UseVisualStyleBackColor = true;
+            this.btnScanBi.Click += new System.EventHandler(this.btnScanBi_Click);
+            // 
+            // btnScanRGB
+            // 
+            this.btnScanRGB.Location = new System.Drawing.Point(6, 164);
+            this.btnScanRGB.Name = "btnScanRGB";
+            this.btnScanRGB.Size = new System.Drawing.Size(76, 50);
+            this.btnScanRGB.TabIndex = 22;
+            this.btnScanRGB.Text = "Barrido Interpolación RGB";
+            this.btnScanRGB.UseVisualStyleBackColor = true;
+            this.btnScanRGB.Click += new System.EventHandler(this.btnScanRGB_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnColor);
+            this.groupBox3.Controls.Add(this.btnClear);
+            this.groupBox3.Controls.Add(this.btnShowAxis);
+            this.groupBox3.Location = new System.Drawing.Point(9, 27);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 57);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Opciones";
             // 
             // Form1
             // 
@@ -281,6 +329,7 @@ namespace CC
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(943, 600);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -288,11 +337,12 @@ namespace CC
             this.Name = "Form1";
             this.Text = "Gráficos";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,6 +373,10 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem;
+        private System.Windows.Forms.Button btnScanUni;
+        private System.Windows.Forms.Button btnScanBi;
+        private System.Windows.Forms.Button btnScanRGB;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }
 

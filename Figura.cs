@@ -36,12 +36,12 @@ namespace CC
             do
             {
                 //                   /3 se reduce el tamaño
-                vector.X0 = (float)(t/100 * Math.Cos(t));
-                vector.Y0 = (float)(t/100 * Math.Sin(t));
+                vector.X0 = (float)(t/3 * Math.Cos(t));
+                vector.Y0 = (float)(t/3 * Math.Sin(t));
                 bmp = vector.Encender(bmp, color);
                 t += dt;
                 //        8 aumenta el numero de vueltas
-            } while (t <= 1000);
+            } while (t <= 8);
 
             return bmp;
         }
