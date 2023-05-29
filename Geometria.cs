@@ -49,6 +49,7 @@ namespace CC
         {
             get => y2;
         }
+        //func. carta
         public void Transforma(int sx, int sy, out double x, out double y)
         {
             x = (((sx - sx1) / (sx1 - sx2)) * (x1 - x2)) + x1;

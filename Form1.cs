@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -14,92 +17,31 @@ namespace CC
 {
     public partial class Form1 : Form
     {
-        private static Random initializer = new Random();
-
         const int WIDTH = 700;
         const int HEIGHT = 540;
-        
+        Layers layers = new Layers(700, 540);
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
         Segmento segmento = new Segmento();
+
+        private void Draw(Bitmap bmp, string name)
+        {
+            layers.AddImage(bmp, name);
+            lbx.Items.Add(layers.referencia());
+            ventana.CreateGraphics().DrawImageUnscaled(layers.RefreshImage(), 0, 0);
+        }
+
         public Form1()
         {
             InitializeComponent();
-            //bmp = Segmento.Eje(bmp, Color.Red);
-            //ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
-        //int Widt = (ulong)ventana.Width;
         //TODO
         /* 1. Obtener valores del pictureBox
          * 2. Acomodar nombres de funciones y variables
          * 3. Mejorar botones
-         * 
          */
-        private void btnPixel_Click(object sender, EventArgs e)
-        {   
-            bmp = Pixel.Encender(bmp,7, 7,color);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-        }
-        private void btnVector_Click(object sender, EventArgs e)
-        {
-            Vector vector = new Vector();
-            bmp = vector.Prueba(bmp, color);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-        }
-        private void btnSegmento_Click(object sender, EventArgs e)
-        {
-            Segmento segmento = new Segmento(2,5);
-            bmp = segmento.Encender(bmp, color);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-            
-        }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            //Limpiamos la pantalla
-            ventana.Image = null;
-            //reinicializamos el bitmap
-            bmp = new Bitmap(WIDTH, HEIGHT);
-        }
-
-        private void btnCirculo_Click(object sender, EventArgs e)
-        {
-            Circunferencia circulo = new Circunferencia();
-            bmp = circulo.Encender(bmp, color,2);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-        }
-
-        private void btnCurva1_Click(object sender, EventArgs e)
-        {   
-            Figura figura = new Figura();
-            bmp = figura.Curva1(bmp, color);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-        }
-
-        private void btnCurva2_Click(object sender, EventArgs e)
-        {
-            Figura figura = new Figura();
-            bmp = figura.Curva2(bmp, color);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-            
-        }
-
-        private void btnColor_Click(object sender, EventArgs e)
-        {
-            if(colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                color = colorDialog.Color;
-                btnColor.BackColor = color;
-            }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Figura figura = new Figura();
-            bmp = figura.Taylor(bmp);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-        }
-
+        #region OPCIONES
         bool showAxis = false;
         private void btnShowAxis_Click(object sender, EventArgs e)
         {
@@ -122,6 +64,59 @@ namespace CC
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
 
+        private void btnColor_Click(object sender, EventArgs e)
+        {
+            /*
+             */
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                color = colorDialog.Color;
+                btnColor.BackColor = color;
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ventana.Image = null;
+            bmp = new Bitmap(WIDTH, HEIGHT);
+            layers.ResetImage();
+            lbx.Items.Clear();
+            
+        }
+
+        #endregion
+
+
+        private void btnPixel_Click(object sender, EventArgs e)
+        {
+            Pixel.PixelRandom(bmp, color);
+            Draw(bmp, "Pixel");
+        }
+
+        private void btnVector_Click(object sender, EventArgs e)
+        {
+            Vector vector = new Vector();
+            vector.Prueba(bmp, color);
+            Draw(bmp, "Vector");
+        }
+        private void btnSegmento_Click(object sender, EventArgs e)
+        {
+            Segmento segmento = new Segmento(2,5);
+            segmento.Encender(bmp, color);
+
+            Draw(bmp, "Segmento");
+            
+        }
+
+        
+        
+        private void btnCirculo_Click(object sender, EventArgs e)
+        {
+            Circunferencia circulo = new Circunferencia();
+            circulo.Encender(bmp, color,2);
+            Draw(bmp, "Circulo");
+        }
+
         private void btnCC_Click(object sender, EventArgs e)
         {
             Circunferencia c = new Circunferencia();
@@ -129,8 +124,7 @@ namespace CC
             c.Encender(bmp, Color.Red,1);
             c.Encender(bmp, Color.Red,7);
             c.Encender(bmp, Color.Red,3);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
-
+            Draw(bmp, "Circ. Concénctricas");
         }
 
         private void bttnL_Click(object sender, EventArgs e)
@@ -140,8 +134,8 @@ namespace CC
             c.Encender(bmp, color, 0.3f, 3, 10);
             c.Encender(bmp, color, 0.3f, 4, 9);
             c.Encender(bmp, color, 0.3f, 5, 12);
-            bmp = Segmento.L(bmp, Color.Red);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            Segmento.L(bmp, Color.Red);
+            Draw(bmp, "Lagrange");
         }
 
         private void btnInter_Click(object sender, EventArgs e)
@@ -150,27 +144,115 @@ namespace CC
             c.Encender(bmp, color, 0.3f, -1, 3);
             c.Encender(bmp, color, 0.3f, 1, 5);
             c.Encender(bmp, color, 0.3f, 3, 2);
-            bmp = Segmento.L2(bmp, Color.Red);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            Segmento.L2(bmp, Color.Red);
+            Draw(bmp, "Inter");
         }
 
 
         private void btnScanUni_Click(object sender, EventArgs e)
         {
             Pixel.ScanUniColor(bmp, Color.Yellow);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            Draw(bmp, "Barrido Uni");
         }
 
         private void btnScanBi_Click(object sender, EventArgs e)
         {
             Pixel.ScanBiColor(bmp);
+            Draw(bmp, "Barrido Bi");
+        }
+
+        
+
+        private void btnLazo_Click(object sender, EventArgs e)
+        {
+            Figura figura = new Figura();
+            figura.Lazo(bmp, color);
+            Draw(bmp, "Lazo");
+        }
+
+        private void btnDegraded1_Click(object sender, EventArgs e)
+        {
+            Pixel.ScanRGB(bmp);
+            Draw(bmp, "1º Degradado");
+        }
+
+        private void btnTaylor_Click(object sender, EventArgs e)
+        {
+            Figura figura = new Figura();
+            figura.Taylor(bmp);
+            Draw(bmp, "Gráfico Taylor");
+        }
+
+        private void btnDegraded2_Click(object sender, EventArgs e)
+        {
+            Pixel.ScanRGB2(bmp);
+            Draw(bmp, "2º Degradado");
+        }
+
+        private void btnEspiral_Click(object sender, EventArgs e)
+        {
+            Figura figura = new Figura();
+            figura.Curva2(bmp, color);
+            Draw(bmp, "Espiral");
+        }
+
+        private void btnDeleteFigure_Click(object sender, EventArgs e)
+        {
+            // 1. Seleccionar item
+            // 2. Tomar valor
+            int indexItem = lbx.SelectedIndex;
+            // 3. Remover item
+            layers.removeImage(indexItem);
+            // 4. Borrar todo
+            ventana.Image = null;
+            bmp = new Bitmap(WIDTH, HEIGHT);
+            lbx.Items.Clear();
+            //Escribir listbox
+            lbx.Items.AddRange(layers.ReferenciaAll());
+            //Dibujar
+            bmp = layers.RefreshImage();
             ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
 
-        private void btnScanRGB_Click(object sender, EventArgs e)
+        private void lbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Pixel.ScanRGB(bmp);
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            if (!(lbx.SelectedItems == null))
+            {
+                btnDeleteFigure.Enabled = true;
+            }
+            //lbx.SelectedItem.ToString();
+            //lbx.Items.Add(lbx.SelectedIndex.ToString());
+        }
+
+        private void cbxPaleta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbxPaleta.SelectedItem)
+            {
+                case "Otoño":
+                    Pixel.coloresOtonno(bmp);
+                    Draw(bmp,"Otoño");
+                    break;
+                case "Invierno":
+                    Pixel.coloresInvierno(bmp);
+                    Draw(bmp, "Invierno");
+                    break;
+                case "Primavera":
+                    Pixel.coloresPrimavera(bmp);
+                    Draw(bmp, "Primavera");
+                    break;
+                case "Verano":
+                    Pixel.coloresVerano(bmp);
+                    Draw(bmp, "Verano");
+                    break;
+                case "Modificada":
+                    Pixel.colores2(bmp);
+                    Draw(bmp, "Modificada");
+                    break;
+                default:
+                    Pixel.colores(bmp);
+                    Draw(bmp, "Dibujo");
+                    break;
+            }
         }
     }
 }

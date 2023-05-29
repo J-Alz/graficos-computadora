@@ -55,6 +55,9 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Geometria.cs" />
+    <Compile Include="Layer.cs" />
+    <Compile Include="Layers.cs" />
+    <Compile Include="Paleta.cs" />
     <Compile Include="Pixel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +90,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\delete-1487-svgrepo-com.svg" />
     <Content Include="img\dropper.png" />
     <Content Include="img\eye-slash.png" />
     <Content Include="img\eye.png" />
