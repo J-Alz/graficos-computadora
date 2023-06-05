@@ -51,28 +51,22 @@ namespace CC
             this.btnShowAxis = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.ventana = new System.Windows.Forms.PictureBox();
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteFigure = new System.Windows.Forms.Button();
+            this.btnParabola = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnParabola);
             this.groupBox1.Controls.Add(this.cbxPaleta);
             this.groupBox1.Controls.Add(this.btnDegraded2);
             this.groupBox1.Controls.Add(this.btnDegraded1);
@@ -88,7 +82,7 @@ namespace CC
             this.groupBox1.Controls.Add(this.btnVector);
             this.groupBox1.Controls.Add(this.btnPixel);
             this.groupBox1.Controls.Add(this.btnSegmento);
-            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 338);
             this.groupBox1.TabIndex = 0;
@@ -104,11 +98,13 @@ namespace CC
             "Primavera",
             "Verano",
             "Modificada",
+            "Madera",
             "Otros"});
-            this.cbxPaleta.Location = new System.Drawing.Point(64, 260);
+            this.cbxPaleta.Location = new System.Drawing.Point(6, 311);
             this.cbxPaleta.Name = "cbxPaleta";
             this.cbxPaleta.Size = new System.Drawing.Size(121, 21);
             this.cbxPaleta.TabIndex = 25;
+            this.cbxPaleta.Text = "Tapetes";
             this.cbxPaleta.SelectedIndexChanged += new System.EventHandler(this.cbxPaleta_SelectedIndexChanged);
             // 
             // btnDegraded2
@@ -167,7 +163,7 @@ namespace CC
             this.bttnL.Name = "bttnL";
             this.bttnL.Size = new System.Drawing.Size(84, 23);
             this.bttnL.TabIndex = 17;
-            this.bttnL.Text = "Interpolacion L";
+            this.bttnL.Text = "Lagrange";
             this.bttnL.UseVisualStyleBackColor = true;
             this.bttnL.Click += new System.EventHandler(this.bttnL_Click);
             // 
@@ -264,7 +260,7 @@ namespace CC
             // btnShowAxis
             // 
             this.btnShowAxis.Image = global::CC.Properties.Resources.eye;
-            this.btnShowAxis.Location = new System.Drawing.Point(12, 19);
+            this.btnShowAxis.Location = new System.Drawing.Point(6, 19);
             this.btnShowAxis.Name = "btnShowAxis";
             this.btnShowAxis.Size = new System.Drawing.Size(30, 30);
             this.btnShowAxis.TabIndex = 15;
@@ -276,7 +272,7 @@ namespace CC
             // 
             this.btnColor.AutoSize = true;
             this.btnColor.Image = global::CC.Properties.Resources.paint;
-            this.btnColor.Location = new System.Drawing.Point(48, 19);
+            this.btnColor.Location = new System.Drawing.Point(6, 55);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(30, 30);
             this.btnColor.TabIndex = 10;
@@ -287,7 +283,7 @@ namespace CC
             // btnClear
             // 
             this.btnClear.Image = global::CC.Properties.Resources.trash;
-            this.btnClear.Location = new System.Drawing.Point(84, 19);
+            this.btnClear.Location = new System.Drawing.Point(6, 91);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(30, 30);
             this.btnClear.TabIndex = 1;
@@ -295,91 +291,40 @@ namespace CC
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.ventana);
-            this.groupBox2.Location = new System.Drawing.Point(218, 27);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(713, 566);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Gráfico";
-            // 
             // ventana
             // 
             this.ventana.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ventana.Location = new System.Drawing.Point(6, 19);
+            this.ventana.Location = new System.Drawing.Point(218, 12);
             this.ventana.Name = "ventana";
             this.ventana.Size = new System.Drawing.Size(700, 540);
             this.ventana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ventana.TabIndex = 0;
             this.ventana.TabStop = false;
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.verToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(943, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.salirToolStripMenuItem});
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
-            // verToolStripMenuItem
-            // 
-            this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.defaultToolStripMenuItem});
-            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.verToolStripMenuItem.Text = "Ver";
-            // 
-            // defaultToolStripMenuItem
-            // 
-            this.defaultToolStripMenuItem.Name = "defaultToolStripMenuItem";
-            this.defaultToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.defaultToolStripMenuItem.Text = "Default";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.btnColor);
             this.groupBox3.Controls.Add(this.btnClear);
             this.groupBox3.Controls.Add(this.btnShowAxis);
-            this.groupBox3.Location = new System.Drawing.Point(9, 27);
+            this.groupBox3.Location = new System.Drawing.Point(924, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 57);
+            this.groupBox3.Size = new System.Drawing.Size(42, 540);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Opciones";
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.btnDeleteFigure);
             this.groupBox4.Controls.Add(this.lbx);
-            this.groupBox4.Location = new System.Drawing.Point(12, 434);
+            this.groupBox4.Location = new System.Drawing.Point(9, 356);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 159);
+            this.groupBox4.Size = new System.Drawing.Size(200, 196);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Lista de elementos";
             // 
             // btnDeleteFigure
             // 
-            this.btnDeleteFigure.Enabled = false;
             this.btnDeleteFigure.Image = global::CC.Properties.Resources.trash;
             this.btnDeleteFigure.Location = new System.Drawing.Point(160, 19);
             this.btnDeleteFigure.Name = "btnDeleteFigure";
@@ -388,37 +333,40 @@ namespace CC
             this.btnDeleteFigure.UseVisualStyleBackColor = true;
             this.btnDeleteFigure.Click += new System.EventHandler(this.btnDeleteFigure_Click);
             // 
+            // btnParabola
+            // 
+            this.btnParabola.Location = new System.Drawing.Point(60, 254);
+            this.btnParabola.Name = "btnParabola";
+            this.btnParabola.Size = new System.Drawing.Size(75, 23);
+            this.btnParabola.TabIndex = 26;
+            this.btnParabola.Text = "Parabola";
+            this.btnParabola.UseVisualStyleBackColor = true;
+            this.btnParabola.Click += new System.EventHandler(this.btnParabola_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(943, 600);
+            this.ClientSize = new System.Drawing.Size(975, 559);
+            this.Controls.Add(this.ventana);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Gráficos";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox ventana;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSegmento;
@@ -435,11 +383,6 @@ namespace CC
         private System.Windows.Forms.Button btnCC;
         private System.Windows.Forms.Button bttnL;
         private System.Windows.Forms.Button btnInter;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defaultToolStripMenuItem;
         private System.Windows.Forms.Button btnScanUni;
         private System.Windows.Forms.Button btnScanBi;
         private System.Windows.Forms.Button btnDegraded1;
@@ -449,6 +392,7 @@ namespace CC
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnDeleteFigure;
         private System.Windows.Forms.ComboBox cbxPaleta;
+        private System.Windows.Forms.Button btnParabola;
     }
 }
 

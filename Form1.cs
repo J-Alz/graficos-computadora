@@ -19,7 +19,7 @@ namespace CC
     {
         const int WIDTH = 700;
         const int HEIGHT = 540;
-        Layers layers = new Layers(700, 540);
+        Layers layers = new Layers(WIDTH, HEIGHT);
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
         Segmento segmento = new Segmento();
@@ -151,13 +151,13 @@ namespace CC
 
         private void btnScanUni_Click(object sender, EventArgs e)
         {
-            Pixel.ScanUniColor(bmp, Color.Yellow);
+            Scanner.ScanUniColor(bmp, Color.Yellow);
             Draw(bmp, "Barrido Uni");
         }
 
         private void btnScanBi_Click(object sender, EventArgs e)
         {
-            Pixel.ScanBiColor(bmp);
+            Scanner.ScanBiColor(bmp,Color.Red, Color.Yellow);
             Draw(bmp, "Barrido Bi");
         }
 
@@ -165,34 +165,31 @@ namespace CC
 
         private void btnLazo_Click(object sender, EventArgs e)
         {
-            Figura figura = new Figura();
-            figura.Lazo(bmp, color);
+            Figura.Lazo(bmp, color);
             Draw(bmp, "Lazo");
         }
 
         private void btnDegraded1_Click(object sender, EventArgs e)
         {
-            Pixel.ScanRGB(bmp);
+            Scanner.GradientScanner(bmp);
             Draw(bmp, "1º Degradado");
         }
 
         private void btnTaylor_Click(object sender, EventArgs e)
         {
-            Figura figura = new Figura();
-            figura.Taylor(bmp);
+            Figura.Taylor(bmp);
             Draw(bmp, "Gráfico Taylor");
         }
 
         private void btnDegraded2_Click(object sender, EventArgs e)
         {
-            Pixel.ScanRGB2(bmp);
+            Scanner.GradientScanner2(bmp);
             Draw(bmp, "2º Degradado");
         }
 
         private void btnEspiral_Click(object sender, EventArgs e)
         {
-            Figura figura = new Figura();
-            figura.Curva2(bmp, color);
+            Figura.Espiral(bmp, color);
             Draw(bmp, "Espiral");
         }
 
@@ -200,18 +197,21 @@ namespace CC
         {
             // 1. Seleccionar item
             // 2. Tomar valor
-            int indexItem = lbx.SelectedIndex;
+            //int indexItem = lbx.SelectedIndex;
             // 3. Remover item
-            layers.removeImage(indexItem);
+            //layers.removeImage(indexItem);
             // 4. Borrar todo
-            ventana.Image = null;
-            bmp = new Bitmap(WIDTH, HEIGHT);
-            lbx.Items.Clear();
+            //ventana.Image = null;
+            //bmp = new Bitmap(WIDTH, HEIGHT);
+            //lbx.Items.Clear();
             //Escribir listbox
-            lbx.Items.AddRange(layers.ReferenciaAll());
             //Dibujar
-            bmp = layers.RefreshImage();
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            //bmp = layers.RefreshImage();
+            ventana.Image = null;
+            lbx.Items.Clear();
+            lbx.Items.AddRange(layers.ReferenciaAll());
+            layers.removeImage(1);
+            ventana.CreateGraphics().DrawImageUnscaled(layers.RefreshImage(), 0, 0);
         }
 
         private void lbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -229,30 +229,40 @@ namespace CC
             switch (cbxPaleta.SelectedItem)
             {
                 case "Otoño":
-                    Pixel.coloresOtonno(bmp);
+                    Rug.RugOtonno(bmp);
                     Draw(bmp,"Otoño");
                     break;
                 case "Invierno":
-                    Pixel.coloresInvierno(bmp);
+                    Rug.RugInvierno(bmp);
                     Draw(bmp, "Invierno");
                     break;
                 case "Primavera":
-                    Pixel.coloresPrimavera(bmp);
+                    Rug.RugPrimavera(bmp);
                     Draw(bmp, "Primavera");
                     break;
                 case "Verano":
-                    Pixel.coloresVerano(bmp);
+                    Rug.RugVerano(bmp);
                     Draw(bmp, "Verano");
                     break;
                 case "Modificada":
-                    Pixel.colores2(bmp);
+                    Rug.Rug2(bmp);
                     Draw(bmp, "Modificada");
                     break;
+                case "Madera":
+                    Rug.RugMadera(bmp);
+                    Draw(bmp, "Madera");
+                    break;
                 default:
-                    Pixel.colores(bmp);
+                    Rug.Rug1(bmp);
                     Draw(bmp, "Dibujo");
                     break;
             }
+        }
+
+        private void btnParabola_Click(object sender, EventArgs e)
+        {
+            Figura.Parabola(bmp);
+            Draw(bmp, "Parabola");
         }
     }
 }

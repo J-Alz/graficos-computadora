@@ -10,8 +10,8 @@ namespace CC
 {
     internal class Layers
     {
-        readonly int Width;
-        readonly int Height;
+        int Width;
+        int Height;
 
         List<Layer> listLayers = new List<Layer>();
         int counter = -1;
@@ -34,7 +34,9 @@ namespace CC
             Bitmap img = new Bitmap(700, 540);
             foreach (Layer layer in listLayers)
             {
-                img = layer.Bmp;
+                System.Console.WriteLine(layer.Name);
+                if(layer.Index != 1)
+                    img = layer.Bmp;
             }
             return img;
         }
@@ -61,7 +63,6 @@ namespace CC
         public void removeImage(int index)
         {
             listLayers.RemoveAt(index);
-
         }
     }
 }

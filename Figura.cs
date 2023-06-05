@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace CC
 {
-    internal class Figura:Vector
+    internal class Figura
     {
         static float pi = 3.1416f;
-        double dt = 0.0001;
-        public Bitmap Lazo(Bitmap bmp, Color color)
+        static double dt = 0.0001;
+        static double t = 0;
+        public static Bitmap Lazo(Bitmap bmp, Color color)
         {
-            double t = 0f;
             Vector vector = new Vector(0,0);
             do
             {
@@ -28,7 +28,7 @@ namespace CC
             } while (t <= (2 * pi));
             return bmp;
         }
-        public Bitmap Curva2(Bitmap bmp, Color color)
+        public static Bitmap Espiral(Bitmap bmp, Color color)
         {
             double t = 0f;
             Vector vector = new Vector(0,0);
@@ -44,10 +44,9 @@ namespace CC
 
             return bmp;
         }
-        public Bitmap Taylor(Bitmap bmp)
+        public static Bitmap Taylor(Bitmap bmp)
         {
-            float t = -6;
-            float dt = 0.0001f;
+            t = -6;
             Vector vector = new Vector(0,0);
             do
             {
@@ -64,7 +63,6 @@ namespace CC
                 bmp = vector.Encender(bmp, Color.Green);
                 t += dt;
             } while (t <= 6);
-
             t = -6;
             do
             {
@@ -76,8 +74,38 @@ namespace CC
 
 
             return bmp;
+        }
+        public static Bitmap Parabola(Bitmap bmp)
+        {
+            t = -8;
+            Vector vector = new Vector();
+            do
+            {
+                vector.X0 = t;
+                vector.Y0 = (49 - Math.Pow(t, 2)) / 15;
+                bmp = vector.Encender(bmp, Color.Yellow);
+                t += dt;
+            } while (t <= 8);
+
+            //vector.X0 = 0;
+            //vector.Y0 = 48.75 / 15;
+            //bmp = vector.Encender(bmp, Color.Aqua);
+            //Foco(bmp);
+            return bmp;
+        }
+        // Resolver foco de la parabola anterior
+        public Bitmap Foco(Bitmap bmp)
+        {
+            float t = 0.05f;
+            Circunferencia c = new Circunferencia();
+            do
+            {
+                c.Encender(bmp, Color.Red, t, 0, -0.048f);
+                t += 0.01f;
+            } while (t <= 0.5);
 
 
+            return bmp;
         }
     }
 }

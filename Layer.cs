@@ -35,7 +35,5 @@ namespace CC
             get => name;
             set => name = value;
         }
-        //public bool isImage(int index)
-        //    => index == index;
     }
 }

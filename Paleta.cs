@@ -88,5 +88,14 @@ namespace CC
             Color.FromArgb(152,41,84),
             Color.FromArgb(255,253,202),
         };
+        public static Color[] paletaMadera()
+        {
+            Color[] colores = new Color[15];
+            for (int i = 0; i < 15; i++)
+            {
+                colores[i] = Color.FromArgb((int)(2.467 * i + 133), (2 * i + 100), 0);
+            }
+            return colores;
+        }
     }
 }
