@@ -24,14 +24,11 @@ namespace CC
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
         Segmento segmento = new Segmento();
-        private void ClearImage()
+        private void RefreshImage()
         {
             lbx.Items.Clear();
             ventana.CreateGraphics().DrawImageUnscaled(Rug.RugWhite(), 0, 0);
-        }
-        private void RefreshImage()
-        {
-            ClearImage();
+
             lbx.Items.AddRange(layers.ReferenciaAll());
             foreach (Layer layer in layers.listLayers)
                 ventana.CreateGraphics().DrawImageUnscaled(layer.Bmp, 0, 0);
@@ -45,7 +42,6 @@ namespace CC
         /* 1. Obtener valores del pictureBox
          * 3. Mejorar botones
          */
-
         #region OPCIONES
         bool showAxis = false;
         private void btnShowAxis_Click(object sender, EventArgs e)
@@ -91,80 +87,8 @@ namespace CC
 
         #endregion
 
-
-        private void btnPixel_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Pixel.PixelRandom(color), "Pixel");
-            RefreshImage();
-        }
-
-        private void btnVector_Click(object sender, EventArgs e)
-        {
-            Vector vector = new Vector();
-            bmp = vector.Prueba(bmp, color);
-            layers.AddImage(bmp, "Vector");
-            RefreshImage();
-        }
-        private void btnSegmento_Click(object sender, EventArgs e)
-        {
-            Segmento segmento = new Segmento(2,5);
-            bmp = segmento.Encender(bmp, color);
-            layers.AddImage(bmp, "Segmento");
-            RefreshImage();
-        }
-        private void btnCirculo_Click(object sender, EventArgs e)
-        {
-            Circunferencia circulo = new Circunferencia();
-            bmp = circulo.Encender(bmp, color,2);
-            layers.AddImage(bmp, "Circulo");
-            RefreshImage();
-        }
-
-        private void btnCC_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Concentrica();
-            layers.AddImage(bmp, "Circ. Concénctricas");
-            RefreshImage();
-        }
-
-        private void bttnL_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Lagrange();
-            layers.AddImage(bmp, "Lagrange");
-            RefreshImage();
-        }
-
-        private void btnInter_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Lagrange2();
-            layers.AddImage(bmp, "Inter");
-            RefreshImage();
-        }
-
-        private void btnLazo_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Lazo(color);
-            layers.AddImage(bmp, "Lazo");
-            RefreshImage();
-        }
-
-        private void btnTaylor_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Taylor();
-            layers.AddImage(bmp, "Gráfico Taylor");
-            RefreshImage();
-        }
-
-        private void btnEspiral_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Espiral(color);
-            layers.AddImage(bmp, "Espiral");
-            RefreshImage();
-        }
-
         private void btnDeleteFigure_Click(object sender, EventArgs e)
         {
-            //bmp = new Bitmap(WIDTH, HEIGHT);
             layers.removeImage(0);
             RefreshImage();
         }
@@ -209,9 +133,7 @@ namespace CC
                     RefreshImage();
                     break;
                 case "Madera":
-                    bmp = Texture.Madera();
-                    layers.AddImage(bmp, "Madera");
-                    RefreshImage();
+                    
                     break;
                 default:
                     Rug.Rug1(bmp);
@@ -228,33 +150,135 @@ namespace CC
             RefreshImage();
         }
 
-        #region STRIP_MENU
+        #region BARRIDO
         private void unicolorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bmp = Scanner.ScanUniColor(Color.Yellow);
-            layers.AddImage(bmp, "Barrido Uni");
+            layers.AddImage(Scanner.ScanUniColor(Color.Yellow), "Barrido Uni");
             RefreshImage();
         }
         private void bicolorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bmp = Scanner.ScanBiColor(Color.Red, Color.Yellow);
-            layers.AddImage(bmp, "Barrido Bi");
+            layers.AddImage(Scanner.ScanBiColor(Color.Red, Color.Yellow), "Barrido Bi");
             RefreshImage();
         }
         private void FirstDegraded_Click(object sender, EventArgs e)
         {
-            bmp = Scanner.GradientScanner();
-            layers.AddImage(bmp, "1º Degradado");
+            layers.AddImage(Scanner.GradientScanner(), "1º Degradado");
             RefreshImage();
         }
         private void SecondDegraded_Click(object sender, EventArgs e)
         {
-            bmp = Scanner.GradientScanner2();
-            layers.AddImage(bmp, "2º Degradado");
+            layers.AddImage(Scanner.GradientScanner2(), "2º Degradado");
+            RefreshImage();
+        }
+
+        #endregion
+
+        #region BÁSICO
+        private void pixelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Pixel.PixelRandom(color), "Pixel");
+            RefreshImage();
+        }
+        private void vectorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vector vector = new Vector();
+            bmp = vector.Prueba(bmp, color);
+            layers.AddImage(bmp, "Vector");
+            RefreshImage();
+        }
+        private void segmentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Segmento segmento = new Segmento(2, 5);
+            bmp = segmento.Encender(bmp, color);
+            layers.AddImage(bmp, "Segmento");
+            RefreshImage();
+        }
+
+        #endregion
+
+        #region FIGURAS
+        private void circunferenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Circunferencia circulo = new Circunferencia();
+            bmp = circulo.Encender(bmp, color, 2);
+            layers.AddImage(bmp, "Circulo");
+            RefreshImage();
+        }
+
+        private void circConcentricasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Concentrica(), "Circ. Concénctricas");
+            RefreshImage();
+        }
+
+        private void lazoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Lazo(color), "Lazo");
+            RefreshImage();
+        }
+        private void espiralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Espiral(color), "Espiral");
+            RefreshImage();
+        }
+
+        #endregion
+
+        #region INTERPOLACIÓN
+        private void interpolaciónToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Lagrange2(), "Inter");
+            RefreshImage();
+        }
+
+        private void lagrangeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Lagrange(), "Lagrange");
+            RefreshImage();
+        }
+
+        private void taylorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Taylor(), "Gráfico Taylor");
             RefreshImage();
         }
         #endregion
 
+        int X;
+        int Y;
+        private void ventana_MouseMove(object sender, MouseEventArgs e)
+        {
+            X = e.X;
+            Y = e.Y;
+            toolTip.SetToolTip(this.ventana, "X: " + e.X + " Y: " + e.Y);
+        }
 
+        private void ventana_Click(object sender, EventArgs e)
+        {
+            Circunferencia circulo = new Circunferencia();
+            circulo.Encender(bmp, color, 5,X,Y);
+            layers.AddImage(bmp, "Circulo");
+            RefreshImage();
+        }
+
+        private void cbxTextura_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(cbxTextura.SelectedItem)
+            {
+                case "Madera":
+                    layers.AddImage(Texture.Madera(), "Madera");
+                    RefreshImage();
+                    break;
+                case "Cesped":
+                    layers.AddImage(Texture.Cesped(), "Cesped");
+                    RefreshImage();
+                    break;
+                default:
+                    layers.AddImage(Texture.Piedra(), "Piedra");
+                    RefreshImage();
+                    break;
+            }
+        }
     }
 }

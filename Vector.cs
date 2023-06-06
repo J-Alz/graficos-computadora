@@ -14,6 +14,7 @@ namespace CC
         Geometria geometry = new Geometria();
         double x0;
         double y0;
+        int sx, sy;
 
         public double X0
         {
@@ -44,6 +45,7 @@ namespace CC
             }
             return bmp;
         }
+        
         public Bitmap Prueba(Bitmap bmp, Color color)
         {
             float t = -8f;

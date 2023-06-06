@@ -34,16 +34,6 @@ namespace CC
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnParabola = new System.Windows.Forms.Button();
             this.cbxPaleta = new System.Windows.Forms.ComboBox();
-            this.btnInter = new System.Windows.Forms.Button();
-            this.bttnL = new System.Windows.Forms.Button();
-            this.btnCC = new System.Windows.Forms.Button();
-            this.btnTaylor = new System.Windows.Forms.Button();
-            this.btnEspiral = new System.Windows.Forms.Button();
-            this.btnLazo = new System.Windows.Forms.Button();
-            this.btnCirculo = new System.Windows.Forms.Button();
-            this.btnVector = new System.Windows.Forms.Button();
-            this.btnPixel = new System.Windows.Forms.Button();
-            this.btnSegmento = new System.Windows.Forms.Button();
             this.lbx = new System.Windows.Forms.ListBox();
             this.btnShowAxis = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
@@ -62,6 +52,20 @@ namespace CC
             this.bicolorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FirstDegraded = new System.Windows.Forms.ToolStripMenuItem();
             this.SecondDegraded = new System.Windows.Forms.ToolStripMenuItem();
+            this.básicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pixelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vectorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.segmentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.figurasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.circunferenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.circConcentricasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lazoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.espiralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interpolaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.interpolaciónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.lagrangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taylorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbxTextura = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -71,18 +75,9 @@ namespace CC
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbxTextura);
             this.groupBox1.Controls.Add(this.btnParabola);
             this.groupBox1.Controls.Add(this.cbxPaleta);
-            this.groupBox1.Controls.Add(this.btnInter);
-            this.groupBox1.Controls.Add(this.bttnL);
-            this.groupBox1.Controls.Add(this.btnCC);
-            this.groupBox1.Controls.Add(this.btnTaylor);
-            this.groupBox1.Controls.Add(this.btnEspiral);
-            this.groupBox1.Controls.Add(this.btnLazo);
-            this.groupBox1.Controls.Add(this.btnCirculo);
-            this.groupBox1.Controls.Add(this.btnVector);
-            this.groupBox1.Controls.Add(this.btnPixel);
-            this.groupBox1.Controls.Add(this.btnSegmento);
             this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 338);
@@ -92,7 +87,7 @@ namespace CC
             // 
             // btnParabola
             // 
-            this.btnParabola.Location = new System.Drawing.Point(6, 135);
+            this.btnParabola.Location = new System.Drawing.Point(23, 54);
             this.btnParabola.Name = "btnParabola";
             this.btnParabola.Size = new System.Drawing.Size(75, 23);
             this.btnParabola.TabIndex = 26;
@@ -109,115 +104,13 @@ namespace CC
             "Primavera",
             "Verano",
             "Modificada",
-            "Madera",
             "Otros"});
-            this.cbxPaleta.Location = new System.Drawing.Point(6, 311);
+            this.cbxPaleta.Location = new System.Drawing.Point(37, 83);
             this.cbxPaleta.Name = "cbxPaleta";
             this.cbxPaleta.Size = new System.Drawing.Size(121, 21);
             this.cbxPaleta.TabIndex = 25;
             this.cbxPaleta.Text = "Tapetes";
             this.cbxPaleta.SelectedIndexChanged += new System.EventHandler(this.cbxPaleta_SelectedIndexChanged);
-            // 
-            // btnInter
-            // 
-            this.btnInter.Location = new System.Drawing.Point(6, 211);
-            this.btnInter.Name = "btnInter";
-            this.btnInter.Size = new System.Drawing.Size(84, 23);
-            this.btnInter.TabIndex = 18;
-            this.btnInter.Text = "Interpolacion";
-            this.btnInter.UseVisualStyleBackColor = true;
-            this.btnInter.Click += new System.EventHandler(this.btnInter_Click);
-            // 
-            // bttnL
-            // 
-            this.bttnL.Location = new System.Drawing.Point(6, 240);
-            this.bttnL.Name = "bttnL";
-            this.bttnL.Size = new System.Drawing.Size(84, 23);
-            this.bttnL.TabIndex = 17;
-            this.bttnL.Text = "Lagrange";
-            this.bttnL.UseVisualStyleBackColor = true;
-            this.bttnL.Click += new System.EventHandler(this.bttnL_Click);
-            // 
-            // btnCC
-            // 
-            this.btnCC.Location = new System.Drawing.Point(6, 269);
-            this.btnCC.Name = "btnCC";
-            this.btnCC.Size = new System.Drawing.Size(89, 36);
-            this.btnCC.TabIndex = 16;
-            this.btnCC.Text = "Circunferencias Concéntricas";
-            this.btnCC.UseVisualStyleBackColor = true;
-            this.btnCC.Click += new System.EventHandler(this.btnCC_Click);
-            // 
-            // btnTaylor
-            // 
-            this.btnTaylor.Location = new System.Drawing.Point(109, 253);
-            this.btnTaylor.Name = "btnTaylor";
-            this.btnTaylor.Size = new System.Drawing.Size(47, 23);
-            this.btnTaylor.TabIndex = 13;
-            this.btnTaylor.Text = "Taylor";
-            this.btnTaylor.UseVisualStyleBackColor = true;
-            this.btnTaylor.Click += new System.EventHandler(this.btnTaylor_Click);
-            // 
-            // btnEspiral
-            // 
-            this.btnEspiral.Location = new System.Drawing.Point(112, 224);
-            this.btnEspiral.Name = "btnEspiral";
-            this.btnEspiral.Size = new System.Drawing.Size(47, 23);
-            this.btnEspiral.TabIndex = 9;
-            this.btnEspiral.Text = "Espiral";
-            this.btnEspiral.UseVisualStyleBackColor = true;
-            this.btnEspiral.Click += new System.EventHandler(this.btnEspiral_Click);
-            // 
-            // btnLazo
-            // 
-            this.btnLazo.Location = new System.Drawing.Point(109, 282);
-            this.btnLazo.Name = "btnLazo";
-            this.btnLazo.Size = new System.Drawing.Size(50, 23);
-            this.btnLazo.TabIndex = 8;
-            this.btnLazo.Text = "Lazo";
-            this.btnLazo.UseVisualStyleBackColor = true;
-            this.btnLazo.Click += new System.EventHandler(this.btnLazo_Click);
-            // 
-            // btnCirculo
-            // 
-            this.btnCirculo.Location = new System.Drawing.Point(6, 48);
-            this.btnCirculo.Name = "btnCirculo";
-            this.btnCirculo.Size = new System.Drawing.Size(89, 23);
-            this.btnCirculo.TabIndex = 7;
-            this.btnCirculo.Text = "Circunferencia";
-            this.btnCirculo.UseVisualStyleBackColor = true;
-            this.btnCirculo.Click += new System.EventHandler(this.btnCirculo_Click);
-            // 
-            // btnVector
-            // 
-            this.btnVector.Location = new System.Drawing.Point(60, 19);
-            this.btnVector.Name = "btnVector";
-            this.btnVector.Size = new System.Drawing.Size(46, 23);
-            this.btnVector.TabIndex = 6;
-            this.btnVector.Text = "Vector";
-            this.btnVector.UseVisualStyleBackColor = true;
-            this.btnVector.Click += new System.EventHandler(this.btnVector_Click);
-            // 
-            // btnPixel
-            // 
-            this.btnPixel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnPixel.Location = new System.Drawing.Point(6, 19);
-            this.btnPixel.Name = "btnPixel";
-            this.btnPixel.Size = new System.Drawing.Size(48, 23);
-            this.btnPixel.TabIndex = 5;
-            this.btnPixel.Text = "Pixel";
-            this.btnPixel.UseVisualStyleBackColor = true;
-            this.btnPixel.Click += new System.EventHandler(this.btnPixel_Click);
-            // 
-            // btnSegmento
-            // 
-            this.btnSegmento.Location = new System.Drawing.Point(112, 19);
-            this.btnSegmento.Name = "btnSegmento";
-            this.btnSegmento.Size = new System.Drawing.Size(68, 23);
-            this.btnSegmento.TabIndex = 4;
-            this.btnSegmento.Text = "Segmento";
-            this.btnSegmento.UseVisualStyleBackColor = true;
-            this.btnSegmento.Click += new System.EventHandler(this.btnSegmento_Click);
             // 
             // lbx
             // 
@@ -271,6 +164,8 @@ namespace CC
             this.ventana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ventana.TabIndex = 0;
             this.ventana.TabStop = false;
+            this.ventana.Click += new System.EventHandler(this.ventana_Click);
+            this.ventana.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ventana_MouseMove);
             // 
             // groupBox3
             // 
@@ -324,10 +219,13 @@ namespace CC
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.barridoToolStripMenuItem});
+            this.básicoToolStripMenuItem,
+            this.figurasToolStripMenuItem,
+            this.barridoToolStripMenuItem,
+            this.interpolaciónToolStripMenuItem});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
-            this.verToolStripMenuItem.Text = "Ver";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.verToolStripMenuItem.Text = "Dibujar";
             // 
             // barridoToolStripMenuItem
             // 
@@ -368,6 +266,121 @@ namespace CC
             this.SecondDegraded.Text = "2º Degradado";
             this.SecondDegraded.Click += new System.EventHandler(this.SecondDegraded_Click);
             // 
+            // básicoToolStripMenuItem
+            // 
+            this.básicoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pixelToolStripMenuItem,
+            this.vectorToolStripMenuItem,
+            this.segmentoToolStripMenuItem});
+            this.básicoToolStripMenuItem.Name = "básicoToolStripMenuItem";
+            this.básicoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.básicoToolStripMenuItem.Text = "Básico";
+            // 
+            // pixelToolStripMenuItem
+            // 
+            this.pixelToolStripMenuItem.Name = "pixelToolStripMenuItem";
+            this.pixelToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pixelToolStripMenuItem.Text = "Pixel Random";
+            this.pixelToolStripMenuItem.Click += new System.EventHandler(this.pixelToolStripMenuItem_Click);
+            // 
+            // vectorToolStripMenuItem
+            // 
+            this.vectorToolStripMenuItem.Name = "vectorToolStripMenuItem";
+            this.vectorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vectorToolStripMenuItem.Text = "Vector";
+            this.vectorToolStripMenuItem.Click += new System.EventHandler(this.vectorToolStripMenuItem_Click);
+            // 
+            // segmentoToolStripMenuItem
+            // 
+            this.segmentoToolStripMenuItem.Name = "segmentoToolStripMenuItem";
+            this.segmentoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.segmentoToolStripMenuItem.Text = "Segmento";
+            this.segmentoToolStripMenuItem.Click += new System.EventHandler(this.segmentoToolStripMenuItem_Click);
+            // 
+            // figurasToolStripMenuItem
+            // 
+            this.figurasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.circunferenciaToolStripMenuItem,
+            this.circConcentricasToolStripMenuItem,
+            this.lazoToolStripMenuItem,
+            this.espiralToolStripMenuItem});
+            this.figurasToolStripMenuItem.Name = "figurasToolStripMenuItem";
+            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.figurasToolStripMenuItem.Text = "Figuras";
+            // 
+            // circunferenciaToolStripMenuItem
+            // 
+            this.circunferenciaToolStripMenuItem.Name = "circunferenciaToolStripMenuItem";
+            this.circunferenciaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.circunferenciaToolStripMenuItem.Text = "Circunferencia";
+            this.circunferenciaToolStripMenuItem.Click += new System.EventHandler(this.circunferenciaToolStripMenuItem_Click);
+            // 
+            // circConcentricasToolStripMenuItem
+            // 
+            this.circConcentricasToolStripMenuItem.Name = "circConcentricasToolStripMenuItem";
+            this.circConcentricasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.circConcentricasToolStripMenuItem.Text = "Circ. Concentricas";
+            this.circConcentricasToolStripMenuItem.Click += new System.EventHandler(this.circConcentricasToolStripMenuItem_Click);
+            // 
+            // lazoToolStripMenuItem
+            // 
+            this.lazoToolStripMenuItem.Name = "lazoToolStripMenuItem";
+            this.lazoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lazoToolStripMenuItem.Text = "Lazo";
+            this.lazoToolStripMenuItem.Click += new System.EventHandler(this.lazoToolStripMenuItem_Click);
+            // 
+            // espiralToolStripMenuItem
+            // 
+            this.espiralToolStripMenuItem.Name = "espiralToolStripMenuItem";
+            this.espiralToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.espiralToolStripMenuItem.Text = "Espiral";
+            this.espiralToolStripMenuItem.Click += new System.EventHandler(this.espiralToolStripMenuItem_Click);
+            // 
+            // interpolaciónToolStripMenuItem
+            // 
+            this.interpolaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.interpolaciónToolStripMenuItem1,
+            this.lagrangeToolStripMenuItem,
+            this.taylorToolStripMenuItem});
+            this.interpolaciónToolStripMenuItem.Name = "interpolaciónToolStripMenuItem";
+            this.interpolaciónToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.interpolaciónToolStripMenuItem.Text = "Interpolación";
+            // 
+            // interpolaciónToolStripMenuItem1
+            // 
+            this.interpolaciónToolStripMenuItem1.Name = "interpolaciónToolStripMenuItem1";
+            this.interpolaciónToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.interpolaciónToolStripMenuItem1.Text = "Interpolación  ";
+            this.interpolaciónToolStripMenuItem1.Click += new System.EventHandler(this.interpolaciónToolStripMenuItem1_Click);
+            // 
+            // lagrangeToolStripMenuItem
+            // 
+            this.lagrangeToolStripMenuItem.Name = "lagrangeToolStripMenuItem";
+            this.lagrangeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lagrangeToolStripMenuItem.Text = "Lagrange";
+            this.lagrangeToolStripMenuItem.Click += new System.EventHandler(this.lagrangeToolStripMenuItem_Click);
+            // 
+            // taylorToolStripMenuItem
+            // 
+            this.taylorToolStripMenuItem.Name = "taylorToolStripMenuItem";
+            this.taylorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taylorToolStripMenuItem.Text = "Taylor";
+            this.taylorToolStripMenuItem.Click += new System.EventHandler(this.taylorToolStripMenuItem_Click);
+            // 
+            // cbxTextura
+            // 
+            this.cbxTextura.FormattingEnabled = true;
+            this.cbxTextura.Items.AddRange(new object[] {
+            "Madera",
+            "Cesped",
+            "Piedra"});
+            this.cbxTextura.Location = new System.Drawing.Point(52, 195);
+            this.cbxTextura.Name = "cbxTextura";
+            this.cbxTextura.Size = new System.Drawing.Size(121, 21);
+            this.cbxTextura.TabIndex = 27;
+            this.cbxTextura.Text = "Texturas";
+            this.cbxTextura.SelectedIndexChanged += new System.EventHandler(this.cbxTextura_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,20 +412,10 @@ namespace CC
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox ventana;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.Button btnSegmento;
-        private System.Windows.Forms.Button btnPixel;
-        private System.Windows.Forms.Button btnVector;
-        private System.Windows.Forms.Button btnCirculo;
-        private System.Windows.Forms.Button btnEspiral;
-        private System.Windows.Forms.Button btnLazo;
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.ColorDialog colorDialog;
-        private System.Windows.Forms.Button btnTaylor;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnShowAxis;
-        private System.Windows.Forms.Button btnCC;
-        private System.Windows.Forms.Button bttnL;
-        private System.Windows.Forms.Button btnInter;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.ListBox lbx;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -427,6 +430,20 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem bicolorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem FirstDegraded;
         private System.Windows.Forms.ToolStripMenuItem SecondDegraded;
+        private System.Windows.Forms.ToolStripMenuItem básicoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pixelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vectorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem segmentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem figurasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem circunferenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem circConcentricasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lazoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem espiralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interpolaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem interpolaciónToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem lagrangeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taylorToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbxTextura;
     }
 }
 

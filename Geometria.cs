@@ -33,22 +33,10 @@ namespace CC
             this.sx2 = sx2;
             this.sy2 = sy2;
         }
-        public double X1
-        {
-            get => x1;
-        }
-        public double X2
-        {
-            get => x2;
-        }
-        public double Y1
-        {
-            get => y1;
-        }
-        public double Y2
-        {
-            get => y2;
-        }
+        public double X1{ get => x1; }
+        public double X2{ get => x2; }
+        public double Y1{ get => y1; }
+        public double Y2{ get => y2; }
         //func. carta
         public void Transforma(int sx, int sy, out double x, out double y)
         {

@@ -97,5 +97,21 @@ namespace CC
             }
             return colores;
         }
+        public static Color[] paletaCesped =
+        {
+            Color.FromArgb(0,255,0),
+            Color.FromArgb(189,255,153),
+            Color.FromArgb(0,140,0),
+            Color.FromArgb(0,168,0)
+        };
+        public static Color[] paletaPiedra =
+        {
+            Color.FromArgb(224,244,244),
+            Color.FromArgb(136,134,134),
+            Color.FromArgb(255,255,255),
+            Color.FromArgb(136,136,136),
+            Color.White,
+            Color.White
+        };
     }
 }
