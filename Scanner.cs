@@ -11,44 +11,48 @@ namespace CC
     {
         static int Width = 700;
         static int Height = 540;
-        public static Bitmap ScanUniColor(Bitmap bmp, Color color)
+        public static Bitmap ScanUniColor(Color color)
         {
+            Bitmap img = new Bitmap(Width, Height);
             for (int i = 0; i < Width; i++)
                 for (int j = 0; j < Height; j++)
-                    bmp.SetPixel(i, j, color);
-            return bmp;
+                    img.SetPixel(i, j, color);
+            return img;
         }
-        public static Bitmap ScanBiColor(Bitmap bmp, Color color1, Color color2)
+        public static Bitmap ScanBiColor(Color color1, Color color2)
         {
+            Bitmap img = new Bitmap(Width, Height);
             for (int i = 0; i < Width; i++)
                 for (int j = 0; j < Height; j++)
-                    if (i <= bmp.Width / 2)
-                        bmp.SetPixel(i, j, color1);
+                    if (i <= Width / 2)
+                        img.SetPixel(i, j, color1);
                     else
-                        bmp.SetPixel(i, j, color2);
-            return bmp;
+                        img.SetPixel(i, j, color2);
+            return img;
         }
         private static int Interpolacion(int i)
             => (int)(-0.36 * i + 255);
-        public static Bitmap GradientScanner(Bitmap bmp)
+        public static Bitmap GradientScanner()
         {
+            Bitmap img = new Bitmap(Width, Height);
             for (int i = 0; i < Width; i++)
                 for (int j = 0; j < Height; j++)
-                    bmp.SetPixel(i, j, Color.FromArgb(255, Interpolacion(i), 0));
-            return bmp;
+                    img.SetPixel(i, j, Color.FromArgb(255, Interpolacion(i), 0));
+            return img;
         }
-        public static Bitmap GradientScanner2(Bitmap bmp)
+        public static Bitmap GradientScanner2()
         {
+            Bitmap img = new Bitmap(Width, Height);
             for (int i = 0; i < Width; i++)
             {
                 for (int j = 0; j < Height; j++)
                 {
                     int value = Interpolacion(i);
-                    bmp.SetPixel(i, j, Color.FromArgb(value, value, 255));
+                    img.SetPixel(i, j, Color.FromArgb(value, value, 255));
                 }
 
             }
-            return bmp;
+            return img;
         }
     }
 }

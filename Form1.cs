@@ -11,6 +11,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 
 namespace CC
@@ -23,12 +24,17 @@ namespace CC
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
         Segmento segmento = new Segmento();
-
-        private void Draw(Bitmap bmp, string name)
+        private void ClearImage()
         {
-            layers.AddImage(bmp, name);
-            lbx.Items.Add(layers.referencia());
-            ventana.CreateGraphics().DrawImageUnscaled(layers.RefreshImage(), 0, 0);
+            lbx.Items.Clear();
+            ventana.CreateGraphics().DrawImageUnscaled(Rug.RugWhite(), 0, 0);
+        }
+        private void RefreshImage()
+        {
+            ClearImage();
+            lbx.Items.AddRange(layers.ReferenciaAll());
+            foreach (Layer layer in layers.listLayers)
+                ventana.CreateGraphics().DrawImageUnscaled(layer.Bmp, 0, 0);
         }
 
         public Form1()
@@ -37,7 +43,6 @@ namespace CC
         }
         //TODO
         /* 1. Obtener valores del pictureBox
-         * 2. Acomodar nombres de funciones y variables
          * 3. Mejorar botones
          */
 
@@ -89,129 +94,79 @@ namespace CC
 
         private void btnPixel_Click(object sender, EventArgs e)
         {
-            Pixel.PixelRandom(bmp, color);
-            Draw(bmp, "Pixel");
+            layers.AddImage(Pixel.PixelRandom(color), "Pixel");
+            RefreshImage();
         }
 
         private void btnVector_Click(object sender, EventArgs e)
         {
             Vector vector = new Vector();
-            vector.Prueba(bmp, color);
-            Draw(bmp, "Vector");
+            bmp = vector.Prueba(bmp, color);
+            layers.AddImage(bmp, "Vector");
+            RefreshImage();
         }
         private void btnSegmento_Click(object sender, EventArgs e)
         {
             Segmento segmento = new Segmento(2,5);
-            segmento.Encender(bmp, color);
-
-            Draw(bmp, "Segmento");
-            
+            bmp = segmento.Encender(bmp, color);
+            layers.AddImage(bmp, "Segmento");
+            RefreshImage();
         }
-
-        
-        
         private void btnCirculo_Click(object sender, EventArgs e)
         {
             Circunferencia circulo = new Circunferencia();
-            circulo.Encender(bmp, color,2);
-            Draw(bmp, "Circulo");
+            bmp = circulo.Encender(bmp, color,2);
+            layers.AddImage(bmp, "Circulo");
+            RefreshImage();
         }
 
         private void btnCC_Click(object sender, EventArgs e)
         {
-            Circunferencia c = new Circunferencia();
-            c.Encender(bmp, Color.Red,4);
-            c.Encender(bmp, Color.Red,1);
-            c.Encender(bmp, Color.Red,7);
-            c.Encender(bmp, Color.Red,3);
-            Draw(bmp, "Circ. Concénctricas");
+            bmp = Figura.Concentrica();
+            layers.AddImage(bmp, "Circ. Concénctricas");
+            RefreshImage();
         }
 
         private void bttnL_Click(object sender, EventArgs e)
         {
-            Circunferencia c = new Circunferencia();
-            c.Encender(bmp, color, 0.3f, 2, 8);
-            c.Encender(bmp, color, 0.3f, 3, 10);
-            c.Encender(bmp, color, 0.3f, 4, 9);
-            c.Encender(bmp, color, 0.3f, 5, 12);
-            Segmento.L(bmp, Color.Red);
-            Draw(bmp, "Lagrange");
+            bmp = Figura.Lagrange();
+            layers.AddImage(bmp, "Lagrange");
+            RefreshImage();
         }
 
         private void btnInter_Click(object sender, EventArgs e)
         {
-            Circunferencia c = new Circunferencia();
-            c.Encender(bmp, color, 0.3f, -1, 3);
-            c.Encender(bmp, color, 0.3f, 1, 5);
-            c.Encender(bmp, color, 0.3f, 3, 2);
-            Segmento.L2(bmp, Color.Red);
-            Draw(bmp, "Inter");
+            bmp = Figura.Lagrange2();
+            layers.AddImage(bmp, "Inter");
+            RefreshImage();
         }
-
-
-        private void btnScanUni_Click(object sender, EventArgs e)
-        {
-            Scanner.ScanUniColor(bmp, Color.Yellow);
-            Draw(bmp, "Barrido Uni");
-        }
-
-        private void btnScanBi_Click(object sender, EventArgs e)
-        {
-            Scanner.ScanBiColor(bmp,Color.Red, Color.Yellow);
-            Draw(bmp, "Barrido Bi");
-        }
-
-        
 
         private void btnLazo_Click(object sender, EventArgs e)
         {
-            Figura.Lazo(bmp, color);
-            Draw(bmp, "Lazo");
-        }
-
-        private void btnDegraded1_Click(object sender, EventArgs e)
-        {
-            Scanner.GradientScanner(bmp);
-            Draw(bmp, "1º Degradado");
+            bmp = Figura.Lazo(color);
+            layers.AddImage(bmp, "Lazo");
+            RefreshImage();
         }
 
         private void btnTaylor_Click(object sender, EventArgs e)
         {
-            Figura.Taylor(bmp);
-            Draw(bmp, "Gráfico Taylor");
-        }
-
-        private void btnDegraded2_Click(object sender, EventArgs e)
-        {
-            Scanner.GradientScanner2(bmp);
-            Draw(bmp, "2º Degradado");
+            bmp = Figura.Taylor();
+            layers.AddImage(bmp, "Gráfico Taylor");
+            RefreshImage();
         }
 
         private void btnEspiral_Click(object sender, EventArgs e)
         {
-            Figura.Espiral(bmp, color);
-            Draw(bmp, "Espiral");
+            bmp = Figura.Espiral(color);
+            layers.AddImage(bmp, "Espiral");
+            RefreshImage();
         }
 
         private void btnDeleteFigure_Click(object sender, EventArgs e)
         {
-            // 1. Seleccionar item
-            // 2. Tomar valor
-            //int indexItem = lbx.SelectedIndex;
-            // 3. Remover item
-            //layers.removeImage(indexItem);
-            // 4. Borrar todo
-            //ventana.Image = null;
             //bmp = new Bitmap(WIDTH, HEIGHT);
-            //lbx.Items.Clear();
-            //Escribir listbox
-            //Dibujar
-            //bmp = layers.RefreshImage();
-            ventana.Image = null;
-            lbx.Items.Clear();
-            lbx.Items.AddRange(layers.ReferenciaAll());
-            layers.removeImage(1);
-            ventana.CreateGraphics().DrawImageUnscaled(layers.RefreshImage(), 0, 0);
+            layers.removeImage(0);
+            RefreshImage();
         }
 
         private void lbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -230,39 +185,76 @@ namespace CC
             {
                 case "Otoño":
                     Rug.RugOtonno(bmp);
-                    Draw(bmp,"Otoño");
+                    layers.AddImage(bmp,"Otoño");
+                    RefreshImage();
                     break;
                 case "Invierno":
                     Rug.RugInvierno(bmp);
-                    Draw(bmp, "Invierno");
+                    layers.AddImage(bmp, "Invierno");
+                    RefreshImage();
                     break;
                 case "Primavera":
                     Rug.RugPrimavera(bmp);
-                    Draw(bmp, "Primavera");
+                    layers.AddImage(bmp, "Primavera");
+                    RefreshImage();
                     break;
                 case "Verano":
                     Rug.RugVerano(bmp);
-                    Draw(bmp, "Verano");
+                    layers.AddImage(bmp, "Verano");
+                    RefreshImage();
                     break;
                 case "Modificada":
                     Rug.Rug2(bmp);
-                    Draw(bmp, "Modificada");
+                    layers.AddImage(bmp, "Modificada");
+                    RefreshImage();
                     break;
                 case "Madera":
-                    Rug.RugMadera(bmp);
-                    Draw(bmp, "Madera");
+                    bmp = Texture.Madera();
+                    layers.AddImage(bmp, "Madera");
+                    RefreshImage();
                     break;
                 default:
                     Rug.Rug1(bmp);
-                    Draw(bmp, "Dibujo");
+                    layers.AddImage(bmp, "Dibujo");
+                    RefreshImage();
                     break;
             }
         }
 
         private void btnParabola_Click(object sender, EventArgs e)
         {
-            Figura.Parabola(bmp);
-            Draw(bmp, "Parabola");
+            bmp = Figura.Parabola();
+            layers.AddImage(bmp, "Parabola");
+            RefreshImage();
         }
+
+        #region STRIP_MENU
+        private void unicolorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bmp = Scanner.ScanUniColor(Color.Yellow);
+            layers.AddImage(bmp, "Barrido Uni");
+            RefreshImage();
+        }
+        private void bicolorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bmp = Scanner.ScanBiColor(Color.Red, Color.Yellow);
+            layers.AddImage(bmp, "Barrido Bi");
+            RefreshImage();
+        }
+        private void FirstDegraded_Click(object sender, EventArgs e)
+        {
+            bmp = Scanner.GradientScanner();
+            layers.AddImage(bmp, "1º Degradado");
+            RefreshImage();
+        }
+        private void SecondDegraded_Click(object sender, EventArgs e)
+        {
+            bmp = Scanner.GradientScanner2();
+            layers.AddImage(bmp, "2º Degradado");
+            RefreshImage();
+        }
+        #endregion
+
+
     }
 }

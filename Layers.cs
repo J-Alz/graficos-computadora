@@ -13,7 +13,7 @@ namespace CC
         int Width;
         int Height;
 
-        List<Layer> listLayers = new List<Layer>();
+        public List<Layer> listLayers = new List<Layer>();
         int counter = -1;
 
         public Layers(int Width, int Height)
@@ -21,30 +21,27 @@ namespace CC
             this.Width = Width;
             this.Height = Height;
         }
+        public List<Layer> ListLayers { get { return listLayers; } }
 
         public void AddImage(Bitmap bmp,string name)
         {
             counter++;
             listLayers.Add(new Layer(bmp, counter,name));
-            bmp = new Bitmap(Width, Height);
+            //bmp = new Bitmap(Width, Height);
         }
 
-        public Bitmap RefreshImage()
+        public Bitmap RefreshImage(Bitmap img)
         {
-            Bitmap img = new Bitmap(700, 540);
+            //Bitmap img = new Bitmap(700, 540);
             foreach (Layer layer in listLayers)
             {
                 System.Console.WriteLine(layer.Name);
-                if(layer.Index != 1)
+                //if(layer.Index != 0)
                     img = layer.Bmp;
             }
             return img;
         }
         
-        public string referencia()
-        {
-            return counter + ". " + listLayers.Last().Name;
-        }
         public string[] ReferenciaAll()
         {
             string[] lista = new string[listLayers.Count];

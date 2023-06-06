@@ -32,11 +32,8 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnParabola = new System.Windows.Forms.Button();
             this.cbxPaleta = new System.Windows.Forms.ComboBox();
-            this.btnDegraded2 = new System.Windows.Forms.Button();
-            this.btnDegraded1 = new System.Windows.Forms.Button();
-            this.btnScanBi = new System.Windows.Forms.Button();
-            this.btnScanUni = new System.Windows.Forms.Button();
             this.btnInter = new System.Windows.Forms.Button();
             this.bttnL = new System.Windows.Forms.Button();
             this.btnCC = new System.Windows.Forms.Button();
@@ -57,21 +54,25 @@ namespace CC
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteFigure = new System.Windows.Forms.Button();
-            this.btnParabola = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barridoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unicolorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bicolorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FirstDegraded = new System.Windows.Forms.ToolStripMenuItem();
+            this.SecondDegraded = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnParabola);
             this.groupBox1.Controls.Add(this.cbxPaleta);
-            this.groupBox1.Controls.Add(this.btnDegraded2);
-            this.groupBox1.Controls.Add(this.btnDegraded1);
-            this.groupBox1.Controls.Add(this.btnScanBi);
-            this.groupBox1.Controls.Add(this.btnScanUni);
             this.groupBox1.Controls.Add(this.btnInter);
             this.groupBox1.Controls.Add(this.bttnL);
             this.groupBox1.Controls.Add(this.btnCC);
@@ -82,12 +83,22 @@ namespace CC
             this.groupBox1.Controls.Add(this.btnVector);
             this.groupBox1.Controls.Add(this.btnPixel);
             this.groupBox1.Controls.Add(this.btnSegmento);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 338);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
+            // 
+            // btnParabola
+            // 
+            this.btnParabola.Location = new System.Drawing.Point(6, 135);
+            this.btnParabola.Name = "btnParabola";
+            this.btnParabola.Size = new System.Drawing.Size(75, 23);
+            this.btnParabola.TabIndex = 26;
+            this.btnParabola.Text = "Parabola";
+            this.btnParabola.UseVisualStyleBackColor = true;
+            this.btnParabola.Click += new System.EventHandler(this.btnParabola_Click);
             // 
             // cbxPaleta
             // 
@@ -107,49 +118,9 @@ namespace CC
             this.cbxPaleta.Text = "Tapetes";
             this.cbxPaleta.SelectedIndexChanged += new System.EventHandler(this.cbxPaleta_SelectedIndexChanged);
             // 
-            // btnDegraded2
-            // 
-            this.btnDegraded2.Location = new System.Drawing.Point(88, 182);
-            this.btnDegraded2.Name = "btnDegraded2";
-            this.btnDegraded2.Size = new System.Drawing.Size(76, 50);
-            this.btnDegraded2.TabIndex = 23;
-            this.btnDegraded2.Text = "Segundo Degradado";
-            this.btnDegraded2.UseVisualStyleBackColor = true;
-            this.btnDegraded2.Click += new System.EventHandler(this.btnDegraded2_Click);
-            // 
-            // btnDegraded1
-            // 
-            this.btnDegraded1.Location = new System.Drawing.Point(6, 164);
-            this.btnDegraded1.Name = "btnDegraded1";
-            this.btnDegraded1.Size = new System.Drawing.Size(76, 50);
-            this.btnDegraded1.TabIndex = 22;
-            this.btnDegraded1.Text = "Primer Degradado";
-            this.btnDegraded1.UseVisualStyleBackColor = true;
-            this.btnDegraded1.Click += new System.EventHandler(this.btnDegraded1_Click);
-            // 
-            // btnScanBi
-            // 
-            this.btnScanBi.Location = new System.Drawing.Point(125, 135);
-            this.btnScanBi.Name = "btnScanBi";
-            this.btnScanBi.Size = new System.Drawing.Size(55, 41);
-            this.btnScanBi.TabIndex = 21;
-            this.btnScanBi.Text = "Barrido bicolor";
-            this.btnScanBi.UseVisualStyleBackColor = true;
-            this.btnScanBi.Click += new System.EventHandler(this.btnScanBi_Click);
-            // 
-            // btnScanUni
-            // 
-            this.btnScanUni.Location = new System.Drawing.Point(6, 119);
-            this.btnScanUni.Name = "btnScanUni";
-            this.btnScanUni.Size = new System.Drawing.Size(60, 41);
-            this.btnScanUni.TabIndex = 20;
-            this.btnScanUni.Text = "Barrido unicolor";
-            this.btnScanUni.UseVisualStyleBackColor = true;
-            this.btnScanUni.Click += new System.EventHandler(this.btnScanUni_Click);
-            // 
             // btnInter
             // 
-            this.btnInter.Location = new System.Drawing.Point(101, 106);
+            this.btnInter.Location = new System.Drawing.Point(6, 211);
             this.btnInter.Name = "btnInter";
             this.btnInter.Size = new System.Drawing.Size(84, 23);
             this.btnInter.TabIndex = 18;
@@ -159,7 +130,7 @@ namespace CC
             // 
             // bttnL
             // 
-            this.bttnL.Location = new System.Drawing.Point(101, 77);
+            this.bttnL.Location = new System.Drawing.Point(6, 240);
             this.bttnL.Name = "bttnL";
             this.bttnL.Size = new System.Drawing.Size(84, 23);
             this.bttnL.TabIndex = 17;
@@ -169,7 +140,7 @@ namespace CC
             // 
             // btnCC
             // 
-            this.btnCC.Location = new System.Drawing.Point(6, 77);
+            this.btnCC.Location = new System.Drawing.Point(6, 269);
             this.btnCC.Name = "btnCC";
             this.btnCC.Size = new System.Drawing.Size(89, 36);
             this.btnCC.TabIndex = 16;
@@ -179,7 +150,7 @@ namespace CC
             // 
             // btnTaylor
             // 
-            this.btnTaylor.Location = new System.Drawing.Point(72, 135);
+            this.btnTaylor.Location = new System.Drawing.Point(109, 253);
             this.btnTaylor.Name = "btnTaylor";
             this.btnTaylor.Size = new System.Drawing.Size(47, 23);
             this.btnTaylor.TabIndex = 13;
@@ -189,7 +160,7 @@ namespace CC
             // 
             // btnEspiral
             // 
-            this.btnEspiral.Location = new System.Drawing.Point(150, 48);
+            this.btnEspiral.Location = new System.Drawing.Point(112, 224);
             this.btnEspiral.Name = "btnEspiral";
             this.btnEspiral.Size = new System.Drawing.Size(47, 23);
             this.btnEspiral.TabIndex = 9;
@@ -199,7 +170,7 @@ namespace CC
             // 
             // btnLazo
             // 
-            this.btnLazo.Location = new System.Drawing.Point(97, 48);
+            this.btnLazo.Location = new System.Drawing.Point(109, 282);
             this.btnLazo.Name = "btnLazo";
             this.btnLazo.Size = new System.Drawing.Size(50, 23);
             this.btnLazo.TabIndex = 8;
@@ -294,7 +265,7 @@ namespace CC
             // ventana
             // 
             this.ventana.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ventana.Location = new System.Drawing.Point(218, 12);
+            this.ventana.Location = new System.Drawing.Point(218, 34);
             this.ventana.Name = "ventana";
             this.ventana.Size = new System.Drawing.Size(700, 540);
             this.ventana.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -316,7 +287,7 @@ namespace CC
             // 
             this.groupBox4.Controls.Add(this.btnDeleteFigure);
             this.groupBox4.Controls.Add(this.lbx);
-            this.groupBox4.Location = new System.Drawing.Point(9, 356);
+            this.groupBox4.Location = new System.Drawing.Point(9, 378);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(200, 196);
             this.groupBox4.TabIndex = 4;
@@ -333,26 +304,82 @@ namespace CC
             this.btnDeleteFigure.UseVisualStyleBackColor = true;
             this.btnDeleteFigure.Click += new System.EventHandler(this.btnDeleteFigure_Click);
             // 
-            // btnParabola
+            // menuStrip1
             // 
-            this.btnParabola.Location = new System.Drawing.Point(60, 254);
-            this.btnParabola.Name = "btnParabola";
-            this.btnParabola.Size = new System.Drawing.Size(75, 23);
-            this.btnParabola.TabIndex = 26;
-            this.btnParabola.Text = "Parabola";
-            this.btnParabola.UseVisualStyleBackColor = true;
-            this.btnParabola.Click += new System.EventHandler(this.btnParabola_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.verToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(975, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // verToolStripMenuItem
+            // 
+            this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.barridoToolStripMenuItem});
+            this.verToolStripMenuItem.Name = "verToolStripMenuItem";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(35, 20);
+            this.verToolStripMenuItem.Text = "Ver";
+            // 
+            // barridoToolStripMenuItem
+            // 
+            this.barridoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.unicolorToolStripMenuItem,
+            this.bicolorToolStripMenuItem,
+            this.FirstDegraded,
+            this.SecondDegraded});
+            this.barridoToolStripMenuItem.Name = "barridoToolStripMenuItem";
+            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.barridoToolStripMenuItem.Text = "Barrido";
+            // 
+            // unicolorToolStripMenuItem
+            // 
+            this.unicolorToolStripMenuItem.Name = "unicolorToolStripMenuItem";
+            this.unicolorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.unicolorToolStripMenuItem.Text = "Unicolor";
+            this.unicolorToolStripMenuItem.Click += new System.EventHandler(this.unicolorToolStripMenuItem_Click);
+            // 
+            // bicolorToolStripMenuItem
+            // 
+            this.bicolorToolStripMenuItem.Name = "bicolorToolStripMenuItem";
+            this.bicolorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bicolorToolStripMenuItem.Text = "Bicolor";
+            this.bicolorToolStripMenuItem.Click += new System.EventHandler(this.bicolorToolStripMenuItem_Click);
+            // 
+            // FirstDegraded
+            // 
+            this.FirstDegraded.Name = "FirstDegraded";
+            this.FirstDegraded.Size = new System.Drawing.Size(180, 22);
+            this.FirstDegraded.Text = "1º Degradado";
+            this.FirstDegraded.Click += new System.EventHandler(this.FirstDegraded_Click);
+            // 
+            // SecondDegraded
+            // 
+            this.SecondDegraded.Name = "SecondDegraded";
+            this.SecondDegraded.Size = new System.Drawing.Size(180, 22);
+            this.SecondDegraded.Text = "2º Degradado";
+            this.SecondDegraded.Click += new System.EventHandler(this.SecondDegraded_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
-            this.ClientSize = new System.Drawing.Size(975, 559);
+            this.ClientSize = new System.Drawing.Size(975, 586);
             this.Controls.Add(this.ventana);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Gráficos";
             this.groupBox1.ResumeLayout(false);
@@ -360,7 +387,10 @@ namespace CC
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -383,16 +413,20 @@ namespace CC
         private System.Windows.Forms.Button btnCC;
         private System.Windows.Forms.Button bttnL;
         private System.Windows.Forms.Button btnInter;
-        private System.Windows.Forms.Button btnScanUni;
-        private System.Windows.Forms.Button btnScanBi;
-        private System.Windows.Forms.Button btnDegraded1;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Button btnDegraded2;
         private System.Windows.Forms.ListBox lbx;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnDeleteFigure;
         private System.Windows.Forms.ComboBox cbxPaleta;
         private System.Windows.Forms.Button btnParabola;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem barridoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unicolorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bicolorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FirstDegraded;
+        private System.Windows.Forms.ToolStripMenuItem SecondDegraded;
     }
 }
 

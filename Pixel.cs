@@ -12,7 +12,7 @@ namespace CC
     internal class Pixel
     {
         static int Width = 700;
-        static int Heigth = 540;
+        static int Height = 540;
         public Pixel(){}
 
         public static Bitmap Encender(Bitmap bmp, int x, int y, Color color)
@@ -20,14 +20,15 @@ namespace CC
             bmp.SetPixel(x, y, color);
             return bmp;
         }
-        public static Bitmap PixelRandom(Bitmap bmp, Color color)
+        public static Bitmap PixelRandom(Color color)
         {
+            Bitmap img = new Bitmap(Width, Height);
             Random random = new Random();
             int x = random.Next(0, Width);
-            int y = random.Next(0, Heigth);
+            int y = random.Next(0, Height);
 
-            bmp.SetPixel(x, y, color);
-            return bmp;
+            img.SetPixel(x, y, color);
+            return img;
         }
     }
 }

@@ -9,6 +9,18 @@ namespace CC
 {
     internal class Rug
     {
+        public static Bitmap RugWhite()
+        {
+            Bitmap bmp = new Bitmap(700, 540);
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int j = 0; j < bmp.Height; j++)
+                {
+                    bmp.SetPixel(i, j, Color.White);
+                }
+            }
+            return bmp;
+        }
         public static Bitmap Rug1(Bitmap bmp)
         {
 
@@ -108,22 +120,6 @@ namespace CC
             }
             return bmp;
         }
-        public static Bitmap RugMadera(Bitmap bmp)
-        {
-            int colorT;
-            Color color;
-            int cont = 0;
-            for (int i = 0; i < bmp.Width; i++)
-            {
-                for (int j = 0; j < bmp.Height; j++)
-                {
-                    cont = cont + 10;
-                    colorT = (int)(((j + cont)) / Math.Log(cont) % 15);
-                    color = Paleta.paletaMadera()[colorT];
-                    bmp.SetPixel(i, j, color);
-                }
-            }
-            return bmp;
-        }
+        
     }
 }
