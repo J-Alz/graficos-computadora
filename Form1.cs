@@ -9,6 +9,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -24,7 +25,7 @@ namespace CC
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
         Segmento segmento = new Segmento();
-        private void RefreshImage()
+        void RefreshImage()
         {
             lbx.Items.Clear();
             ventana.CreateGraphics().DrawImageUnscaled(Rug.RugWhite(), 0, 0);
@@ -251,15 +252,22 @@ namespace CC
         {
             X = e.X;
             Y = e.Y;
+            Geometria g = new Geometria();
+            double a, b;
+            g.Transforma(e.X,e.Y,out a, out b);
             toolTip.SetToolTip(this.ventana, "X: " + e.X + " Y: " + e.Y);
         }
 
         private void ventana_Click(object sender, EventArgs e)
         {
-            Circunferencia circulo = new Circunferencia();
-            circulo.Encender(bmp, color, 5,X,Y);
-            layers.AddImage(bmp, "Circulo");
-            RefreshImage();
+            //Circunferencia circulo = new Circunferencia();
+            //circulo.Encender(bmp, color, 5,X,Y);
+            //layers.AddImage(bmp, "Circulo");
+            //Vector vector = new Vector();
+            //vector.Encender(bmp, color, X, Y);
+            //layers.AddImage(bmp, "dibujo");
+            //RefreshImage();
+
         }
 
         private void cbxTextura_SelectedIndexChanged(object sender, EventArgs e)
@@ -279,6 +287,23 @@ namespace CC
                     RefreshImage();
                     break;
             }
+        }
+
+        private void btnAnimation_Click(object sender, EventArgs e)
+        {
+            Segmento seg = new Segmento(2,5);
+            layers.AddImage(seg.Encender(bmp,Color.Green), "Segmento");
+            bmp = new Bitmap(700, 540);
+            Circunferencia c = new Circunferencia();
+            layers.AddImage(c.Encender(bmp, Color.Red, 2), "Circulo");
+            bmp = new Bitmap(700, 540);
+            layers.AddImage(Figura.Lazo(Color.Blue), "Lazo");
+            RefreshImage();
+            
+            Thread.Sleep(2000);
+
+            layers.removeImage(1);
+            RefreshImage();
         }
     }
 }

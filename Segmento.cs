@@ -16,6 +16,16 @@ namespace CC
         static float dt = 0.0001f;
         Geometria geometry = new Geometria();
         public Segmento() { }
+        public float Xf
+        {
+            get { return xf; }
+            set { xf = value; }
+        }
+        public float Yf
+        {
+            get => yf;
+            set { yf = value; }
+        }
         public Segmento(float xf, float yf)
         {
             this.xf = xf;

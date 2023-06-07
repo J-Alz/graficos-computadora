@@ -14,7 +14,7 @@ namespace CC
         Geometria geometry = new Geometria();
         double x0;
         double y0;
-        int sx, sy;
+        //int sx, sy;
 
         public double X0
         {
@@ -45,7 +45,18 @@ namespace CC
             }
             return bmp;
         }
-        
+        public Bitmap Encender(Bitmap bmp, Color color, int sx,int sy)
+        {
+            double x;
+            double y;
+            //System.Console.WriteLine("sx: " + sx + " sy: " + sy);
+            //geometry.Transforma(sx,sy,out x,out y);
+            //System.Console.WriteLine("x: " + x + " y: " + y);
+            //geometry.Pantalla(x, y, out sx, out sy);
+            //System.Console.WriteLine("sx: " + sx + " sy: " + sy);
+            //bmp = Pixel.Encender(bmp, sx, sy, color);
+            return bmp;
+        }
         public Bitmap Prueba(Bitmap bmp, Color color)
         {
             float t = -8f;

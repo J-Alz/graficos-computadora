@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -132,7 +133,14 @@ namespace CC
             c.Encender(img, Color.Blue, 3);
             return img;
         }
-
+        public static Bitmap punto()
+        {
+            Bitmap img = new Bitmap(Width, Height);
+            Circunferencia c = new Circunferencia();
+            //Modificar coordenadas para graficar
+            c.Encender(img, Color.Black, 0.15f, -1, 3);
+            return img;
+        }
 
         public static Bitmap Parabola()
         {
@@ -143,29 +151,48 @@ namespace CC
             {
                 vector.X0 = t;
                 vector.Y0 = (49 - Math.Pow(t, 2)) / 15;
-                img = vector.Encender(img, Color.Yellow);
+                img = vector.Encender(img, Color.Green);
                 t += dt;
             } while (t <= 8);
 
             //vector.X0 = 0;
             //vector.Y0 = 48.75 / 15;
             //bmp = vector.Encender(bmp, Color.Aqua);
-            //Foco(bmp);
+            Foco(img);
+            Luz(img);
             return img;
         }
         // Resolver foco de la parabola anterior
-        public Bitmap Foco()
+        public static Bitmap Foco(Bitmap img)
         {
-            Bitmap img = new Bitmap(Width, Height);
-            float t = 0.05f;
+            //Bitmap img = new Bitmap(Width, Height);
+            float t = 0.048f;
             Circunferencia c = new Circunferencia();
             do
             {
-                c.Encender(img, Color.Red, t, 0, -0.048f);
+                c.Encender(img, Color.Red, t, 0, -0.48f);
                 t += 0.01f;
-            } while (t <= 0.5);
+            } while (t <= 0.05);//
 
 
+            return img;
+        }
+        public static Bitmap Luz(Bitmap img)
+        {
+            Segmento segmento = new Segmento();
+            segmento.X0 = -3;
+            segmento.Y0 = -16;//-4
+            segmento.Xf = -3;
+            segmento.Yf = (float)(49 - Math.Pow(-3, 2))/15;
+            segmento.Encender(img, Color.Red);
+
+            segmento.X0 = 0;
+            segmento.Y0 = -0.48;
+            segmento.Encender(img, Color.Red);
+
+            segmento.Xf = 8;
+            segmento.Yf = (float)(-1.0467 * 8 - 0.48);
+            segmento.Encender(img, Color.Red);
             return img;
         }
     }

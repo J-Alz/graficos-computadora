@@ -16,8 +16,8 @@ namespace CC
 
         //CORRDENADOS DE MODELO, PUNTO DE VISTA NO TRANSFORMADO
         //Ventana real
-        double x1 = -16;//-8
-        double x2 = 16;//8
+        double x1 = -8;//-8 //-16
+        double x2 = 8;//8
         double y1 = -12.3f;//-7//-6.15
         double y2 = 12.3f;
 

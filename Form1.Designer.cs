@@ -66,6 +66,7 @@ namespace CC
             this.lagrangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taylorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbxTextura = new System.Windows.Forms.ComboBox();
+            this.btnAnimation = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -75,6 +76,7 @@ namespace CC
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAnimation);
             this.groupBox1.Controls.Add(this.cbxTextura);
             this.groupBox1.Controls.Add(this.btnParabola);
             this.groupBox1.Controls.Add(this.cbxPaleta);
@@ -381,6 +383,16 @@ namespace CC
             this.cbxTextura.Text = "Texturas";
             this.cbxTextura.SelectedIndexChanged += new System.EventHandler(this.cbxTextura_SelectedIndexChanged);
             // 
+            // btnAnimation
+            // 
+            this.btnAnimation.Location = new System.Drawing.Point(52, 19);
+            this.btnAnimation.Name = "btnAnimation";
+            this.btnAnimation.Size = new System.Drawing.Size(75, 23);
+            this.btnAnimation.TabIndex = 28;
+            this.btnAnimation.Text = "Animación";
+            this.btnAnimation.UseVisualStyleBackColor = true;
+            this.btnAnimation.Click += new System.EventHandler(this.btnAnimation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,6 +456,7 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem lagrangeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taylorToolStripMenuItem;
         private System.Windows.Forms.ComboBox cbxTextura;
+        private System.Windows.Forms.Button btnAnimation;
     }
 }
 
