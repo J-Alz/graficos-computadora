@@ -16,10 +16,10 @@ namespace CC
 
         //CORRDENADOS DE MODELO, PUNTO DE VISTA NO TRANSFORMADO
         //Ventana real
-        double x1 = -8;//-8 //-16
-        double x2 = 8;//8
-        double y1 = -12.3f;//-7//-6.15
-        double y2 = 12.3f;
+        double x1 = -16;//-8 //-16   //8 -> 6.15
+        double x2 = 16;//8          //16 -> 12.3
+        double y1 = -12.3;//-7//-6.15
+        double y2 = 12.3;//12.3
 
         public Geometria() { }
         public Geometria(double x1, double y1, double x2, double y2, int sx1, int sy1, int sx2, int sy2)
@@ -42,6 +42,11 @@ namespace CC
         {
             x = (((sx - sx1) / (sx1 - sx2)) * (x1 - x2)) + x1;
             y = (((sy - sy1) / (sy1 - sy2)) * (y1 - y2)) + y1;
+        }
+        public void Carta(int sx, int sy, out double x, out double y)
+        {
+            x = (((sx - sx1) / (sx1 - sx2)) * (x1 - x2)) + x1;
+            y = (((sy - sy1) / (sy1 - sy2)) * (y2 - y1)) + y2;
         }
         public void Pantalla(double x, double y, out int sx, out int sy)
         {

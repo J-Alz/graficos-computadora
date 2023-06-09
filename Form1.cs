@@ -28,13 +28,13 @@ namespace CC
         void RefreshImage()
         {
             lbx.Items.Clear();
-            ventana.CreateGraphics().DrawImageUnscaled(Rug.RugWhite(), 0, 0);
+            ventana.CreateGraphics().DrawImageUnscaled(Textura.TapeteBlanco(), 0, 0);
 
             lbx.Items.AddRange(layers.ReferenciaAll());
             foreach (Layer layer in layers.listLayers)
                 ventana.CreateGraphics().DrawImageUnscaled(layer.Bmp, 0, 0);
         }
-
+        private Animation animation;
         public Form1()
         {
             InitializeComponent();
@@ -103,92 +103,30 @@ namespace CC
             //lbx.SelectedItem.ToString();
             //lbx.Items.Add(lbx.SelectedIndex.ToString());
         }
+        
 
-        private void cbxPaleta_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnAnimacion_Click(object sender, EventArgs e)
         {
-            switch (cbxPaleta.SelectedItem)
-            {
-                case "Otoño":
-                    Rug.RugOtonno(bmp);
-                    layers.AddImage(bmp,"Otoño");
-                    RefreshImage();
-                    break;
-                case "Invierno":
-                    Rug.RugInvierno(bmp);
-                    layers.AddImage(bmp, "Invierno");
-                    RefreshImage();
-                    break;
-                case "Primavera":
-                    Rug.RugPrimavera(bmp);
-                    layers.AddImage(bmp, "Primavera");
-                    RefreshImage();
-                    break;
-                case "Verano":
-                    Rug.RugVerano(bmp);
-                    layers.AddImage(bmp, "Verano");
-                    RefreshImage();
-                    break;
-                case "Modificada":
-                    Rug.Rug2(bmp);
-                    layers.AddImage(bmp, "Modificada");
-                    RefreshImage();
-                    break;
-                case "Madera":
-                    
-                    break;
-                default:
-                    Rug.Rug1(bmp);
-                    layers.AddImage(bmp, "Dibujo");
-                    RefreshImage();
-                    break;
-            }
+            this.animation = new Animation(ventana,"Ejemplo1");
+            this.animation.Start();
         }
 
-        private void btnParabola_Click(object sender, EventArgs e)
-        {
-            bmp = Figura.Parabola();
-            layers.AddImage(bmp, "Parabola");
-            RefreshImage();
-        }
-
-        #region BARRIDO
-        private void unicolorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Scanner.ScanUniColor(Color.Yellow), "Barrido Uni");
-            RefreshImage();
-        }
-        private void bicolorToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Scanner.ScanBiColor(Color.Red, Color.Yellow), "Barrido Bi");
-            RefreshImage();
-        }
-        private void FirstDegraded_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Scanner.GradientScanner(), "1º Degradado");
-            RefreshImage();
-        }
-        private void SecondDegraded_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Scanner.GradientScanner2(), "2º Degradado");
-            RefreshImage();
-        }
-
-        #endregion
-
-        #region BÁSICO
-        private void pixelToolStripMenuItem_Click(object sender, EventArgs e)
+        #region FIGURAS
+        private void ItemFiguraPixelRandom_Click(object sender, EventArgs e)
         {
             layers.AddImage(Pixel.PixelRandom(color), "Pixel");
             RefreshImage();
         }
-        private void vectorToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ItemFiguraVector_Click(object sender, EventArgs e)
         {
             Vector vector = new Vector();
             bmp = vector.Prueba(bmp, color);
             layers.AddImage(bmp, "Vector");
             RefreshImage();
         }
-        private void segmentoToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ItemFiguraSegmento_Click(object sender, EventArgs e)
         {
             Segmento segmento = new Segmento(2, 5);
             bmp = segmento.Encender(bmp, color);
@@ -196,34 +134,35 @@ namespace CC
             RefreshImage();
         }
 
-        #endregion
-
-        #region FIGURAS
-        private void circunferenciaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ItemFiguraCircunferencia_Click(object sender, EventArgs e)
         {
-            Circunferencia circulo = new Circunferencia();
-            bmp = circulo.Encender(bmp, color, 2);
-            layers.AddImage(bmp, "Circulo");
+            layers.AddImage(Figura.Circle(color, 2), "Circulo");
             RefreshImage();
         }
 
-        private void circConcentricasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ItemFiguraConcentricas_Click(object sender, EventArgs e)
         {
             layers.AddImage(Figura.Concentrica(), "Circ. Concénctricas");
             RefreshImage();
         }
 
-        private void lazoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ItemFiguraLazo_Click(object sender, EventArgs e)
         {
             layers.AddImage(Figura.Lazo(color), "Lazo");
             RefreshImage();
         }
-        private void espiralToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void ItemFiguraEspiral_Click(object sender, EventArgs e)
         {
             layers.AddImage(Figura.Espiral(color), "Espiral");
             RefreshImage();
         }
 
+        private void ItemFiguraParabola_Click_1(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Parabola(), "Parabola");
+            RefreshImage();
+        }
         #endregion
 
         #region INTERPOLACIÓN
@@ -244,66 +183,157 @@ namespace CC
             layers.AddImage(Figura.Taylor(), "Gráfico Taylor");
             RefreshImage();
         }
+
+
         #endregion
 
-        int X;
-        int Y;
+        #region TEXTURA
+        private void ItemTexturaUniColor_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.UniColor(Color.Yellow), "Barrido Uni");
+            RefreshImage();
+        }
+
+        private void ItemTexturaBiColor_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.BiColor(Color.Red, Color.Yellow), "Barrido Bi");
+            RefreshImage();
+        }
+
+        private void ItemTexturaDegradado1_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.DegradadoBicolor1(), "1º Degradado");
+            RefreshImage();
+        }
+
+        private void ItemTexturaDegradado2_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.DegradadoBicolor2(), "2º Degradado");
+            RefreshImage();
+        }
+
+        private void ItemTexturaMadera_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.Madera(), "Madera");
+            RefreshImage();
+        }
+
+        private void ItemTexturaCesped_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.Cesped(), "Cesped");
+            RefreshImage();
+        }
+
+        private void ItemTexturaPiedra_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.Piedra(), "Piedra");
+            RefreshImage();
+        }
+
+        private void ItemTexturaEjemplo1_Click(object sender, EventArgs e)
+        {
+            
+            layers.AddImage(Textura.Tapete1(), "Dibujo");
+            RefreshImage();
+        }
+
+        private void ItemTexturaEjemplo2_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.Tapete2(), "Modificada");
+            RefreshImage();
+        }
+
+        private void ItemTexturaInvierno_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.TapeteInvierno(), "Invierno");
+            RefreshImage();
+        }
+
+        private void ItemTexturaPrimavera_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.TapetePrimavera(), "Primavera");
+            RefreshImage();
+        }
+
+        private void ItemTexturaVerano_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.TapeteVerano(), "Verano");
+            RefreshImage();
+        }
+
+        private void ItemTexturaOtonno_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Textura.TapeteOtonno(), "Otoño");
+            RefreshImage();
+        }
+
+
+
+        #endregion
+
+        //Agregar funcionalidad de carta
+        #region VENTANA
+
+        int X = 0;
+        int Y = 0;
         private void ventana_MouseMove(object sender, MouseEventArgs e)
         {
             X = e.X;
             Y = e.Y;
-            Geometria g = new Geometria();
-            double a, b;
-            g.Transforma(e.X,e.Y,out a, out b);
             toolTip.SetToolTip(this.ventana, "X: " + e.X + " Y: " + e.Y);
         }
 
         private void ventana_Click(object sender, EventArgs e)
         {
-            //Circunferencia circulo = new Circunferencia();
-            //circulo.Encender(bmp, color, 5,X,Y);
-            //layers.AddImage(bmp, "Circulo");
-            //Vector vector = new Vector();
-            //vector.Encender(bmp, color, X, Y);
-            //layers.AddImage(bmp, "dibujo");
+            layers.AddImage(Figura.Circle(color, 0.5, X, Y), $"Punto({X},{Y})");
+            RefreshImage();
+        }
+
+        #endregion
+
+        #region ANIMACIÓN
+
+        private void ItemAnimacionEjemplo1_Click(object sender, EventArgs e)
+        {
+            //Segmento seg = new Segmento(2, 5);
+            //layers.AddImage(seg.Encender(bmp, Color.Green), "Segmento");
+            //bmp = new Bitmap(700, 540);
+            //layers.AddImage(Figura.Circle(Color.Red, 2), "Circulo");
+            //bmp = new Bitmap(700, 540);
+            //layers.AddImage(Figura.Lazo(Color.Blue), "Lazo");
             //RefreshImage();
 
+            //Thread.Sleep(2000);
+
+            //layers.removeImage(1);
+            //RefreshImage();
+            this.animation = new Animation(ventana, "Ejemplo1");
+            this.animation.Start();
         }
 
-        private void cbxTextura_SelectedIndexChanged(object sender, EventArgs e)
+        private void ItemAnimacionEjemplo2_Click(object sender, EventArgs e)
         {
-            switch(cbxTextura.SelectedItem)
-            {
-                case "Madera":
-                    layers.AddImage(Texture.Madera(), "Madera");
-                    RefreshImage();
-                    break;
-                case "Cesped":
-                    layers.AddImage(Texture.Cesped(), "Cesped");
-                    RefreshImage();
-                    break;
-                default:
-                    layers.AddImage(Texture.Piedra(), "Piedra");
-                    RefreshImage();
-                    break;
-            }
+            this.animation = new Animation(ventana, "Ejemplo2");
+            this.animation.Start();
         }
 
-        private void btnAnimation_Click(object sender, EventArgs e)
+        private void ItemAnimacionEjemplo3_Click(object sender, EventArgs e)
         {
-            Segmento seg = new Segmento(2,5);
-            layers.AddImage(seg.Encender(bmp,Color.Green), "Segmento");
-            bmp = new Bitmap(700, 540);
-            Circunferencia c = new Circunferencia();
-            layers.AddImage(c.Encender(bmp, Color.Red, 2), "Circulo");
-            bmp = new Bitmap(700, 540);
-            layers.AddImage(Figura.Lazo(Color.Blue), "Lazo");
-            RefreshImage();
-            
-            Thread.Sleep(2000);
-
-            layers.removeImage(1);
-            RefreshImage();
+            this.animation = new Animation(ventana, "Ejemplo3");
+            this.animation.Start();
         }
+
+        private void ItemAnimacionEjemplo4_Click(object sender, EventArgs e)
+        {
+            this.animation = new Animation(ventana, "Ejemplo4");
+            this.animation.Start();
+        }
+
+        private void ItemAnimacionEjemplo5_Click(object sender, EventArgs e)
+        {
+            this.animation = new Animation(ventana, "Ejemplo5");
+            this.animation.Start();
+        }
+        #endregion
     }
 }

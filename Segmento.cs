@@ -11,22 +11,22 @@ namespace CC
 {
     internal class Segmento : Vector
     {
-        float xf;
-        float yf;
+        double xf;
+        double yf;
         static float dt = 0.0001f;
         Geometria geometry = new Geometria();
         public Segmento() { }
-        public float Xf
+        public double Xf
         {
             get { return xf; }
             set { xf = value; }
         }
-        public float Yf
+        public double Yf
         {
             get => yf;
             set { yf = value; }
         }
-        public Segmento(float xf, float yf)
+        public Segmento(double xf, double yf)
         {
             this.xf = xf;
             this.yf = yf;
