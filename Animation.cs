@@ -22,7 +22,7 @@ namespace CC
             this.pictureBox = pictureBox;
             this.bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             this.timer = new System.Windows.Forms.Timer();
-            this.timer.Interval = 50;
+            this.timer.Interval = 5;
             switch (tipoAnimacion)
             {
                 case "Ejemplo1":
@@ -39,6 +39,9 @@ namespace CC
                     break;
                 case "Ejemplo5":
                     this.timer.Tick += Timer_Ejemplo5;
+                    break;
+                case "Examen2":
+                    this.timer.Tick += Timer_Examen2;
                     break;
                 default: 
                     break;
@@ -74,7 +77,7 @@ namespace CC
         //}
 
         double inc = 0;
-        double x = 0.25;
+        double t = 0.25;
         private void Timer_Ejemplo1(object sender, EventArgs e)
         {
             this.bitmap = Figura.Circle(Color.Red, 2, inc, inc);
@@ -121,6 +124,26 @@ namespace CC
             this.t3 += 0.2;
             this.pictureBox.Image = this.bitmap;
             if (t3 >= 7)
+                this.timer.Stop();
+        }
+
+        //Fase 3. Animación
+        double x = -16;
+        private void Timer_Examen2(object sender, EventArgs e)
+        {
+            using (Graphics g = Graphics.FromImage(this.bitmap)){
+                g.Clear(Color.White);
+                g.DrawImageUnscaled(Figura.Fase1(), 0, 0);
+                g.DrawImageUnscaled(Figura.Fase2(), 0, 0);
+                double x0 = x;
+                double y0 = (45 - Math.Pow(x, 2)) / 15;
+                g.DrawImageUnscaled(Figura.Circle(Color.Red, 0.5, x0, y0),0,0);
+
+            }
+            this.pictureBox.Image = this.bitmap;
+
+            this.x += 0.2;
+            if (x >= 16)
                 this.timer.Stop();
         }
     }

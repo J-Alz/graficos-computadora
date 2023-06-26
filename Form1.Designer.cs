@@ -32,6 +32,7 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnParabola = new System.Windows.Forms.Button();
             this.btnAnimacion = new System.Windows.Forms.Button();
             this.lbx = new System.Windows.Forms.ListBox();
             this.btnShowAxis = new System.Windows.Forms.Button();
@@ -79,12 +80,13 @@ namespace CC
             this.lagrangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taylorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.animaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ItemAnimacionEjemplo1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo3 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo4 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn3d = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -94,6 +96,8 @@ namespace CC
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btn3d);
+            this.groupBox1.Controls.Add(this.btnParabola);
             this.groupBox1.Controls.Add(this.btnAnimacion);
             this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
@@ -102,13 +106,23 @@ namespace CC
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
+            // btnParabola
+            // 
+            this.btnParabola.Location = new System.Drawing.Point(51, 205);
+            this.btnParabola.Name = "btnParabola";
+            this.btnParabola.Size = new System.Drawing.Size(75, 23);
+            this.btnParabola.TabIndex = 30;
+            this.btnParabola.Text = "Parabola";
+            this.btnParabola.UseVisualStyleBackColor = true;
+            this.btnParabola.Click += new System.EventHandler(this.btnParabola_Click);
+            // 
             // btnAnimacion
             // 
-            this.btnAnimacion.Location = new System.Drawing.Point(6, 77);
+            this.btnAnimacion.Location = new System.Drawing.Point(51, 137);
             this.btnAnimacion.Name = "btnAnimacion";
             this.btnAnimacion.Size = new System.Drawing.Size(75, 23);
             this.btnAnimacion.TabIndex = 29;
-            this.btnAnimacion.Text = "Animación";
+            this.btnAnimacion.Text = "Animacion";
             this.btnAnimacion.UseVisualStyleBackColor = true;
             this.btnAnimacion.Click += new System.EventHandler(this.btnAnimacion_Click);
             // 
@@ -495,37 +509,47 @@ namespace CC
             // ItemAnimacionEjemplo1
             // 
             this.ItemAnimacionEjemplo1.Name = "ItemAnimacionEjemplo1";
-            this.ItemAnimacionEjemplo1.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimacionEjemplo1.Size = new System.Drawing.Size(126, 22);
             this.ItemAnimacionEjemplo1.Text = "Ejemplo 1";
             this.ItemAnimacionEjemplo1.Click += new System.EventHandler(this.ItemAnimacionEjemplo1_Click);
             // 
             // ItemAnimacionEjemplo2
             // 
             this.ItemAnimacionEjemplo2.Name = "ItemAnimacionEjemplo2";
-            this.ItemAnimacionEjemplo2.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimacionEjemplo2.Size = new System.Drawing.Size(126, 22);
             this.ItemAnimacionEjemplo2.Text = "Ejemplo 2";
             this.ItemAnimacionEjemplo2.Click += new System.EventHandler(this.ItemAnimacionEjemplo2_Click);
             // 
             // ItemAnimacionEjemplo3
             // 
             this.ItemAnimacionEjemplo3.Name = "ItemAnimacionEjemplo3";
-            this.ItemAnimacionEjemplo3.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimacionEjemplo3.Size = new System.Drawing.Size(126, 22);
             this.ItemAnimacionEjemplo3.Text = "Ejemplo 3";
             this.ItemAnimacionEjemplo3.Click += new System.EventHandler(this.ItemAnimacionEjemplo3_Click);
             // 
             // ItemAnimacionEjemplo4
             // 
             this.ItemAnimacionEjemplo4.Name = "ItemAnimacionEjemplo4";
-            this.ItemAnimacionEjemplo4.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimacionEjemplo4.Size = new System.Drawing.Size(126, 22);
             this.ItemAnimacionEjemplo4.Text = "Ejemplo 4";
             this.ItemAnimacionEjemplo4.Click += new System.EventHandler(this.ItemAnimacionEjemplo4_Click);
             // 
             // ItemAnimacionEjemplo5
             // 
             this.ItemAnimacionEjemplo5.Name = "ItemAnimacionEjemplo5";
-            this.ItemAnimacionEjemplo5.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimacionEjemplo5.Size = new System.Drawing.Size(126, 22);
             this.ItemAnimacionEjemplo5.Text = "Ejemplo 5";
             this.ItemAnimacionEjemplo5.Click += new System.EventHandler(this.ItemAnimacionEjemplo5_Click);
+            // 
+            // btn3d
+            // 
+            this.btn3d.Location = new System.Drawing.Point(62, 272);
+            this.btn3d.Name = "btn3d";
+            this.btn3d.Size = new System.Drawing.Size(75, 23);
+            this.btn3d.TabIndex = 31;
+            this.btn3d.Text = "3D";
+            this.btn3d.UseVisualStyleBackColor = true;
+            this.btn3d.Click += new System.EventHandler(this.btn3d_Click);
             // 
             // Form1
             // 
@@ -609,6 +633,8 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo3;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo4;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo5;
+        private System.Windows.Forms.Button btnParabola;
+        private System.Windows.Forms.Button btn3d;
     }
 }
 

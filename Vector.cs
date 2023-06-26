@@ -11,7 +11,6 @@ namespace CC
 {
     internal class Vector
     {
-        Geometria geometry = new Geometria();
         double x0;
         double y0;
         //int sx, sy;
@@ -32,16 +31,23 @@ namespace CC
             this.x0 = x0;
             this.y0 = y0;
         }
-        public Vector() { }
+        public Vector() 
+        { 
+            this.x0 = 0;
+            this.y0 = 0;
+        }
         
+
         public Bitmap Encender(Bitmap bmp,Color color)
         {
             int sx;
             int sy;
-            geometry.Pantalla(x0, y0, out sx, out sy);
+            Geometria.Pantalla(x0, y0, out sx, out sy);
             if (sx >= 0 && sx < 700 && sy >= 0 && sy < 540)
             {
-                bmp = Pixel.Encender(bmp,sx, sy, color);
+                //bmp = Pixel.Encender(bmp,sx, sy, color);
+                bmp.SetPixel(sx, sy, color);
+                //Console.WriteLine("Sx: " + sx + " Sy: " + sy);
             }
             return bmp;
         }

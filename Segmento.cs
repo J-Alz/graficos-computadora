@@ -14,7 +14,6 @@ namespace CC
         double xf;
         double yf;
         static float dt = 0.0001f;
-        Geometria geometry = new Geometria();
         public Segmento() { }
         public double Xf
         {
@@ -47,7 +46,7 @@ namespace CC
         }
         public Bitmap AxisY(Bitmap bmp, Color color)
         {
-            double t = geometry.Y1;
+            double t = Geometria.y1;
             Vector vector = new Vector();
             do
             {
@@ -55,12 +54,12 @@ namespace CC
                 vector.Y0 = t;
                 bmp = vector.Encender(bmp, color);
                 t += dt;
-            } while (t <= geometry.Y2);
+            } while (t <= Geometria.y1);
             return bmp;
         }
         public Bitmap AxisX(Bitmap bmp, Color color)
         {
-            double t = geometry.X1;
+            double t = Geometria.x1;
             Vector vector = new Vector();
             do
             {
@@ -68,7 +67,7 @@ namespace CC
                 vector.Y0 = 0;
                 bmp = vector.Encender(bmp, color);
                 t += dt;
-            } while (t <= geometry.X2);
+            } while (t <= Geometria.x1);
             return bmp;
         }
         

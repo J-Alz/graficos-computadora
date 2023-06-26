@@ -6,49 +6,27 @@ using System.Threading.Tasks;
 
 namespace CC
 {
-    internal class Geometria
+    public static class Geometria
     {
         //Ventana pantalla
-        int sx1 = 0;
-        int sy1 = 0;
-        int sx2 = 700;//
-        int sy2 = 540;
+        static int sx1 = 0;
+        static int sy1 = 0;
+        static int sx2 = 700;
+        static int sy2 = 540;
 
         //CORRDENADOS DE MODELO, PUNTO DE VISTA NO TRANSFORMADO
         //Ventana real
-        double x1 = -16;//-8 //-16   //8 -> 6.15
-        double x2 = 16;//8          //16 -> 12.3
-        double y1 = -12.3;//-7//-6.15
-        double y2 = 12.3;//12.3
+        public static double x1 = -16;//-8 //-16   //8 -> 6.15
+        static double x2 = 16;//8          //16 -> 12.3
+        public static double y1 = -12.3;//-7//-6.15
+        static double y2 = 12.3;//12.3
 
-        public Geometria() { }
-        public Geometria(double x1, double y1, double x2, double y2, int sx1, int sy1, int sx2, int sy2)
+        public static void Transforma(double sx, double sy, out double x, out double y)
         {
-            this.x1 = x1;
-            this.y1 = y1;
-            this.x2 = x2;
-            this.y2 = y2;
-            this.sx1 = sx1;
-            this.sy1 = sy1;
-            this.sx2 = sx2;
-            this.sy2 = sy2;
+            x = Math.Round(((sx - sx1) / (sx1 - sx2)) * (x1 - x2) + x1, 2);
+            y = Math.Round(((sy - sy1) / (sy1 - sy2)) * (y2 - y1) + y2, 2);
         }
-        public double X1{ get => x1; }
-        public double X2{ get => x2; }
-        public double Y1{ get => y1; }
-        public double Y2{ get => y2; }
-        //func. carta
-        public void Transforma(int sx, int sy, out double x, out double y)
-        {
-            x = (((sx - sx1) / (sx1 - sx2)) * (x1 - x2)) + x1;
-            y = (((sy - sy1) / (sy1 - sy2)) * (y1 - y2)) + y1;
-        }
-        public void Carta(int sx, int sy, out double x, out double y)
-        {
-            x = (((sx - sx1) / (sx1 - sx2)) * (x1 - x2)) + x1;
-            y = (((sy - sy1) / (sy1 - sy2)) * (y2 - y1)) + y2;
-        }
-        public void Pantalla(double x, double y, out int sx, out int sy)
+        public static void Pantalla(double x, double y, out int sx, out int sy)
         {
             sx = (int)(((x - x1) / (x1 - x2)) * (sx1 - sx2)) + sx1;
             sy = (int)(((y - y2) / (y2 - y1)) * (sy1 - sy2)) + sy1;

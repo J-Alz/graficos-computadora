@@ -105,16 +105,12 @@ namespace CC
         }
         
 
-        private void btnAnimacion_Click(object sender, EventArgs e)
-        {
-            this.animation = new Animation(ventana,"Ejemplo1");
-            this.animation.Start();
-        }
+      
 
         #region FIGURAS
         private void ItemFiguraPixelRandom_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Pixel.PixelRandom(color), "Pixel");
+            layers.AddImage(Figura.PixelRandom(color), "Pixel");
             RefreshImage();
         }
 
@@ -133,7 +129,6 @@ namespace CC
             layers.AddImage(bmp, "Segmento");
             RefreshImage();
         }
-
         private void ItemFiguraCircunferencia_Click(object sender, EventArgs e)
         {
             layers.AddImage(Figura.Circle(color, 2), "Circulo");
@@ -163,7 +158,9 @@ namespace CC
             layers.AddImage(Figura.Parabola(), "Parabola");
             RefreshImage();
         }
+
         #endregion
+
 
         #region INTERPOLACIÓN
         private void interpolaciónToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -274,19 +271,26 @@ namespace CC
         //Agregar funcionalidad de carta
         #region VENTANA
 
-        int X = 0;
-        int Y = 0;
+        double Sx = 0;
+        double Sy = 0;
+        double x, y;
         private void ventana_MouseMove(object sender, MouseEventArgs e)
         {
-            X = e.X;
-            Y = e.Y;
-            toolTip.SetToolTip(this.ventana, "X: " + e.X + " Y: " + e.Y);
+            Sx = e.X;
+            Sy = e.Y;
+
+            Geometria.Transforma(e.X,e.Y,out x,out y);
+            toolTip.SetToolTip(this.ventana, "x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
+            
         }
 
         private void ventana_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Circle(color, 0.5, X, Y), $"Punto({X},{Y})");
+            Geometria.Transforma(Sx, Sy, out x, out y);
+            Console.WriteLine("x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
+            layers.AddImage(Figura.Circle(color, 0.2, x, y), $"Punto({x},{y})");
             RefreshImage();
+            
         }
 
         #endregion
@@ -334,6 +338,23 @@ namespace CC
             this.animation = new Animation(ventana, "Ejemplo5");
             this.animation.Start();
         }
+        private void btnAnimacion_Click(object sender, EventArgs e)
+        {
+            this.animation = new Animation(ventana, "Examen2");
+            this.animation.Start();
+        }
         #endregion
+
+        private void btn3d_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura3D.ejemplo2(), "3D");
+            RefreshImage();
+        }
+
+        private void btnParabola_Click(object sender, EventArgs e)
+        {
+            layers.AddImage(Figura.Parabola(), "Parabola");
+            RefreshImage();
+        }
     }
 }
