@@ -49,16 +49,17 @@ namespace CC
         {
             if (!showAxis)
             {
-                segmento.AxisY(bmp, Color.Red);
-                segmento.AxisX(bmp, Color.Red);
+                Utils.AxisY(bmp);
+                Utils.AxisX(bmp);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye_slash;
                 showAxis = true;
                 toolTip.SetToolTip(this.btnShowAxis, "Borrar Ejes");
             }
             else
             {
-                segmento.AxisY(bmp, Color.White);
-                segmento.AxisX(bmp, Color.White);
+                //modificar para asegurar borrado
+                Utils.AxisY(bmp);
+                Utils.AxisX(bmp);
                 btnShowAxis.Image = global::CC.Properties.Resources.eye;
                 showAxis = false;
                 toolTip.SetToolTip(this.btnShowAxis, "Dibujar Ejes");
@@ -287,8 +288,10 @@ namespace CC
         private void ventana_Click(object sender, EventArgs e)
         {
             Geometria.Transforma(Sx, Sy, out x, out y);
-            Console.WriteLine("x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
-            layers.AddImage(Figura.Circle(color, 0.2, x, y), $"Punto({x},{y})");
+            //Console.WriteLine("x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
+            //Console.WriteLine("x: " + Math.Sqrt(49 - 15 * y));
+            //Console.WriteLine("y: " + (49 - Math.Pow(x,2)) / 15 );
+            layers.AddImage(Figura.PuntoParabola(bmp, x, y), $"Punto({x},{y})");
             RefreshImage();
             
         }
@@ -358,3 +361,7 @@ namespace CC
         }
     }
 }
+//REEMPLAZAR
+/* funciones de figura que tengan definicion img, ya que es mejor pasar el bitmap como argumento y poner la funcion como void
+ * 
+ */

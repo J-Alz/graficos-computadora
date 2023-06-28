@@ -36,31 +36,25 @@ namespace CC
             this.x0 = 0;
             this.y0 = 0;
         }
-        
 
-        public Bitmap Encender(Bitmap bmp,Color color)
+        static double cont = 0;
+        int dubX, dubY;
+        public Bitmap Encender(Bitmap bmp, Color color)
         {
             int sx;
             int sy;
             Geometria.Pantalla(x0, y0, out sx, out sy);
             if (sx >= 0 && sx < 700 && sy >= 0 && sy < 540)
             {
-                //bmp = Pixel.Encender(bmp,sx, sy, color);
-                bmp.SetPixel(sx, sy, color);
-                //Console.WriteLine("Sx: " + sx + " Sy: " + sy);
+                if(!(dubX == sx && dubY == sy)){
+                    bmp.SetPixel(sx, sy, color);
+                    //cont++;
+                    dubX = sx;
+                    dubY = sy;
+                    //Console.WriteLine("Contador: " + cont);
+                }
+                //bmp.SetPixel(sx, sy, color); //FORMA INEFICIENTE
             }
-            return bmp;
-        }
-        public Bitmap Encender(Bitmap bmp, Color color, int sx,int sy)
-        {
-            double x;
-            double y;
-            //System.Console.WriteLine("sx: " + sx + " sy: " + sy);
-            //geometry.Transforma(sx,sy,out x,out y);
-            //System.Console.WriteLine("x: " + x + " y: " + y);
-            //geometry.Pantalla(x, y, out sx, out sy);
-            //System.Console.WriteLine("sx: " + sx + " sy: " + sy);
-            //bmp = Pixel.Encender(bmp, sx, sy, color);
             return bmp;
         }
         public Bitmap Prueba(Bitmap bmp, Color color)

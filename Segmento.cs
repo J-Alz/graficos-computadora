@@ -44,32 +44,7 @@ namespace CC
             } while (t <= 1);
             return bmp;
         }
-        public Bitmap AxisY(Bitmap bmp, Color color)
-        {
-            double t = Geometria.y1;
-            Vector vector = new Vector();
-            do
-            {
-                vector.X0 = 0;
-                vector.Y0 = t;
-                bmp = vector.Encender(bmp, color);
-                t += dt;
-            } while (t <= Geometria.y1);
-            return bmp;
-        }
-        public Bitmap AxisX(Bitmap bmp, Color color)
-        {
-            double t = Geometria.x1;
-            Vector vector = new Vector();
-            do
-            {
-                vector.X0 = t;
-                vector.Y0 = 0;
-                bmp = vector.Encender(bmp, color);
-                t += dt;
-            } while (t <= Geometria.x1);
-            return bmp;
-        }
+        
         
     }
 }

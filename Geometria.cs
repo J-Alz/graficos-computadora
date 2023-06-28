@@ -17,9 +17,9 @@ namespace CC
         //CORRDENADOS DE MODELO, PUNTO DE VISTA NO TRANSFORMADO
         //Ventana real
         public static double x1 = -16;//-8 //-16   //8 -> 6.15
-        static double x2 = 16;//8          //16 -> 12.3
+        public static double x2 = 16;//8          //16 -> 12.3
         public static double y1 = -12.3;//-7//-6.15
-        static double y2 = 12.3;//12.3
+        public static double y2 = 12.3;//12.3
 
         public static void Transforma(double sx, double sy, out double x, out double y)
         {

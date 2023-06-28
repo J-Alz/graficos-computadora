@@ -156,10 +156,14 @@ namespace CC
             }
             return img;
         }
+        public static Bitmap Luz(Bitmap bmp)
+        {
+            return bmp;
+        }
+        
 
 
-
-        public static Bitmap Parabola()
+        public static Bitmap Parabola2()
         {
             Bitmap img = new Bitmap(Width, Height);
             Vector vector = new Vector();
@@ -203,7 +207,7 @@ namespace CC
 
             return img;
         }
-        public static Bitmap Luz(Bitmap img)
+        public static Bitmap Luz2(Bitmap img)
         {
 
             Segmento segmento = new Segmento();
@@ -259,6 +263,51 @@ namespace CC
 
             }
             return img;
+        }
+        public static Bitmap Parabola()
+        {
+            Bitmap img = new Bitmap(Width, Height);
+            Vector vector = new Vector();
+            for (double t = -16; t <= 16; t += dx)
+            {
+                vector.X0 = t;
+                vector.Y0 = (49 - Math.Pow(t, 2)) / 15;
+                img = vector.Encender(img, Color.Green);
+
+            }
+            Foco(img);
+            return img;
+        }
+        public static Bitmap PuntoParabola(Bitmap bmp, double x, double y)
+        {
+            if ( y <= (49 - Math.Pow(x, 2)) / 15)
+            {
+                bmp = Circle(Color.Black,0.2, x, y);
+                Segmento segmento = new Segmento();
+                segmento.X0 = x;
+                segmento.Y0 = Luz(bmp, x, y);
+                segmento.Xf = 0;
+                segmento.Yf = -0.48;
+                segmento.Encender(bmp, Color.Black);
+            }
+            return bmp;
+        }
+        public static void Reflejo(Bitmap bmp)
+        {
+
+        }
+        public static double Luz(Bitmap bmp, double x, double y)
+        {
+            double t = y;
+            Vector vector = new Vector();
+            do
+            {
+                vector.X0 = x;
+                vector.Y0 = t;
+                vector.Encender(bmp, Color.Black);
+                t += dx;
+            } while (t <= (49 - Math.Pow(x, 2)) / 15);
+            return t;
         }
     }
 }
