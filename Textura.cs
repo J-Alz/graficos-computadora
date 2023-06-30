@@ -7,229 +7,240 @@ using System.Threading.Tasks;
 
 namespace CC
 {
-    internal static class Textura
+    internal class Textura: Vector, IDisposable
     {
-        static int Width = 700;
-        static int Height = 540;
-
-        public static Bitmap UniColor(Color color)
+        //private bool disposed = false;
+        public Textura()
         {
-            Bitmap img = new Bitmap(Width, Height);
-            for (int i = 0; i < Width; i++)
-                for (int j = 0; j < Height; j++)
-                    img.SetPixel(i, j, color);
-            return img;
+           
         }
-        public static Bitmap BiColor(Color color1, Color color2)
+        //~Textura()
+        //{
+        //    Dispose(true);
+        //}
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    GC.SuppressFinalize(this);
+        //}
+        //protected virtual void Dispose(bool disposing)
+        //{
+        //    if(!disposed)
+        //    {
+        //        if(disposing)
+        //        {
+        //            Bmp.Dispose();
+        //            Bmp = null;
+        //        }
+        //        disposed = true;
+        //    }
+        //}
+
+        public Textura UniColor(Color color)
         {
-            Bitmap img = new Bitmap(Width, Height);
-            for (int i = 0; i < Width; i++)
-                for (int j = 0; j < Height; j++)
-                    if (i <= Width / 2)
-                        img.SetPixel(i, j, color1);
+            for (int i = 0; i < Bmp.Width; i++)
+                for (int j = 0; j < Bmp.Height; j++)
+                    Bmp.SetPixel(i, j, color);
+            return this;
+        }
+        public Textura BiColor(Color color1, Color color2)
+        {
+            for (int i = 0; i < Bmp.Width; i++)
+                for (int j = 0; j < Bmp.Height; j++)
+                    if (i <= Bmp.Width / 2)
+                        Bmp.SetPixel(i, j, color1);
                     else
-                        img.SetPixel(i, j, color2);
-            return img;
+                        Bmp.SetPixel(i, j, color2);
+            return this;
         }
 
         private static int Interpolacion(int i)
             => (int)(-0.36 * i + 255);
-        public static Bitmap DegradadoBicolor1()
+        public Textura DegradadoBicolor1()
         {
-            Bitmap img = new Bitmap(Width, Height);
-            for (int i = 0; i < Width; i++)
-                for (int j = 0; j < Height; j++)
-                    img.SetPixel(i, j, Color.FromArgb(255, Interpolacion(i), 0));
-            return img;
+            for (int i = 0; i < Bmp.Width; i++)
+                for (int j = 0; j <  Bmp.Height; j++)
+                    Bmp.SetPixel(i, j, Color.FromArgb(255, Interpolacion(i), 0));
+            return this;
         }
 
-        public static Bitmap DegradadoBicolor2()
+        public Textura DegradadoBicolor2()
         {
-            Bitmap img = new Bitmap(Width, Height);
-            for (int i = 0; i < Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
                     int value = Interpolacion(i);
-                    img.SetPixel(i, j, Color.FromArgb(value, value, 255));
+                    Bmp.SetPixel(i, j, Color.FromArgb(value, value, 255));
                 }
 
             }
-            return img;
+            return this;
         }
 
-        public static Bitmap Tapete1()
+        public Textura Tapete1()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = (i * i + j * j) % 15;
                     color = Paleta.paleta0[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
-        public static Bitmap Tapete2()
+        public Textura Tapete2()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            Console.WriteLine(Bmp.Width);
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = ((int)Math.Pow(j, 2) + i) % 15;
                     color = Paleta.paleta0[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
-        public static Bitmap TapeteOtonno()
+        public Textura TapeteOtonno()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = ((int)Math.Pow(j, 2) + i) % 12;
                     color = Paleta.paletaOtonno[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
-        public static Bitmap TapeteInvierno()
+        public Textura TapeteInvierno()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = ((int)Math.Pow(j, 2) + i) % 12;
                     color = Paleta.paleta0[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
-        public static Bitmap TapetePrimavera()
+        public Textura TapetePrimavera()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = ((int)Math.Pow(j, 2) + i) % 12;
                     color = Paleta.paletaPrimavera[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
-        public static Bitmap TapeteVerano()
+        public Textura TapeteVerano()
         {
-            Bitmap bitmap = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < bitmap.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bitmap.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = ((int)Math.Pow(j, 2) + i) % 12;
                     color = Paleta.paletaVerano[(int)colorT];
-                    bitmap.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return bitmap;
+            return this;
         }
 
 
-        public static Bitmap TapeteBlanco()
+        public Textura TapeteBlanco()
         {
-            Bitmap bmp = new Bitmap(700, 540);
-            for (int i = 0; i < bmp.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < bmp.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
-                    bmp.SetPixel(i, j, Color.White);
+                    Bmp.SetPixel(i, j, Color.White);
                 }
             }
-            return bmp;
+            return this;
         }
 
-        public static Bitmap Madera()
+        public Textura Madera()
         {
-            Bitmap img = new Bitmap(Width, Height);
             int colorT;
             Color color;
             int cont = 0;
-            for (int i = 0; i < img.Width; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < img.Height; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
                     cont = cont + 10;
                     colorT = (int)(((j + cont)) / Math.Log(cont) % 15);
                     color = Paleta.paletaMadera()[colorT];
-                    img.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return img;
+            return this;
         }
-        public static Bitmap Cesped()
+        public Textura Cesped()
         {
-            Bitmap img = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < 700; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < 540; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
 
                     colorT = (int)(Math.E * (i / 2) + Math.PI * (Math.Pow(j, 2)) + j * i) % 4;
                     color = Paleta.paletaCesped[colorT];
-                    img.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return img;
+            return this;
         }
-        public static Bitmap Piedra()
+        public Textura Piedra()
         {
-            Bitmap img = new Bitmap(Width, Height);
             int colorT;
             Color color;
-            for (int i = 0; i < 700; i++)
+            for (int i = 0; i < Bmp.Width; i++)
             {
-                for (int j = 0; j < 540; j++)
+                for (int j = 0; j < Bmp.Height; j++)
                 {
                     colorT = (int)((Math.Pow(i * (j + 70), 7) + Math.Pow(j * i * 2 / 2.5, 2)) % 5 + 1);
                     color = Paleta.paletaPiedra[colorT];
-                    img.SetPixel(i, j, color);
+                    Bmp.SetPixel(i, j, color);
                 }
             }
-            return img;
+            return this;
         }
     }
 }

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace CC
 {
-    internal class Vector
+    internal class Vector//: IDisposable
     {
-        double x0;
-        double y0;
-        //int sx, sy;
-
+        private bool disposed = false;
+        double x0 = 0;
+        double y0 = 0;
+        Bitmap bmp = new Bitmap(700, 540);
+        public Color color;
+        double dx = 0.0001;
         public double X0
         {
             get => x0;
@@ -25,21 +27,56 @@ namespace CC
             get => y0;
             set => y0 = value;
         }
-        
-        public Vector(double x0, double y0)
+        public Bitmap Bmp
+        {
+            get => bmp;
+            set => bmp = value;
+        }
+        //public Color Color
+        //{
+        //    get => color;
+        //    set => color = value;
+        //}
+        public double Dx
+        {
+            get => dx;
+        }
+        public Vector(double x0, double y0, Color color)
         {
             this.x0 = x0;
             this.y0 = y0;
+            this.color = color;
         }
-        public Vector() 
-        { 
-            this.x0 = 0;
-            this.y0 = 0;
+        public Vector(Color color) 
+        {
+            this.color = color;
+        }
+        public Vector()
+        {
+
+        }
+        ~Vector(){Dispose(true);}
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if(disposing)
+                {
+                    bmp.Dispose();
+                }
+                disposed = true;
+            }
         }
 
-        static double cont = 0;
+        //static double cont1 = 0;
         int dubX, dubY;
-        public Bitmap Encender(Bitmap bmp, Color color)
+        public Bitmap Encender(Color color)
         {
             int sx;
             int sy;
@@ -48,7 +85,7 @@ namespace CC
             {
                 if(!(dubX == sx && dubY == sy)){
                     bmp.SetPixel(sx, sy, color);
-                    //cont++;
+                    //cont1++;
                     dubX = sx;
                     dubY = sy;
                     //Console.WriteLine("Contador: " + cont);
@@ -57,18 +94,6 @@ namespace CC
             }
             return bmp;
         }
-        public Bitmap Prueba(Bitmap bmp, Color color)
-        {
-            float t = -8f;
-            Vector vector = new Vector(0, 0);
-            do
-            {
-                X0 = t;
-                Y0 = (t / 2) + 1;
-                bmp = vector.Encender(bmp, color);
-                t += 0.01f;
-            } while (t <= 5);
-            return bmp;
-        }
+
     }
 }

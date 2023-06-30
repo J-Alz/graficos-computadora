@@ -2,312 +2,274 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CC
 {
-    internal static class Figura
+    internal class Figura: Vector, IDisposable
     {
-        static int Width = 700;
-        static int Height = 540;
-        static double Pi = 3.14159;
-        readonly static double dx = 0.0001;
-        public static Bitmap Circle(Color color, double Rd, double x, double y)
-        {
-            Bitmap bmp = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -Pi; t <= Pi; t += dx)
-            {
-                vector.X0 = x + Rd * Math.Cos(t);
-                vector.Y0 = y + Rd * Math.Sin(t);
-                bmp = vector.Encender(bmp, color);
-            }
-            return bmp;
-        }
-        public static Bitmap Circle(Color color, double Rd)
-        {
-            Bitmap bmp = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -Pi; t <= Pi; t += dx)
-            {
-                vector.X0 = Rd * Math.Cos(t);
-                vector.Y0 = Rd * Math.Sin(t);
-                bmp = vector.Encender(bmp, color);
-            }
-            return bmp;
-        }
-
-        public static Bitmap Concentrica()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Graphics g = Graphics.FromImage(img);
-            g.DrawImageUnscaled(Circle(Color.Blue, 4),0,0);
-            g.DrawImageUnscaled(Circle(Color.Blue, 1), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Blue, 7), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Blue, 3), 0, 0);
-            return img;
-        }
-
-        public static Bitmap Lazo(Color color)
-        {
-            double t = 0;
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector(0, 0);
-            do
-            {
-                //                  * hace mas grande, / se hace mas pequeña
-                //                  + se desplaza
-                //           x0 +  h  *
-                vector.X0 = (2 + Math.Sin(2 * t));
-                vector.Y0 = (3 + Math.Cos(3 * t));
-                img = vector.Encender(img, color);
-                t += dx;
-            } while (t <= (2 * Pi));
-            return img;
-        }
-        public static Bitmap PixelRandom(Color color)
-        {
-            Bitmap img = new Bitmap(700, 540);
-            Random random = new Random();
-            int x = random.Next(0, 700);
-            int y = random.Next(0, 540);
-
-            img.SetPixel(x, y, color);
-            return img;
-        }
-        public static Bitmap Espiral(Color color)
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector(0, 0);
-            for (double t = 0; t <= 8; t += dx)
-            {
-                //                   /3 se reduce el tamaño
-                vector.X0 = (t / 3 * Math.Cos(t));
-                //        8 aumenta el numero de vueltas
-                vector.Y0 = (t / 3 * Math.Sin(t));
-                img = vector.Encender(img, color);
-
-            }
-            return img;
-        }
-        public static Bitmap Taylor()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector(0, 0);
-            for(double t = -2; t <= 6; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = Math.Log( t + 8 );
-                img = vector.Encender(img, Color.Black);
-
-            }
-            for (double t = -6; t <= 6; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = (1 + (0.69 * t) + 0.24 * Math.Pow(t, 2));
-                img = vector.Encender(img, Color.Green);
-
-            }
-            for (double t = -6; t <= 6; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = (1 + (0.69 * t) + (0.24 * Math.Pow(t, 2)) + (0.05 * Math.Pow(t, 3)));
-                img = vector.Encender(img, Color.Blue);
-
-            }
-            return img;
-        }
-        public static Bitmap Lagrange()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Graphics g = Graphics.FromImage(img);
-            g.DrawImageUnscaled(Circle(Color.Black, 0.3, 2, 8), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Black,0.3,3,10), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Black,0.3,4,9), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Black,0.3,5,12), 0, 0);
-
-            Vector vector = new Vector();
-            for(double t = 2; t<= 5; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = ((1.17 * Math.Pow(t, 3)) - (12 * Math.Pow(t, 2)) + 39.83 * t - 33);
-                img = vector.Encender(img, Color.Red);
-
-            }
-
-            return img;
-        }
-        public static Bitmap Lagrange2()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Graphics g = Graphics.FromImage(img);
-            g.DrawImageUnscaled(Circle(Color.Black, 0.3, -1,3), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Black, 0.3, 1,5), 0, 0);
-            g.DrawImageUnscaled(Circle(Color.Black, 0.3, 3,2), 0, 0);
-            Vector vector = new Vector();
-            for (double t = -1.1; t <= 5; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = ((-0.625 * Math.Pow(t, 2)) + ((1) * Math.Pow(t, 1)) + (4.625)); ;
-                img = vector.Encender(img, Color.Red);
-
-            }
-            return img;
-        }
-        public static Bitmap Luz(Bitmap bmp)
-        {
-            return bmp;
-        }
-        
-
-
-        public static Bitmap Parabola2()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -16; t <= 16; t += dx)
-            {
-                vector.X0 = t;
-                vector.Y0 = (49 - Math.Pow(t, 2)) / 15;
-                img = vector.Encender(img, Color.Green);
-
-            }
-            Foco(img);
-            Luz(img);
-            return img;
-        }
-        public static Bitmap CirculoLimitado(Color color, double Rd, double x, double y)
-        {
-            Bitmap bmp = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -Pi; t <= Pi; t += dx)
-            {
-                vector.X0 = Rd * Math.Cos(t);
-                vector.Y0 = Rd * Math.Sin(t);
-                if (vector.Y0 < ((49 - Math.Pow(t, 2)) / 15))
-                    bmp = vector.Encender(bmp, color);
-                else
-                    bmp = bmp;
-            }
-            return bmp;
-        }
-        public static Bitmap Foco(Bitmap img)
-        {
-            Graphics g = Graphics.FromImage(img);
-            float t = 0.048f;
-
-            do
-            {
-                g.DrawImageUnscaled(Circle(Color.Red,t,0,-0.48), 0, 0);
-                t += 0.01f;
-            } while (t <= 0.05);//
-
-
-            return img;
-        }
-        public static Bitmap Luz2(Bitmap img)
+        //private bool disposed = false;
+        public Figura(Color color): base(color)
         {
 
-            Segmento segmento = new Segmento();
-            segmento.X0 = -3;
-            segmento.Y0 = -16;//-4
-            segmento.Xf = -3;
-            segmento.Yf = (49 - Math.Pow(-3, 2)) / 15;
-            segmento.Encender(img, Color.Red);
-
-            segmento.X0 = 0;
-            segmento.Y0 = -0.48;
-            segmento.Encender(img, Color.Red);
-
-            segmento.Xf = 8;
-            segmento.Yf = (-1.0467 * 8 - 0.48);
-            segmento.Encender(img, Color.Red);
-            return img;
         }
-        //public static Bitmap taylor2()
+        public Figura(): base(Color.Aqua)
+        {
+
+        }
+        //~Figura()
         //{
-        //    Segmento seg = new Segmento();
-        //    seg.X0 = -2;
-        //    seg.Y0 = 0;
-        //    seg.Xf = 16;
-        //    seg.Yf = Math.Log(-2 + 8);
+        //    Dispose(false);
         //}
 
+        //public void Dispose()
+        //{
+        //    Dispose(true);
+        //    //if (bmp != null)
+        //    //{
+        //    //    bmp.Dispose();
+        //    //    bmp = null;
+        //    //}
+        //    GC.SuppressFinalize(this);
+        //}
+        //override
+        //protected virtual void Dispose(bool disposing)
+        //{
+        //    if (!disposed)
+        //    {
+        //        if (disposing)
+        //        {
+        //            Bmp.Dispose();
+        //            Bmp = null;
+        //        }
+        //        //base.Dispose(disposing);
+        //        disposed = true;
+        //    }
+        //}
 
-        //Dibujar la primera parabola
-        public static Bitmap Fase1()
+        public Figura PixelRandom()
         {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -16; t <= 16; t += dx)
+            Random random = new Random();
+            int x = random.Next(0, Bmp.Width);
+            int y = random.Next(0, Bmp.Height);
+            Bmp.SetPixel(x, y, color);
+            return this;
+        }
+        public Figura VectorEjemplo()
+        {
+            for(double t = -8; t <= 5; t += Dx)
             {
-                vector.X0 = t;
-                vector.Y0 = (100 - Math.Pow(t, 2)) / 15;
-                img = vector.Encender(img, Color.Green);
+                X0 = t;
+                Y0 = (t / 2) + 1;
+                Encender(color);
+            }
+            return this;
+        }
+        public Figura segmento(double x0, double y0, double xf, double yf)
+        {
+            X0 = x0;
+            Y0 = y0;
+            for(double t = 0; t <= 1; t+= Dx)
+            {
+                X0 = X0 + (xf - X0) * t;
+                Y0 = Y0 + (yf - Y0) * t;
+                Encender(color);
+            }
+            return this;
+        }
+        public Figura Circulo(Color color, double radio, double x, double y)
+        {
+            for(double t = -Math.PI; t <= Math.PI; t += Dx)
+            {
+                X0 = x + radio * Math.Cos(t);
+                Y0 = y + radio * Math.Sin(t);
+                Encender(color);
+            }
+            return this;
+        }
+        public Figura Concentrica()
+        {
+            Circulo(Color.Black, 1, 0, 0);
+            Circulo(Color.Red, 2, 0, 0);
+            Circulo(Color.Blue, 3, 0, 0);
+            Circulo(Color.Aqua, 4, 0, 0);
+            return this;
+        }
+        //Ver si se manda color como parametro de creación
+        public Figura Lazo()
+        {
+            for(double t = 0; t <= (2 * Math.PI); t += Dx)
+            {
+                //          * hace mas grande, / se hace mas pequeña
+                //          + se desplaza
+                //  x0 +  h  *
+                X0 = 2 + Math.Sin(2 * t);
+                Y0 = 3 + Math.Sin(3 * t);
+                Encender(color);
+            }
+            return this;
+        }
+        public Figura Espiral()
+        {
+            for(double t = 0; t <= 8; t += Dx)
+            {
+                X0 = (t / 3 * Math.Cos(t));
+                Y0 = (t / 3 * Math.Sin(t));
+                Encender(color);
+            }
+            return this;
+        }
+        public Figura Taylor()
+        {
+            for(double t = -6; t <= 6; t += Dx)
+            {
+                X0 = t;
+                Y0 = Math.Pow(2,t);
+                Encender(Color.Blue);
+            }
+            for(double t = -6; t <= 6; t += Dx)
+            {
+                X0 = t;
+                Y0 = (1 + (0.69 * t) + 0.25 * Math.Pow(t, 2));
+                Encender(Color.Green);
+            }
+            for(double t = -6; t <= 6; t += Dx)
+            {
+                X0 = t;
+                Y0 = (1 + (0.69 * t) + (0.24 * Math.Pow(t, 2)) + (0.05 * Math.Pow(t, 3)));
+                Encender(Color.Red);
+            }
+            return this;
+        }
+        public Figura Lagrange()
+        {
+            Circulo(Color.Black,0.3,2,8);
+            Circulo(Color.Black,0.3,3,10);
+            Circulo(Color.Black,0.3,4,9);
+            Circulo(Color.Black,0.3,5,12);
+            for(double t = 2; t <= 5;  t += Dx)
+            {
+                X0 = t;
+                Y0 = ((1.17 * Math.Pow(t, 3)) - (12 * Math.Pow(t, 2)) + 39.83 * t - 33);
+                Encender(Color.Red);
+            }
+            return this;
+        }
+        public Figura Interpolacion()
+        {
+            Circulo(Color.Black, 0.3, -1, 3);
+            Circulo(Color.Black, 0.3, 1, 5);
+            Circulo(Color.Black, 0.3, 3, 2);
+            for (double t = -1.1; t <= 5; t += Dx)
+            {
+                X0 = t;
+                Y0 = ((-0.625 * Math.Pow(t, 2)) + ((1) * Math.Pow(t, 1)) + (4.625));
+                Encender(Color.Red);
+            }
+            return this;
+        }
+        public Figura Parabola()
+        {
+            for (double t = -16; t <= 16; t += Dx)
+            {
+                X0 = t;
+                Y0 = (49 - Math.Pow(t, 2)) / 15;
+                Encender(Color.Green);
+            }
+            Circulo(Color.Red, 0.1, 0, -0.48);//FOCO
+            return this;
+        }
+        public Figura PuntoParabola(double x, double y)
+        {
+            if (y <= (49 - Math.Pow(x, 2)) / 15)
+            {
+                Bmp = Circulo(Color.Black, 0.2, x, y).Bmp;
+                Encender(Color.Black);
+                //Reparar se recorta, por alguna razón
+                segmento(x, y, x, (49 - Math.Pow(x, 2)) / 15);//Luz
+                segmento(x, (49 - Math.Pow(x, 2)) / 15, 0, -0.48);//Rebote
+            }
+            return this;
+        }
+        public Figura ParabolaLuzRebote(double x, double y)
+        {
+            for (double t = y; t <= ((49 - Math.Pow(y, 2)) / 15) ; t += Dx)
+            {
+                X0 = ((49 - Math.Pow(y, 2)) / 15);
+                Y0 = t;
+                Encender(Color.Black);
+            }
+                return this;
+        }
+        //Prueba, Esto es una animación
+        public Figura ParabolaDoble()
+        {
+            //Primera Fase
+            for (double t = -16; t <= 16; t += Dx)
+            {
+                X0 = t;
+                Y0 = (100 - Math.Pow(t, 2)) / 15;
+                Encender(Color.Green);
 
             }
-            return img;
-        }
-        //Dibujar la segunda parabola
-        public static Bitmap Fase2()
-        {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -16; t <= 16; t += dx)
+            //Segunda Fase
+            for (double t = -16; t <= 16; t += Dx)
             {
-                vector.X0 = t;
-                vector.Y0 = (10 - Math.Pow(t, 2)) / 15;
-                img = vector.Encender(img, Color.Green);
+                X0 = t;
+                Y0 = (10 - Math.Pow(t, 2)) / 15;
+                Encender(Color.Green);
 
             }
-            return img;
+            //la tercera fase es la animación del circulo
+            return this;
         }
-        public static Bitmap Parabola()
+        //Esto tambien es parte de una animación
+        public Figura ParabolasConsecutivas()
         {
-            Bitmap img = new Bitmap(Width, Height);
-            Vector vector = new Vector();
-            for (double t = -16; t <= 16; t += dx)
+            //Primera parabola
+            for (double t = -16; t <= 16; t += Dx)
             {
-                vector.X0 = t;
-                vector.Y0 = (49 - Math.Pow(t, 2)) / 15;
-                img = vector.Encender(img, Color.Green);
+                X0 = t;
+                Y0 = -(t + 1) * (t - 2);
+                if (Y0 > 0)
+                    Encender(Color.Green);
+            }
+            //Segunda parabola
+            for (double t = -16; t <= 16; t += Dx)
+            {
+                X0 = t;
+                Y0 = -(t - 2) * (t - 4);
+                if (Y0 > 0)
+                    Encender(Color.Green);
 
             }
-            Foco(img);
-            return img;
-        }
-        public static Bitmap PuntoParabola(Bitmap bmp, double x, double y)
-        {
-            if ( y <= (49 - Math.Pow(x, 2)) / 15)
+            //Tercera parabola
+            for (double t = -16; t <= 16; t += Dx)
             {
-                bmp = Circle(Color.Black,0.2, x, y);
-                Segmento segmento = new Segmento();
-                segmento.X0 = x;
-                segmento.Y0 = Luz(bmp, x, y);
-                segmento.Xf = 0;
-                segmento.Yf = -0.48;
-                segmento.Encender(bmp, Color.Black);
-            }
-            return bmp;
-        }
-        public static void Reflejo(Bitmap bmp)
-        {
+                X0 = t;
+                Y0 = -(t + 5) * (t + 1);
+                if (Y0 > 0)
+                    Encender(Color.Green);
 
+            }
+            return this;
         }
-        public static double Luz(Bitmap bmp, double x, double y)
+        public Figura axis()
         {
-            double t = y;
-            Vector vector = new Vector();
-            do
+            for (double t = Geometria.y1; t <= Geometria.y2; t += Dx)
             {
-                vector.X0 = x;
-                vector.Y0 = t;
-                vector.Encender(bmp, Color.Black);
-                t += dx;
-            } while (t <= (49 - Math.Pow(x, 2)) / 15);
-            return t;
+                X0 = 0;
+                Y0 = t;
+                Encender(Color.Red);
+            }
+            for (double t = Geometria.x1; t <= Geometria.x2; t += Dx)
+            {
+                X0 = t;
+                Y0 = 0;
+                Encender(Color.Red);
+            }
+            return this;
         }
     }
 }

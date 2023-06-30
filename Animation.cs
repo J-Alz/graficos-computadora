@@ -13,8 +13,8 @@ namespace CC
 {
     internal class Animation
     {
-        private System.Windows.Forms.Timer timer;
-        private PictureBox pictureBox;
+        readonly private System.Windows.Forms.Timer timer;
+        readonly private PictureBox pictureBox;
         private Bitmap bitmap;
 
         public Animation (PictureBox pictureBox, string tipoAnimacion)
@@ -43,6 +43,15 @@ namespace CC
                 case "Examen2":
                     this.timer.Tick += Timer_Examen2;
                     break;
+                case "salto":
+                    this.timer.Tick += Timer_Salto;
+                    break;
+                case "salto2":
+                    this.timer.Tick += Timer_Salto2;
+                    break;
+                case "salto3":
+                    this.timer.Tick += Timer_Salto3;
+                    break;
                 default: 
                     break;
             }
@@ -55,6 +64,8 @@ namespace CC
         public void Stop()
         {
             this.timer.Stop();
+            this.pictureBox.Image.Dispose();
+            this.pictureBox.Image = null;
         }
 
         //private int circleX = 0;
@@ -77,53 +88,54 @@ namespace CC
         //}
 
         double inc = 0;
-        double t = 0.25;
+        //double t = 0.25;
+        double dx = 0.2;
         private void Timer_Ejemplo1(object sender, EventArgs e)
         {
-            this.bitmap = Figura.Circle(Color.Red, 2, inc, inc);
+            this.bitmap = new Figura().Circulo(Color.Red, 2, inc, inc).Bmp;
             this.inc += x;
             this.pictureBox.Image = this.bitmap;
             if (inc >= 6)
-                this.timer.Stop();
+                Stop();
+            
         }
-        double t3 = -7;
+        double t = -7;
         private void Timer_Ejemplo2(object sender, EventArgs e)
         {
-            this.bitmap = Figura.Circle(Color.Red, 1, t3, 0);
-            this.t3 += 0.2;
-            this.pictureBox.Image = this.bitmap;
-            if ( t3 >= 7) 
-                this.timer.Stop();
+            this.t += dx;
+            this.pictureBox.Image = new Figura().Circulo(Color.Red, 1, t, 0).Bmp;
+            if ( t >= 7) 
+                Stop();
         }
         
         private void Timer_Ejemplo3(object sender, EventArgs e)
         {
-            double x = t3;
-            double y = t3/2;
-            this.bitmap = Figura.Circle(Color.Red, 1, x, y);
-            this.t3 += 0.2;
+            double x = t;
+            double y = t /2;
+            this.bitmap = new Figura().Circulo(Color.Red, 1, x, y).Bmp;
+            this.t += 0.2;
             this.pictureBox.Image = this.bitmap;
-            if (t3 >= 7)
+            if (t >= 7)
                 this.timer.Stop();
         }
         private void Timer_Ejemplo4(object sender, EventArgs e)
         {
-            double x = t3;
-            double y = (Math.Pow(t3,2) - 9) / 10;
-            this.bitmap = Figura.Circle(Color.Red, 1, x, y);
-            this.t3 += 0.2;
+            double x = t;
+            double y = (Math.Pow(t,2) - 9) / 10;
+            this.bitmap = new Figura().Circulo(Color.Red, 1, x, y).Bmp;
+            this.t += 0.2;
             this.pictureBox.Image = this.bitmap;
-            if (t3 >= 7)
+            if (t >= 7)
                 this.timer.Stop();
         }
         private void Timer_Ejemplo5(object sender, EventArgs e)
         {
-            double x = t3;
-            double y = Math.Sin(t3);
-            this.bitmap = Figura.Circle(Color.Red, 1, x, y);
-            this.t3 += 0.2;
+            double x = t;
+            double y = Math.Sin(t);
+            this.bitmap = new Figura().Circulo(Color.Red, 1, x, y).Bmp;
+            this.t += 0.2;
             this.pictureBox.Image = this.bitmap;
-            if (t3 >= 7)
+            if (t >= 7)
                 this.timer.Stop();
         }
 
@@ -133,18 +145,69 @@ namespace CC
         {
             using (Graphics g = Graphics.FromImage(this.bitmap)){
                 g.Clear(Color.White);
-                g.DrawImageUnscaled(Figura.Fase1(), 0, 0);
-                g.DrawImageUnscaled(Figura.Fase2(), 0, 0);
+                g.DrawImageUnscaled(new Figura().ParabolaDoble().Bmp, 0, 0);
                 double x0 = x;
                 double y0 = (45 - Math.Pow(x, 2)) / 15;
-                g.DrawImageUnscaled(Figura.Circle(Color.Red, 0.5, x0, y0),0,0);
-
+                g.DrawImageUnscaled(new Figura().Circulo(Color.Red, 0.5, x0, y0).Bmp,0,0);
             }
             this.pictureBox.Image = this.bitmap;
 
             this.x += 0.2;
             if (x >= 16)
                 this.timer.Stop();
+        }
+        private void Timer_Salto(object sender, EventArgs e)
+        {
+            int cont = 0;
+            double x = t;
+            if ( cont == 0)
+            {
+                double y = -(t + 1) * (t - 2);
+                if(y > 0)
+                    this.bitmap = new Figura().Circulo(Color.Red, 0.2, x, y).Bmp;
+                cont++;
+            }
+            if ( cont == 1)
+            {
+                double y = -(t - 2) * (t - 4);
+                if (y > 0)
+                    this.bitmap = new Figura().Circulo(Color.Red, 0.2, x, y).Bmp;
+                cont++;
+            }
+            if ( cont == 3)
+            {
+                double y = -(t + 5) * (t + 1);
+                if (y > 0)
+                    this.bitmap = new Figura().Circulo(Color.Red, 0.2, x, y).Bmp;
+            }
+            this.t += 0.2;
+            this.pictureBox.Image = this.bitmap;
+            if (t >= 16)
+                this.timer.Stop();
+
+        }
+        private void Timer_Salto2(object sender, EventArgs e)
+        {
+            double x = t;
+            double y = -(t -2) * (t - 4);
+            if (y > 0)
+                this.bitmap = new Figura().Circulo(Color.Red, 0.2, x, y).Bmp;
+            this.t += 0.2;
+            this.pictureBox.Image = this.bitmap;
+            
+
+        }
+        private void Timer_Salto3(object sender, EventArgs e)
+        {
+            double x = t;
+            double y = -(t +5) * (t +1);
+            if (y > 0)
+                this.bitmap = new Figura().Circulo(Color.Red, 0.2, x, y).Bmp;
+            this.t += 0.2;
+            this.pictureBox.Image = this.bitmap;
+            if (t >= 16)
+                this.timer.Stop();
+
         }
     }
 }

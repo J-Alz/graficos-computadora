@@ -7,33 +7,29 @@ using System.Threading.Tasks;
 
 namespace CC
 {
-    internal class Figura3D
+    internal class Figura3D : Vector3D
     {
-        public static Bitmap ejemplo()
+        public Figura3D Circulo()
         {
-            Bitmap img = new Bitmap(700, 540);
-            Vector3D v3d = new Vector3D();
-            for(double t = 0; t <= 9.8; t += 0.005)
+            for(double t = 0; t <= 9.8; t += Dx)
             {
-                v3d.X0 = 0;
-                v3d.Y0 = 1 + 3 * Math.Sin(t);
-                v3d.Z0 = -2 + 3 * Math.Cos(t);
-                v3d.Encender(img, Color.Black);
+                X0 = 0;
+                Y0 = 1 + 3 * Math.Sin(t);
+                Z0 = -2 + 3 * Math.Cos(t);
+                Encender(Color.Black);
             }
-            return img;
+            return this;
         }
-        public static Bitmap ejemplo2()
+        public Figura3D Espiral()
         {
-            Bitmap img = new Bitmap(700, 540);
-            Vector3D v3d = new Vector3D();
-            for (double t = 0; t <= 9.8; t += 0.005)
+            for (double t = 0; t <= 9.8; t += Dx)
             {
-                v3d.X0 = -3 + (t / 2);
-                v3d.Y0 = 1 + 3 * Math.Sin(t);
-                v3d.Z0 = 1 + 3 * Math.Cos(t);
-                v3d.Encender(img, Color.Black);
+                X0 = -3 + (t / 2);
+                Y0 = 1 + 3 * Math.Sin(t);
+                Z0 = 1 + 3 * Math.Cos(t);
+                Encender(Color.Black);
             }
-            return img;
+            return this;
         }
     }
 }

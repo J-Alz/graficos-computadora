@@ -32,7 +32,7 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnParabola = new System.Windows.Forms.Button();
+            this.btnDibujar = new System.Windows.Forms.Button();
             this.btnAnimacion = new System.Windows.Forms.Button();
             this.lbx = new System.Windows.Forms.ListBox();
             this.btnShowAxis = new System.Windows.Forms.Button();
@@ -48,37 +48,34 @@ namespace CC
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.figurasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.básicoToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraPixelRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraVector = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraSegmento = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraCircunferencia = new System.Windows.Forms.ToolStripMenuItem();
-            this.avanzadaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraConcentricas = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemFiguraCirculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemFiguraConcentrica = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraLazo = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraEspiral = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemFiguraTaylor = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemFiguraLagrange = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemFiguraInterpolacion = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemFiguraParabola = new System.Windows.Forms.ToolStripMenuItem();
             this.barridoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.básicoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaUniColor = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaBiColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaDegradado1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaDegradado2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tapeteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemTextura1Degradado = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemTextura2Degradado = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaEjemplo1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaEjemplo2 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaInvierno = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaPrimavera = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaVerano = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaOtonno = new System.Windows.Forms.ToolStripMenuItem();
-            this.proceduralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaMadera = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaCesped = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemTexturaPiedra = new System.Windows.Forms.ToolStripMenuItem();
-            this.interpolaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.interpolaciónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.lagrangeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taylorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.figuras3DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Item3DCirculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.Item3DEspiral = new System.Windows.Forms.ToolStripMenuItem();
             this.animaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo1 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,7 +83,6 @@ namespace CC
             this.ItemAnimacionEjemplo4 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo5 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn3d = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -96,8 +92,7 @@ namespace CC
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btn3d);
-            this.groupBox1.Controls.Add(this.btnParabola);
+            this.groupBox1.Controls.Add(this.btnDibujar);
             this.groupBox1.Controls.Add(this.btnAnimacion);
             this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
@@ -106,15 +101,15 @@ namespace CC
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
-            // btnParabola
+            // btnDibujar
             // 
-            this.btnParabola.Location = new System.Drawing.Point(51, 205);
-            this.btnParabola.Name = "btnParabola";
-            this.btnParabola.Size = new System.Drawing.Size(75, 23);
-            this.btnParabola.TabIndex = 30;
-            this.btnParabola.Text = "Parabola";
-            this.btnParabola.UseVisualStyleBackColor = true;
-            this.btnParabola.Click += new System.EventHandler(this.btnParabola_Click);
+            this.btnDibujar.Location = new System.Drawing.Point(51, 76);
+            this.btnDibujar.Name = "btnDibujar";
+            this.btnDibujar.Size = new System.Drawing.Size(75, 23);
+            this.btnDibujar.TabIndex = 32;
+            this.btnDibujar.Text = "Dibujar";
+            this.btnDibujar.UseVisualStyleBackColor = true;
+            this.btnDibujar.Click += new System.EventHandler(this.btnDibujar_Click);
             // 
             // btnAnimacion
             // 
@@ -236,7 +231,7 @@ namespace CC
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.figurasToolStripMenuItem,
             this.barridoToolStripMenuItem,
-            this.interpolaciónToolStripMenuItem});
+            this.figuras3DToolStripMenuItem});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
             this.verToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.verToolStripMenuItem.Text = "Dibujar";
@@ -244,255 +239,231 @@ namespace CC
             // figurasToolStripMenuItem
             // 
             this.figurasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.básicoToolStripMenuItem2,
-            this.avanzadaToolStripMenuItem});
-            this.figurasToolStripMenuItem.Name = "figurasToolStripMenuItem";
-            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.figurasToolStripMenuItem.Text = "Figuras";
-            // 
-            // básicoToolStripMenuItem2
-            // 
-            this.básicoToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ItemFiguraPixelRandom,
             this.ItemFiguraVector,
             this.ItemFiguraSegmento,
-            this.ItemFiguraCircunferencia});
-            this.básicoToolStripMenuItem2.Name = "básicoToolStripMenuItem2";
-            this.básicoToolStripMenuItem2.Size = new System.Drawing.Size(125, 22);
-            this.básicoToolStripMenuItem2.Text = "Básico";
+            this.ItemFiguraCirculo,
+            this.ItemFiguraConcentrica,
+            this.ItemFiguraLazo,
+            this.ItemFiguraEspiral,
+            this.ItemFiguraTaylor,
+            this.ItemFiguraLagrange,
+            this.ItemFiguraInterpolacion,
+            this.ItemFiguraParabola});
+            this.figurasToolStripMenuItem.Name = "figurasToolStripMenuItem";
+            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.figurasToolStripMenuItem.Text = "Figuras";
             // 
             // ItemFiguraPixelRandom
             // 
             this.ItemFiguraPixelRandom.Name = "ItemFiguraPixelRandom";
-            this.ItemFiguraPixelRandom.Size = new System.Drawing.Size(151, 22);
+            this.ItemFiguraPixelRandom.Size = new System.Drawing.Size(157, 22);
             this.ItemFiguraPixelRandom.Text = "Pixel Random";
             this.ItemFiguraPixelRandom.Click += new System.EventHandler(this.ItemFiguraPixelRandom_Click);
             // 
             // ItemFiguraVector
             // 
             this.ItemFiguraVector.Name = "ItemFiguraVector";
-            this.ItemFiguraVector.Size = new System.Drawing.Size(151, 22);
+            this.ItemFiguraVector.Size = new System.Drawing.Size(157, 22);
             this.ItemFiguraVector.Text = "Vector";
             this.ItemFiguraVector.Click += new System.EventHandler(this.ItemFiguraVector_Click);
             // 
             // ItemFiguraSegmento
             // 
             this.ItemFiguraSegmento.Name = "ItemFiguraSegmento";
-            this.ItemFiguraSegmento.Size = new System.Drawing.Size(151, 22);
+            this.ItemFiguraSegmento.Size = new System.Drawing.Size(157, 22);
             this.ItemFiguraSegmento.Text = "Segmento";
             this.ItemFiguraSegmento.Click += new System.EventHandler(this.ItemFiguraSegmento_Click);
             // 
-            // ItemFiguraCircunferencia
+            // ItemFiguraCirculo
             // 
-            this.ItemFiguraCircunferencia.Name = "ItemFiguraCircunferencia";
-            this.ItemFiguraCircunferencia.Size = new System.Drawing.Size(151, 22);
-            this.ItemFiguraCircunferencia.Text = "Circunferencia";
-            this.ItemFiguraCircunferencia.Click += new System.EventHandler(this.ItemFiguraCircunferencia_Click);
+            this.ItemFiguraCirculo.Name = "ItemFiguraCirculo";
+            this.ItemFiguraCirculo.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraCirculo.Text = "Círculo";
+            this.ItemFiguraCirculo.Click += new System.EventHandler(this.ItemFiguraCirculo_Click);
             // 
-            // avanzadaToolStripMenuItem
+            // ItemFiguraConcentrica
             // 
-            this.avanzadaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ItemFiguraConcentricas,
-            this.ItemFiguraLazo,
-            this.ItemFiguraEspiral,
-            this.ItemFiguraParabola});
-            this.avanzadaToolStripMenuItem.Name = "avanzadaToolStripMenuItem";
-            this.avanzadaToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
-            this.avanzadaToolStripMenuItem.Text = "Avanzada";
-            // 
-            // ItemFiguraConcentricas
-            // 
-            this.ItemFiguraConcentricas.Name = "ItemFiguraConcentricas";
-            this.ItemFiguraConcentricas.Size = new System.Drawing.Size(170, 22);
-            this.ItemFiguraConcentricas.Text = "Circ. Concéntricas";
-            this.ItemFiguraConcentricas.Click += new System.EventHandler(this.ItemFiguraConcentricas_Click);
+            this.ItemFiguraConcentrica.Name = "ItemFiguraConcentrica";
+            this.ItemFiguraConcentrica.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraConcentrica.Text = "C. Concentricas";
+            this.ItemFiguraConcentrica.Click += new System.EventHandler(this.ItemFiguraConcentrica_Click);
             // 
             // ItemFiguraLazo
             // 
             this.ItemFiguraLazo.Name = "ItemFiguraLazo";
-            this.ItemFiguraLazo.Size = new System.Drawing.Size(170, 22);
+            this.ItemFiguraLazo.Size = new System.Drawing.Size(157, 22);
             this.ItemFiguraLazo.Text = "Lazo";
             this.ItemFiguraLazo.Click += new System.EventHandler(this.ItemFiguraLazo_Click);
             // 
             // ItemFiguraEspiral
             // 
             this.ItemFiguraEspiral.Name = "ItemFiguraEspiral";
-            this.ItemFiguraEspiral.Size = new System.Drawing.Size(170, 22);
+            this.ItemFiguraEspiral.Size = new System.Drawing.Size(157, 22);
             this.ItemFiguraEspiral.Text = "Espiral";
             this.ItemFiguraEspiral.Click += new System.EventHandler(this.ItemFiguraEspiral_Click);
+            // 
+            // ItemFiguraTaylor
+            // 
+            this.ItemFiguraTaylor.Name = "ItemFiguraTaylor";
+            this.ItemFiguraTaylor.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraTaylor.Text = "Taylor";
+            this.ItemFiguraTaylor.Click += new System.EventHandler(this.ItemFiguraTaylor_Click);
+            // 
+            // ItemFiguraLagrange
+            // 
+            this.ItemFiguraLagrange.Name = "ItemFiguraLagrange";
+            this.ItemFiguraLagrange.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraLagrange.Text = "Lagrange";
+            this.ItemFiguraLagrange.Click += new System.EventHandler(this.ItemFiguraLagrange_Click);
+            // 
+            // ItemFiguraInterpolacion
+            // 
+            this.ItemFiguraInterpolacion.Name = "ItemFiguraInterpolacion";
+            this.ItemFiguraInterpolacion.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraInterpolacion.Text = "Interpolacion";
+            this.ItemFiguraInterpolacion.Click += new System.EventHandler(this.ItemFiguraInterpolacion_Click);
             // 
             // ItemFiguraParabola
             // 
             this.ItemFiguraParabola.Name = "ItemFiguraParabola";
-            this.ItemFiguraParabola.Size = new System.Drawing.Size(170, 22);
-            this.ItemFiguraParabola.Text = "Parabola";
-            this.ItemFiguraParabola.Click += new System.EventHandler(this.ItemFiguraParabola_Click_1);
+            this.ItemFiguraParabola.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraParabola.Text = "Parábola";
+            this.ItemFiguraParabola.Click += new System.EventHandler(this.ItemFiguraParabola_Click);
             // 
             // barridoToolStripMenuItem
             // 
             this.barridoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.básicoToolStripMenuItem1,
-            this.tapeteToolStripMenuItem,
-            this.proceduralToolStripMenuItem});
-            this.barridoToolStripMenuItem.Name = "barridoToolStripMenuItem";
-            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.barridoToolStripMenuItem.Text = "Textura";
-            // 
-            // básicoToolStripMenuItem1
-            // 
-            this.básicoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ItemTexturaUniColor,
             this.ItemTexturaBiColor,
-            this.ItemTexturaDegradado1,
-            this.ItemTexturaDegradado2});
-            this.básicoToolStripMenuItem1.Name = "básicoToolStripMenuItem1";
-            this.básicoToolStripMenuItem1.Size = new System.Drawing.Size(131, 22);
-            this.básicoToolStripMenuItem1.Text = "Básico";
+            this.ItemTextura1Degradado,
+            this.ItemTextura2Degradado,
+            this.ItemTexturaEjemplo1,
+            this.ItemTexturaEjemplo2,
+            this.ItemTexturaInvierno,
+            this.ItemTexturaPrimavera,
+            this.ItemTexturaVerano,
+            this.ItemTexturaOtonno,
+            this.ItemTexturaMadera,
+            this.ItemTexturaCesped,
+            this.ItemTexturaPiedra});
+            this.barridoToolStripMenuItem.Name = "barridoToolStripMenuItem";
+            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.barridoToolStripMenuItem.Text = "Textura";
             // 
             // ItemTexturaUniColor
             // 
             this.ItemTexturaUniColor.Name = "ItemTexturaUniColor";
-            this.ItemTexturaUniColor.Size = new System.Drawing.Size(146, 22);
+            this.ItemTexturaUniColor.Size = new System.Drawing.Size(163, 22);
             this.ItemTexturaUniColor.Text = "UniColor";
             this.ItemTexturaUniColor.Click += new System.EventHandler(this.ItemTexturaUniColor_Click);
             // 
             // ItemTexturaBiColor
             // 
             this.ItemTexturaBiColor.Name = "ItemTexturaBiColor";
-            this.ItemTexturaBiColor.Size = new System.Drawing.Size(146, 22);
+            this.ItemTexturaBiColor.Size = new System.Drawing.Size(163, 22);
             this.ItemTexturaBiColor.Text = "Bicolor";
             this.ItemTexturaBiColor.Click += new System.EventHandler(this.ItemTexturaBiColor_Click);
             // 
-            // ItemTexturaDegradado1
+            // ItemTextura1Degradado
             // 
-            this.ItemTexturaDegradado1.Name = "ItemTexturaDegradado1";
-            this.ItemTexturaDegradado1.Size = new System.Drawing.Size(146, 22);
-            this.ItemTexturaDegradado1.Text = "1º Degradado";
-            this.ItemTexturaDegradado1.Click += new System.EventHandler(this.ItemTexturaDegradado1_Click);
+            this.ItemTextura1Degradado.Name = "ItemTextura1Degradado";
+            this.ItemTextura1Degradado.Size = new System.Drawing.Size(163, 22);
+            this.ItemTextura1Degradado.Text = "1º Degradado";
+            this.ItemTextura1Degradado.Click += new System.EventHandler(this.ItemTextura1Degradado_Click);
             // 
-            // ItemTexturaDegradado2
+            // ItemTextura2Degradado
             // 
-            this.ItemTexturaDegradado2.Name = "ItemTexturaDegradado2";
-            this.ItemTexturaDegradado2.Size = new System.Drawing.Size(146, 22);
-            this.ItemTexturaDegradado2.Text = "2º Degradado";
-            this.ItemTexturaDegradado2.Click += new System.EventHandler(this.ItemTexturaDegradado2_Click);
-            // 
-            // tapeteToolStripMenuItem
-            // 
-            this.tapeteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ItemTexturaEjemplo1,
-            this.ItemTexturaEjemplo2,
-            this.ItemTexturaInvierno,
-            this.ItemTexturaPrimavera,
-            this.ItemTexturaVerano,
-            this.ItemTexturaOtonno});
-            this.tapeteToolStripMenuItem.Name = "tapeteToolStripMenuItem";
-            this.tapeteToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.tapeteToolStripMenuItem.Text = "Tapete";
+            this.ItemTextura2Degradado.Name = "ItemTextura2Degradado";
+            this.ItemTextura2Degradado.Size = new System.Drawing.Size(163, 22);
+            this.ItemTextura2Degradado.Text = "2º Degradado";
+            this.ItemTextura2Degradado.Click += new System.EventHandler(this.ItemTextura2Degradado_Click);
             // 
             // ItemTexturaEjemplo1
             // 
             this.ItemTexturaEjemplo1.Name = "ItemTexturaEjemplo1";
-            this.ItemTexturaEjemplo1.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaEjemplo1.Text = "Ejemplo 1";
+            this.ItemTexturaEjemplo1.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaEjemplo1.Text = "Tapete Ejemplo 1";
             this.ItemTexturaEjemplo1.Click += new System.EventHandler(this.ItemTexturaEjemplo1_Click);
             // 
             // ItemTexturaEjemplo2
             // 
             this.ItemTexturaEjemplo2.Name = "ItemTexturaEjemplo2";
-            this.ItemTexturaEjemplo2.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaEjemplo2.Text = "Ejemplo 2";
+            this.ItemTexturaEjemplo2.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaEjemplo2.Text = "Tapete Ejemplo 2";
             this.ItemTexturaEjemplo2.Click += new System.EventHandler(this.ItemTexturaEjemplo2_Click);
             // 
             // ItemTexturaInvierno
             // 
             this.ItemTexturaInvierno.Name = "ItemTexturaInvierno";
-            this.ItemTexturaInvierno.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaInvierno.Text = "Invierno";
+            this.ItemTexturaInvierno.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaInvierno.Text = "T. Invierno";
             this.ItemTexturaInvierno.Click += new System.EventHandler(this.ItemTexturaInvierno_Click);
             // 
             // ItemTexturaPrimavera
             // 
             this.ItemTexturaPrimavera.Name = "ItemTexturaPrimavera";
-            this.ItemTexturaPrimavera.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaPrimavera.Text = "Primavera";
+            this.ItemTexturaPrimavera.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaPrimavera.Text = "T. Primavera";
             this.ItemTexturaPrimavera.Click += new System.EventHandler(this.ItemTexturaPrimavera_Click);
             // 
             // ItemTexturaVerano
             // 
             this.ItemTexturaVerano.Name = "ItemTexturaVerano";
-            this.ItemTexturaVerano.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaVerano.Text = "Verano";
+            this.ItemTexturaVerano.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaVerano.Text = "T. Verano";
             this.ItemTexturaVerano.Click += new System.EventHandler(this.ItemTexturaVerano_Click);
             // 
             // ItemTexturaOtonno
             // 
             this.ItemTexturaOtonno.Name = "ItemTexturaOtonno";
-            this.ItemTexturaOtonno.Size = new System.Drawing.Size(127, 22);
-            this.ItemTexturaOtonno.Text = "Otoño";
+            this.ItemTexturaOtonno.Size = new System.Drawing.Size(163, 22);
+            this.ItemTexturaOtonno.Text = "T. Otoño";
             this.ItemTexturaOtonno.Click += new System.EventHandler(this.ItemTexturaOtonno_Click);
-            // 
-            // proceduralToolStripMenuItem
-            // 
-            this.proceduralToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ItemTexturaMadera,
-            this.ItemTexturaCesped,
-            this.ItemTexturaPiedra});
-            this.proceduralToolStripMenuItem.Name = "proceduralToolStripMenuItem";
-            this.proceduralToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
-            this.proceduralToolStripMenuItem.Text = "Procedural";
             // 
             // ItemTexturaMadera
             // 
             this.ItemTexturaMadera.Name = "ItemTexturaMadera";
-            this.ItemTexturaMadera.Size = new System.Drawing.Size(114, 22);
+            this.ItemTexturaMadera.Size = new System.Drawing.Size(163, 22);
             this.ItemTexturaMadera.Text = "Madera";
             this.ItemTexturaMadera.Click += new System.EventHandler(this.ItemTexturaMadera_Click);
             // 
             // ItemTexturaCesped
             // 
             this.ItemTexturaCesped.Name = "ItemTexturaCesped";
-            this.ItemTexturaCesped.Size = new System.Drawing.Size(114, 22);
+            this.ItemTexturaCesped.Size = new System.Drawing.Size(163, 22);
             this.ItemTexturaCesped.Text = "Césped";
             this.ItemTexturaCesped.Click += new System.EventHandler(this.ItemTexturaCesped_Click);
             // 
             // ItemTexturaPiedra
             // 
             this.ItemTexturaPiedra.Name = "ItemTexturaPiedra";
-            this.ItemTexturaPiedra.Size = new System.Drawing.Size(114, 22);
+            this.ItemTexturaPiedra.Size = new System.Drawing.Size(163, 22);
             this.ItemTexturaPiedra.Text = "Piedra";
             this.ItemTexturaPiedra.Click += new System.EventHandler(this.ItemTexturaPiedra_Click);
             // 
-            // interpolaciónToolStripMenuItem
+            // figuras3DToolStripMenuItem
             // 
-            this.interpolaciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.interpolaciónToolStripMenuItem1,
-            this.lagrangeToolStripMenuItem,
-            this.taylorToolStripMenuItem});
-            this.interpolaciónToolStripMenuItem.Name = "interpolaciónToolStripMenuItem";
-            this.interpolaciónToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.interpolaciónToolStripMenuItem.Text = "Interpolación";
+            this.figuras3DToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Item3DCirculo,
+            this.Item3DEspiral});
+            this.figuras3DToolStripMenuItem.Name = "figuras3DToolStripMenuItem";
+            this.figuras3DToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.figuras3DToolStripMenuItem.Text = "Figuras 3D";
             // 
-            // interpolaciónToolStripMenuItem1
+            // Item3DCirculo
             // 
-            this.interpolaciónToolStripMenuItem1.Name = "interpolaciónToolStripMenuItem1";
-            this.interpolaciónToolStripMenuItem1.Size = new System.Drawing.Size(150, 22);
-            this.interpolaciónToolStripMenuItem1.Text = "Interpolación  ";
-            this.interpolaciónToolStripMenuItem1.Click += new System.EventHandler(this.interpolaciónToolStripMenuItem1_Click);
+            this.Item3DCirculo.Name = "Item3DCirculo";
+            this.Item3DCirculo.Size = new System.Drawing.Size(112, 22);
+            this.Item3DCirculo.Text = "Círculo";
+            this.Item3DCirculo.Click += new System.EventHandler(this.Item3DCirculo_Click);
             // 
-            // lagrangeToolStripMenuItem
+            // Item3DEspiral
             // 
-            this.lagrangeToolStripMenuItem.Name = "lagrangeToolStripMenuItem";
-            this.lagrangeToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.lagrangeToolStripMenuItem.Text = "Lagrange";
-            this.lagrangeToolStripMenuItem.Click += new System.EventHandler(this.lagrangeToolStripMenuItem_Click);
-            // 
-            // taylorToolStripMenuItem
-            // 
-            this.taylorToolStripMenuItem.Name = "taylorToolStripMenuItem";
-            this.taylorToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
-            this.taylorToolStripMenuItem.Text = "Taylor";
-            this.taylorToolStripMenuItem.Click += new System.EventHandler(this.taylorToolStripMenuItem_Click);
+            this.Item3DEspiral.Name = "Item3DEspiral";
+            this.Item3DEspiral.Size = new System.Drawing.Size(112, 22);
+            this.Item3DEspiral.Text = "Espiral";
+            this.Item3DEspiral.Click += new System.EventHandler(this.Item3DEspiral_Click);
             // 
             // animaciónToolStripMenuItem
             // 
@@ -541,16 +512,6 @@ namespace CC
             this.ItemAnimacionEjemplo5.Text = "Ejemplo 5";
             this.ItemAnimacionEjemplo5.Click += new System.EventHandler(this.ItemAnimacionEjemplo5_Click);
             // 
-            // btn3d
-            // 
-            this.btn3d.Location = new System.Drawing.Point(62, 272);
-            this.btn3d.Name = "btn3d";
-            this.btn3d.Size = new System.Drawing.Size(75, 23);
-            this.btn3d.TabIndex = 31;
-            this.btn3d.Text = "3D";
-            this.btn3d.UseVisualStyleBackColor = true;
-            this.btn3d.Click += new System.EventHandler(this.btn3d_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -595,46 +556,42 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem barridoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem figurasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem interpolaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem interpolaciónToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem lagrangeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem taylorToolStripMenuItem;
         private System.Windows.Forms.Button btnAnimacion;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.ToolStripMenuItem tapeteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem proceduralToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem básicoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem animaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo1;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo2;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo3;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo4;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo5;
+        private System.Windows.Forms.Button btnDibujar;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraPixelRandom;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraVector;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraSegmento;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraCirculo;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraConcentrica;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraLazo;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraEspiral;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraParabola;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraInterpolacion;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraLagrange;
+        private System.Windows.Forms.ToolStripMenuItem ItemFiguraTaylor;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaUniColor;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaBiColor;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaDegradado1;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaDegradado2;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaMadera;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaCesped;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaPiedra;
+        private System.Windows.Forms.ToolStripMenuItem ItemTextura1Degradado;
+        private System.Windows.Forms.ToolStripMenuItem ItemTextura2Degradado;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaEjemplo1;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaEjemplo2;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaInvierno;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaPrimavera;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaVerano;
         private System.Windows.Forms.ToolStripMenuItem ItemTexturaOtonno;
-        private System.Windows.Forms.ToolStripMenuItem animaciónToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem básicoToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraPixelRandom;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraVector;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraSegmento;
-        private System.Windows.Forms.ToolStripMenuItem avanzadaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraCircunferencia;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraConcentricas;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraLazo;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraEspiral;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraParabola;
-        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo1;
-        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo2;
-        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo3;
-        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo4;
-        private System.Windows.Forms.ToolStripMenuItem ItemAnimacionEjemplo5;
-        private System.Windows.Forms.Button btnParabola;
-        private System.Windows.Forms.Button btn3d;
+        private System.Windows.Forms.ToolStripMenuItem ItemTexturaMadera;
+        private System.Windows.Forms.ToolStripMenuItem ItemTexturaCesped;
+        private System.Windows.Forms.ToolStripMenuItem ItemTexturaPiedra;
+        private System.Windows.Forms.ToolStripMenuItem figuras3DToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Item3DCirculo;
+        private System.Windows.Forms.ToolStripMenuItem Item3DEspiral;
     }
 }
 

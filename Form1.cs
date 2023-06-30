@@ -21,18 +21,26 @@ namespace CC
     {
         const int WIDTH = 700;
         const int HEIGHT = 540;
-        Layers layers = new Layers(WIDTH, HEIGHT);
         Bitmap bmp = new Bitmap(WIDTH, HEIGHT);
         Color color = Color.Black;
-        Segmento segmento = new Segmento();
-        void RefreshImage()
-        {
-            lbx.Items.Clear();
-            ventana.CreateGraphics().DrawImageUnscaled(Textura.TapeteBlanco(), 0, 0);
+        //ArrayList figuras = new ArrayList();
+        //ArrayList texturas = new ArrayList();
+        //ArrayList figuras3d = new ArrayList();
+        List<Vector> lista = new List<Vector>();
 
-            lbx.Items.AddRange(layers.ReferenciaAll());
-            foreach (Layer layer in layers.listLayers)
-                ventana.CreateGraphics().DrawImageUnscaled(layer.Bmp, 0, 0);
+        bool activeLuz = false;
+        private void RefreshImage()
+        {
+            //figuras.Reverse();
+            //figuras3d.Reverse();
+            //texturas.Reverse();
+            foreach (Vector elemento in lista)
+                bmp = elemento.Bmp;
+            //foreach (Figura figura in figuras)
+            //    bmp = figura.Bmp;
+            //foreach(Textura textura in texturas)
+            //    bmp = textura.Bmp;
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
         }
         private Animation animation;
         public Form1()
@@ -49,8 +57,7 @@ namespace CC
         {
             if (!showAxis)
             {
-                Utils.AxisY(bmp);
-                Utils.AxisX(bmp);
+                lista.Add(new Figura().axis());
                 btnShowAxis.Image = global::CC.Properties.Resources.eye_slash;
                 showAxis = true;
                 toolTip.SetToolTip(this.btnShowAxis, "Borrar Ejes");
@@ -58,13 +65,12 @@ namespace CC
             else
             {
                 //modificar para asegurar borrado
-                Utils.AxisY(bmp);
-                Utils.AxisX(bmp);
+                lista.Add(new Figura().axis());
                 btnShowAxis.Image = global::CC.Properties.Resources.eye;
                 showAxis = false;
                 toolTip.SetToolTip(this.btnShowAxis, "Dibujar Ejes");
             }
-            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
+            RefreshImage();
         }
 
         private void btnColor_Click(object sender, EventArgs e)
@@ -82,16 +88,17 @@ namespace CC
         {
             ventana.Image = null;
             bmp = new Bitmap(WIDTH, HEIGHT);
-            layers.ResetImage();
             lbx.Items.Clear();
-            
+            foreach (Vector elemento in lista)
+                elemento.Dispose();
+            lista.Clear();
         }
 
         #endregion
 
         private void btnDeleteFigure_Click(object sender, EventArgs e)
         {
-            layers.removeImage(0);
+            
             RefreshImage();
         }
 
@@ -104,196 +111,182 @@ namespace CC
             //lbx.SelectedItem.ToString();
             //lbx.Items.Add(lbx.SelectedIndex.ToString());
         }
-        
 
-      
+
+
 
         #region FIGURAS
         private void ItemFiguraPixelRandom_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.PixelRandom(color), "Pixel");
+            lista.Add(new Figura(color).PixelRandom());
             RefreshImage();
         }
 
         private void ItemFiguraVector_Click(object sender, EventArgs e)
         {
-            Vector vector = new Vector();
-            bmp = vector.Prueba(bmp, color);
-            layers.AddImage(bmp, "Vector");
+            lista.Add(new Figura(color).VectorEjemplo());
             RefreshImage();
         }
 
         private void ItemFiguraSegmento_Click(object sender, EventArgs e)
         {
-            Segmento segmento = new Segmento(2, 5);
-            bmp = segmento.Encender(bmp, color);
-            layers.AddImage(bmp, "Segmento");
+            lista.Add(new Figura(color).segmento(0,0,2,5));
             RefreshImage();
         }
-        private void ItemFiguraCircunferencia_Click(object sender, EventArgs e)
+        
+        private void ItemFiguraCirculo_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Circle(color, 2), "Circulo");
+            lista.Add(new Figura(color).Circulo(Color.Blue, 2, 0, 0));
             RefreshImage();
         }
 
-        private void ItemFiguraConcentricas_Click(object sender, EventArgs e)
+        private void ItemFiguraConcentrica_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Concentrica(), "Circ. Concénctricas");
+            lista.Add(new Figura().Concentrica());
             RefreshImage();
         }
 
         private void ItemFiguraLazo_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Lazo(color), "Lazo");
+            lista.Add(new Figura(color).Lazo());
             RefreshImage();
         }
 
         private void ItemFiguraEspiral_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Espiral(color), "Espiral");
+            lista.Add(new Figura(color).Espiral());
             RefreshImage();
         }
 
-        private void ItemFiguraParabola_Click_1(object sender, EventArgs e)
+        private void ItemFiguraTaylor_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Parabola(), "Parabola");
+            lista.Add(new Figura().Taylor());
             RefreshImage();
         }
 
-        #endregion
-
-
-        #region INTERPOLACIÓN
-        private void interpolaciónToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void ItemFiguraLagrange_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Lagrange2(), "Inter");
+            lista.Add(new Figura().Lagrange());
             RefreshImage();
         }
 
-        private void lagrangeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ItemFiguraInterpolacion_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Lagrange(), "Lagrange");
+            lista.Add(new Figura().Interpolacion());
             RefreshImage();
         }
-
-        private void taylorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ItemFiguraParabola_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Figura.Taylor(), "Gráfico Taylor");
+            lista.Add(new Figura().Parabola());
+            activeLuz = true;
             RefreshImage();
         }
-
 
         #endregion
 
         #region TEXTURA
         private void ItemTexturaUniColor_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.UniColor(Color.Yellow), "Barrido Uni");
+            
+            lista.Add(new Textura().UniColor(Color.Yellow));
             RefreshImage();
         }
 
         private void ItemTexturaBiColor_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.BiColor(Color.Red, Color.Yellow), "Barrido Bi");
+            lista.Add(new Textura().BiColor(Color.Red, Color.Yellow));
             RefreshImage();
         }
 
-        private void ItemTexturaDegradado1_Click(object sender, EventArgs e)
+        private void ItemTextura1Degradado_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.DegradadoBicolor1(), "1º Degradado");
+            lista.Add(new Textura().DegradadoBicolor1());
             RefreshImage();
         }
 
-        private void ItemTexturaDegradado2_Click(object sender, EventArgs e)
+        private void ItemTextura2Degradado_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.DegradadoBicolor2(), "2º Degradado");
-            RefreshImage();
-        }
-
-        private void ItemTexturaMadera_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Textura.Madera(), "Madera");
-            RefreshImage();
-        }
-
-        private void ItemTexturaCesped_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Textura.Cesped(), "Cesped");
-            RefreshImage();
-        }
-
-        private void ItemTexturaPiedra_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Textura.Piedra(), "Piedra");
+            lista.Add(new Textura().DegradadoBicolor2());
             RefreshImage();
         }
 
         private void ItemTexturaEjemplo1_Click(object sender, EventArgs e)
         {
-            
-            layers.AddImage(Textura.Tapete1(), "Dibujo");
+            lista.Add(new Textura().Tapete1());
             RefreshImage();
         }
 
         private void ItemTexturaEjemplo2_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.Tapete2(), "Modificada");
+            lista.Add(new Textura().Tapete2());
             RefreshImage();
         }
 
         private void ItemTexturaInvierno_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.TapeteInvierno(), "Invierno");
+            lista.Add(new Textura().TapeteInvierno());
             RefreshImage();
         }
 
         private void ItemTexturaPrimavera_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.TapetePrimavera(), "Primavera");
+            lista.Add(new Textura().TapetePrimavera());
             RefreshImage();
         }
 
         private void ItemTexturaVerano_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.TapeteVerano(), "Verano");
+            lista.Add(new Textura().TapeteVerano());
             RefreshImage();
         }
 
         private void ItemTexturaOtonno_Click(object sender, EventArgs e)
         {
-            layers.AddImage(Textura.TapeteOtonno(), "Otoño");
+            lista.Add(new Textura().TapeteOtonno());
             RefreshImage();
         }
 
+        private void ItemTexturaMadera_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Textura().Madera());
+            RefreshImage();
+        }
 
+        private void ItemTexturaCesped_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Textura().Cesped());
+            RefreshImage();
+        }
+
+        private void ItemTexturaPiedra_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Textura().Piedra());
+            RefreshImage();
+        }
 
         #endregion
 
-        //Agregar funcionalidad de carta
         #region VENTANA
 
-        double Sx = 0;
-        double Sy = 0;
+        double Sx, Sy;
         double x, y;
         private void ventana_MouseMove(object sender, MouseEventArgs e)
         {
             Sx = e.X;
             Sy = e.Y;
-
             Geometria.Transforma(e.X,e.Y,out x,out y);
             toolTip.SetToolTip(this.ventana, "x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
-            
         }
 
         private void ventana_Click(object sender, EventArgs e)
         {
-            Geometria.Transforma(Sx, Sy, out x, out y);
-            //Console.WriteLine("x: " + x + " Y: " + y + "\nSx: " + Sx + " Sy: " + Sy);
-            //Console.WriteLine("x: " + Math.Sqrt(49 - 15 * y));
-            //Console.WriteLine("y: " + (49 - Math.Pow(x,2)) / 15 );
-            layers.AddImage(Figura.PuntoParabola(bmp, x, y), $"Punto({x},{y})");
+            if(activeLuz == true)
+            {
+                Geometria.Transforma(Sx, Sy, out x, out y);
+                lista.Add(new Figura().PuntoParabola(x,y));
+
+            }
             RefreshImage();
-            
         }
 
         #endregion
@@ -341,27 +334,30 @@ namespace CC
             this.animation = new Animation(ventana, "Ejemplo5");
             this.animation.Start();
         }
+        
+        #endregion
+
+        private void Item3DCirculo_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Figura3D().Circulo());
+            RefreshImage();
+        }
+
+        private void Item3DEspiral_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Figura3D().Espiral());
+            RefreshImage();
+        }
+
+        private void btnDibujar_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Onda().GrafOnda());
+            RefreshImage();
+        }
         private void btnAnimacion_Click(object sender, EventArgs e)
         {
             this.animation = new Animation(ventana, "Examen2");
             this.animation.Start();
         }
-        #endregion
-
-        private void btn3d_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Figura3D.ejemplo2(), "3D");
-            RefreshImage();
-        }
-
-        private void btnParabola_Click(object sender, EventArgs e)
-        {
-            layers.AddImage(Figura.Parabola(), "Parabola");
-            RefreshImage();
-        }
     }
 }
-//REEMPLAZAR
-/* funciones de figura que tengan definicion img, ya que es mejor pasar el bitmap como argumento y poner la funcion como void
- * 
- */

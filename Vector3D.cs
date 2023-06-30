@@ -20,15 +20,23 @@ namespace CC
             ax = x + 0.55 * y * Math.Cos(0.8);
             ay = 0.55 * y * Math.Sin(0.8) + z;
         }
-        public new void Encender(Bitmap bmp, Color color)
+        int dubX, dubY;
+        public new Bitmap Encender(Color color)
         {
             double ax, ay;
-            int Sx , Sy;
+            int sx , sy;
             Axonometria(X0,Y0,Z0, out ax, out ay);
-            Geometria.Pantalla(ax, ay, out Sx, out Sy);
-            if(Sx >= 0 && Sx < 700 && Sy >= 0 && Sy < 540)
-                bmp.SetPixel(Sx, Sy, color);
-                //Pixel.Encender(bmp,Sx,Sy,color);
+            Geometria.Pantalla(ax, ay, out sx, out sy);
+            if(sx >= 0 && sx < 700 && sy >= 0 && sy < 540)
+            {
+                Bmp.SetPixel(sx, sy, color);
+                if(!(dubX == sx && dubY == sy))
+                {
+                    dubX = sx;
+                    dubY = sy;
+                }
+            }
+            return Bmp;
         }
     }
 }
