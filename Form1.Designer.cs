@@ -83,6 +83,8 @@ namespace CC
             this.ItemAnimacionEjemplo4 = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimacionEjemplo5 = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.animación3DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ItemAnimationDiagonal = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -213,7 +215,8 @@ namespace CC
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem,
             this.verToolStripMenuItem,
-            this.animaciónToolStripMenuItem});
+            this.animaciónToolStripMenuItem,
+            this.animación3DToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(975, 24);
@@ -251,83 +254,83 @@ namespace CC
             this.ItemFiguraInterpolacion,
             this.ItemFiguraParabola});
             this.figurasToolStripMenuItem.Name = "figurasToolStripMenuItem";
-            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.figurasToolStripMenuItem.Text = "Figuras";
             // 
             // ItemFiguraPixelRandom
             // 
             this.ItemFiguraPixelRandom.Name = "ItemFiguraPixelRandom";
-            this.ItemFiguraPixelRandom.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraPixelRandom.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraPixelRandom.Text = "Pixel Random";
             this.ItemFiguraPixelRandom.Click += new System.EventHandler(this.ItemFiguraPixelRandom_Click);
             // 
             // ItemFiguraVector
             // 
             this.ItemFiguraVector.Name = "ItemFiguraVector";
-            this.ItemFiguraVector.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraVector.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraVector.Text = "Vector";
             this.ItemFiguraVector.Click += new System.EventHandler(this.ItemFiguraVector_Click);
             // 
             // ItemFiguraSegmento
             // 
             this.ItemFiguraSegmento.Name = "ItemFiguraSegmento";
-            this.ItemFiguraSegmento.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraSegmento.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraSegmento.Text = "Segmento";
             this.ItemFiguraSegmento.Click += new System.EventHandler(this.ItemFiguraSegmento_Click);
             // 
             // ItemFiguraCirculo
             // 
             this.ItemFiguraCirculo.Name = "ItemFiguraCirculo";
-            this.ItemFiguraCirculo.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraCirculo.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraCirculo.Text = "Círculo";
             this.ItemFiguraCirculo.Click += new System.EventHandler(this.ItemFiguraCirculo_Click);
             // 
             // ItemFiguraConcentrica
             // 
             this.ItemFiguraConcentrica.Name = "ItemFiguraConcentrica";
-            this.ItemFiguraConcentrica.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraConcentrica.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraConcentrica.Text = "C. Concentricas";
             this.ItemFiguraConcentrica.Click += new System.EventHandler(this.ItemFiguraConcentrica_Click);
             // 
             // ItemFiguraLazo
             // 
             this.ItemFiguraLazo.Name = "ItemFiguraLazo";
-            this.ItemFiguraLazo.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraLazo.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraLazo.Text = "Lazo";
             this.ItemFiguraLazo.Click += new System.EventHandler(this.ItemFiguraLazo_Click);
             // 
             // ItemFiguraEspiral
             // 
             this.ItemFiguraEspiral.Name = "ItemFiguraEspiral";
-            this.ItemFiguraEspiral.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraEspiral.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraEspiral.Text = "Espiral";
             this.ItemFiguraEspiral.Click += new System.EventHandler(this.ItemFiguraEspiral_Click);
             // 
             // ItemFiguraTaylor
             // 
             this.ItemFiguraTaylor.Name = "ItemFiguraTaylor";
-            this.ItemFiguraTaylor.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraTaylor.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraTaylor.Text = "Taylor";
             this.ItemFiguraTaylor.Click += new System.EventHandler(this.ItemFiguraTaylor_Click);
             // 
             // ItemFiguraLagrange
             // 
             this.ItemFiguraLagrange.Name = "ItemFiguraLagrange";
-            this.ItemFiguraLagrange.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraLagrange.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraLagrange.Text = "Lagrange";
             this.ItemFiguraLagrange.Click += new System.EventHandler(this.ItemFiguraLagrange_Click);
             // 
             // ItemFiguraInterpolacion
             // 
             this.ItemFiguraInterpolacion.Name = "ItemFiguraInterpolacion";
-            this.ItemFiguraInterpolacion.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraInterpolacion.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraInterpolacion.Text = "Interpolacion";
             this.ItemFiguraInterpolacion.Click += new System.EventHandler(this.ItemFiguraInterpolacion_Click);
             // 
             // ItemFiguraParabola
             // 
             this.ItemFiguraParabola.Name = "ItemFiguraParabola";
-            this.ItemFiguraParabola.Size = new System.Drawing.Size(157, 22);
+            this.ItemFiguraParabola.Size = new System.Drawing.Size(180, 22);
             this.ItemFiguraParabola.Text = "Parábola";
             this.ItemFiguraParabola.Click += new System.EventHandler(this.ItemFiguraParabola_Click);
             // 
@@ -348,7 +351,7 @@ namespace CC
             this.ItemTexturaCesped,
             this.ItemTexturaPiedra});
             this.barridoToolStripMenuItem.Name = "barridoToolStripMenuItem";
-            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.barridoToolStripMenuItem.Text = "Textura";
             // 
             // ItemTexturaUniColor
@@ -448,7 +451,7 @@ namespace CC
             this.Item3DCirculo,
             this.Item3DEspiral});
             this.figuras3DToolStripMenuItem.Name = "figuras3DToolStripMenuItem";
-            this.figuras3DToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.figuras3DToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.figuras3DToolStripMenuItem.Text = "Figuras 3D";
             // 
             // Item3DCirculo
@@ -472,7 +475,8 @@ namespace CC
             this.ItemAnimacionEjemplo2,
             this.ItemAnimacionEjemplo3,
             this.ItemAnimacionEjemplo4,
-            this.ItemAnimacionEjemplo5});
+            this.ItemAnimacionEjemplo5,
+            this.ItemAnimationDiagonal});
             this.animaciónToolStripMenuItem.Name = "animaciónToolStripMenuItem";
             this.animaciónToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
             this.animaciónToolStripMenuItem.Text = "Animación";
@@ -480,37 +484,50 @@ namespace CC
             // ItemAnimacionEjemplo1
             // 
             this.ItemAnimacionEjemplo1.Name = "ItemAnimacionEjemplo1";
-            this.ItemAnimacionEjemplo1.Size = new System.Drawing.Size(126, 22);
+            this.ItemAnimacionEjemplo1.Size = new System.Drawing.Size(180, 22);
             this.ItemAnimacionEjemplo1.Text = "Ejemplo 1";
             this.ItemAnimacionEjemplo1.Click += new System.EventHandler(this.ItemAnimacionEjemplo1_Click);
             // 
             // ItemAnimacionEjemplo2
             // 
             this.ItemAnimacionEjemplo2.Name = "ItemAnimacionEjemplo2";
-            this.ItemAnimacionEjemplo2.Size = new System.Drawing.Size(126, 22);
+            this.ItemAnimacionEjemplo2.Size = new System.Drawing.Size(180, 22);
             this.ItemAnimacionEjemplo2.Text = "Ejemplo 2";
             this.ItemAnimacionEjemplo2.Click += new System.EventHandler(this.ItemAnimacionEjemplo2_Click);
             // 
             // ItemAnimacionEjemplo3
             // 
             this.ItemAnimacionEjemplo3.Name = "ItemAnimacionEjemplo3";
-            this.ItemAnimacionEjemplo3.Size = new System.Drawing.Size(126, 22);
+            this.ItemAnimacionEjemplo3.Size = new System.Drawing.Size(180, 22);
             this.ItemAnimacionEjemplo3.Text = "Ejemplo 3";
             this.ItemAnimacionEjemplo3.Click += new System.EventHandler(this.ItemAnimacionEjemplo3_Click);
             // 
             // ItemAnimacionEjemplo4
             // 
             this.ItemAnimacionEjemplo4.Name = "ItemAnimacionEjemplo4";
-            this.ItemAnimacionEjemplo4.Size = new System.Drawing.Size(126, 22);
+            this.ItemAnimacionEjemplo4.Size = new System.Drawing.Size(180, 22);
             this.ItemAnimacionEjemplo4.Text = "Ejemplo 4";
             this.ItemAnimacionEjemplo4.Click += new System.EventHandler(this.ItemAnimacionEjemplo4_Click);
             // 
             // ItemAnimacionEjemplo5
             // 
             this.ItemAnimacionEjemplo5.Name = "ItemAnimacionEjemplo5";
-            this.ItemAnimacionEjemplo5.Size = new System.Drawing.Size(126, 22);
+            this.ItemAnimacionEjemplo5.Size = new System.Drawing.Size(180, 22);
             this.ItemAnimacionEjemplo5.Text = "Ejemplo 5";
             this.ItemAnimacionEjemplo5.Click += new System.EventHandler(this.ItemAnimacionEjemplo5_Click);
+            // 
+            // animación3DToolStripMenuItem
+            // 
+            this.animación3DToolStripMenuItem.Name = "animación3DToolStripMenuItem";
+            this.animación3DToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.animación3DToolStripMenuItem.Text = "Animación 3D";
+            // 
+            // ItemAnimationDiagonal
+            // 
+            this.ItemAnimationDiagonal.Name = "ItemAnimationDiagonal";
+            this.ItemAnimationDiagonal.Size = new System.Drawing.Size(180, 22);
+            this.ItemAnimationDiagonal.Text = "Diagonal";
+            this.ItemAnimationDiagonal.Click += new System.EventHandler(this.ItemAnimationDiagonal_Click);
             // 
             // Form1
             // 
@@ -592,6 +609,8 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem figuras3DToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Item3DCirculo;
         private System.Windows.Forms.ToolStripMenuItem Item3DEspiral;
+        private System.Windows.Forms.ToolStripMenuItem ItemAnimationDiagonal;
+        private System.Windows.Forms.ToolStripMenuItem animación3DToolStripMenuItem;
     }
 }
 

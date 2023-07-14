@@ -52,6 +52,9 @@ namespace CC
                 case "salto3":
                     this.timer.Tick += Timer_Salto3;
                     break;
+                case "onda":
+                    this.timer.Tick += Timer_Onda;
+                    break;
                 default: 
                     break;
             }
@@ -67,45 +70,24 @@ namespace CC
             this.pictureBox.Image.Dispose();
             this.pictureBox.Image = null;
         }
-
-        //private int circleX = 0;
-        //private void Timer_TickEjemplo(object sender, EventArgs e)
-        //{
-        //    using (Graphics graphics = Graphics.FromImage(this.bitmap))
-        //    {
-        //        // Borra el Bitmap.
-        //        graphics.Clear(Color.White);
-        //        // Dibuja un círculo en la posición x actual.
-        //        graphics.FillEllipse(Brushes.Red, this.circleX, 50, 50, 50);
-        //    }
-        //    // Mueve la posición x del círculo.
-        //    this.circleX += 10;
-        //    // Si el círculo llega al final del PictureBox, reinicia su posición x.
-        //    if (this.circleX > this.pictureBox.Width)
-        //        this.circleX = 0;
-        //    // Asigna el Bitmap a la propiedad Image del PictureBox.
-        //    this.pictureBox.Image = this.bitmap;
-        //}
-
         double inc = 0;
-        //double t = 0.25;
         double dx = 0.2;
         private void Timer_Ejemplo1(object sender, EventArgs e)
         {
             this.bitmap = new Figura().Circulo(Color.Red, 2, inc, inc).Bmp;
-            this.inc += x;
+            this.inc += dx;
             this.pictureBox.Image = this.bitmap;
             if (inc >= 6)
-                Stop();
-            
+                this.timer.Stop();
+
         }
         double t = -7;
         private void Timer_Ejemplo2(object sender, EventArgs e)
         {
             this.t += dx;
             this.pictureBox.Image = new Figura().Circulo(Color.Red, 1, t, 0).Bmp;
-            if ( t >= 7) 
-                Stop();
+            if ( t >= 7)
+                this.timer.Stop();
         }
         
         private void Timer_Ejemplo3(object sender, EventArgs e)
@@ -208,6 +190,20 @@ namespace CC
             if (t >= 16)
                 this.timer.Stop();
 
+        }
+        double t0 = 0;
+        public void Timer_Onda(object sender, EventArgs e)
+        {
+
+            //this.bitmap = new Onda().GrafOnda(t0).Bmp;
+            //this.pictureBox.Image = this.bitmap;
+            //this.bitmap = new Onda3D().Onda2(t0).Bmp;
+            this.bitmap?.Dispose();
+            this.bitmap = new Onda3D().Interferencia2(t0).Bmp;
+            this.pictureBox.Image = this.bitmap;
+            t0 += 0.01;
+            if(t0 > 7)
+                this.timer.Stop();
         }
     }
 }

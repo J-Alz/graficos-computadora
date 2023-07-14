@@ -9,6 +9,19 @@ namespace CC
 {
     internal class Paleta
     {
+        public static Color[] paletaOnda()
+        {
+            Color[] colores = new Color[15];
+            for(int i = 0; i < 15; i++)
+            {
+                colores[i] = Color.FromArgb(0, 17 * i, (int)(13.67 * i) + 50);
+            }
+            return colores;
+        }
+        public static Color[] paletaOndaT =
+        {
+
+        };
         public static Color[] paleta0 = 
         { 
             Color.Black,

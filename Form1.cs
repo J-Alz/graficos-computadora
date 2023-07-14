@@ -295,18 +295,6 @@ namespace CC
 
         private void ItemAnimacionEjemplo1_Click(object sender, EventArgs e)
         {
-            //Segmento seg = new Segmento(2, 5);
-            //layers.AddImage(seg.Encender(bmp, Color.Green), "Segmento");
-            //bmp = new Bitmap(700, 540);
-            //layers.AddImage(Figura.Circle(Color.Red, 2), "Circulo");
-            //bmp = new Bitmap(700, 540);
-            //layers.AddImage(Figura.Lazo(Color.Blue), "Lazo");
-            //RefreshImage();
-
-            //Thread.Sleep(2000);
-
-            //layers.removeImage(1);
-            //RefreshImage();
             this.animation = new Animation(ventana, "Ejemplo1");
             this.animation.Start();
         }
@@ -351,13 +339,30 @@ namespace CC
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
-            lista.Add(new Onda().GrafOnda());
-            RefreshImage();
+            //lista.Add(new Onda().GrafOnda());
+            //lista.Add(new Onda3D().Onda2());
+
+            //lista.Add(new Onda3D().Interferencia2(0.5));
+            //RefreshImage();
+            Anima anima;
+            anima = new Anima(ventana);
+            anima.Start(anima.Timer);
         }
+
+        private void ItemAnimationDiagonal_Click(object sender, EventArgs e)
+        {
+            this.animation = new Animation(ventana, "Ejemplo1");
+            this.animation.Start();
+        }
+
+        Anima anima;
         private void btnAnimacion_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Examen2");
-            this.animation.Start();
+            //this.animation = new Animation(ventana, "onda");
+            //this.animation.Start();
+            Anima anima;
+            anima = new Anima(ventana);
+            anima.Start(anima.Timer2);
         }
     }
 }
