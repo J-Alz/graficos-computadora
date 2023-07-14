@@ -182,6 +182,18 @@ namespace CC
             RefreshImage();
         }
 
+        private void Item3DCirculo_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Figura3D().Circulo());
+            RefreshImage();
+        }
+
+        private void Item3DEspiral_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Figura3D().Espiral());
+            RefreshImage();
+        }
+
         #endregion
 
         #region TEXTURA
@@ -292,50 +304,31 @@ namespace CC
         #endregion
 
         #region ANIMACIÓN
-
-        private void ItemAnimacionEjemplo1_Click(object sender, EventArgs e)
+        private void ItemAnimationDiagonal_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Ejemplo1");
-            this.animation.Start();
+            animation = new Animation(ventana);
+            animation.Start(animation.Diagonal, 0);
         }
 
-        private void ItemAnimacionEjemplo2_Click(object sender, EventArgs e)
+        private void ItemAnimationLinealX_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Ejemplo2");
-            this.animation.Start();
+            this.animation = new Animation(ventana);
+            this.animation.Start(animation.Lineal_X, -7);
         }
 
-        private void ItemAnimacionEjemplo3_Click(object sender, EventArgs e)
+        private void ItemAnimationParabola_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Ejemplo3");
-            this.animation.Start();
+            animation = new Animation(ventana);
+            animation.Start(animation.Parabola, -7);
         }
 
-        private void ItemAnimacionEjemplo4_Click(object sender, EventArgs e)
+        private void ItemAnimationEspiral_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Ejemplo4");
-            this.animation.Start();
+            animation = new Animation(ventana);
+            animation.Start(animation.Espiral, 0);
         }
 
-        private void ItemAnimacionEjemplo5_Click(object sender, EventArgs e)
-        {
-            this.animation = new Animation(ventana, "Ejemplo5");
-            this.animation.Start();
-        }
-        
         #endregion
-
-        private void Item3DCirculo_Click(object sender, EventArgs e)
-        {
-            lista.Add(new Figura3D().Circulo());
-            RefreshImage();
-        }
-
-        private void Item3DEspiral_Click(object sender, EventArgs e)
-        {
-            lista.Add(new Figura3D().Espiral());
-            RefreshImage();
-        }
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
@@ -344,25 +337,18 @@ namespace CC
 
             //lista.Add(new Onda3D().Interferencia2(0.5));
             //RefreshImage();
-            Anima anima;
-            anima = new Anima(ventana);
-            anima.Start(anima.Timer);
         }
 
-        private void ItemAnimationDiagonal_Click(object sender, EventArgs e)
+        private void ItemAnimationCarretera_Click(object sender, EventArgs e)
         {
-            this.animation = new Animation(ventana, "Ejemplo1");
-            this.animation.Start();
+            animation = new Animation(ventana);
+            animation.Start(animation.Timer_Examen2, -10);
         }
 
-        Anima anima;
         private void btnAnimacion_Click(object sender, EventArgs e)
         {
-            //this.animation = new Animation(ventana, "onda");
-            //this.animation.Start();
-            Anima anima;
-            anima = new Anima(ventana);
-            anima.Start(anima.Timer2);
+            animation = new Animation(ventana);
+            animation.Start(animation.Timer_Onda, 0);
         }
     }
 }

@@ -46,9 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Anima.cs" />
     <Compile Include="Animation.cs" />
-    <Compile Include="AnimationOnda3D.cs" />
     <Compile Include="Figura3D.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Form1.cs">
