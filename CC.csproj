@@ -57,10 +57,13 @@
     </Compile>
     <Compile Include="Geometria.cs" />
     <Compile Include="Onda.cs" />
+    <Compile Include="Onda1D.cs" />
     <Compile Include="Onda3D.cs" />
     <Compile Include="Paleta.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflexion.cs" />
+    <Compile Include="Segmento.cs" />
     <Compile Include="Textura.cs" />
     <Compile Include="Vector.cs" />
     <Compile Include="Vector3D.cs" />

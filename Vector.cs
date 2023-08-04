@@ -76,6 +76,7 @@ namespace CC
 
         //static double cont1 = 0;
         int dubX, dubY;
+        
         public Bitmap Encender(Color color)
         {
             int sx;

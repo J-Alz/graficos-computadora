@@ -18,10 +18,6 @@ namespace CC
             }
             return colores;
         }
-        public static Color[] paletaOndaT =
-        {
-
-        };
         public static Color[] paleta0 = 
         { 
             Color.Black,

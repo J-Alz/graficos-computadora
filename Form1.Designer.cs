@@ -32,6 +32,8 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rtbPaletaOnda = new System.Windows.Forms.RadioButton();
+            this.rbtPaleta0 = new System.Windows.Forms.RadioButton();
             this.btnDibujar = new System.Windows.Forms.Button();
             this.btnAnimacion = new System.Windows.Forms.Button();
             this.lbx = new System.Windows.Forms.ListBox();
@@ -45,37 +47,18 @@ namespace CC
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnDeleteFigure = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.figurasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraPixelRandom = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraVector = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraSegmento = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraCirculo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraConcentrica = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraLazo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraEspiral = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraTaylor = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraLagrange = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraInterpolacion = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemFiguraParabola = new System.Windows.Forms.ToolStripMenuItem();
-            this.barridoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaUniColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaBiColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTextura1Degradado = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTextura2Degradado = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaEjemplo1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaEjemplo2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaInvierno = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaPrimavera = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaVerano = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaOtonno = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaMadera = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaCesped = new System.Windows.Forms.ToolStripMenuItem();
-            this.ItemTexturaPiedra = new System.Windows.Forms.ToolStripMenuItem();
-            this.figuras3DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Item3DCirculo = new System.Windows.Forms.ToolStripMenuItem();
-            this.Item3DEspiral = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraPixel = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraVector = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraSegmento = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraCirculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraConcentrica = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraLazo = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraEspiral = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraTaylor = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraLagrange = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraInterpolacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.FiguraParabola = new System.Windows.Forms.ToolStripMenuItem();
             this.animaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimationDiagonal = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimationLinealX = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,7 +66,36 @@ namespace CC
             this.ItemAnimationParabola = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimationEspiral = new System.Windows.Forms.ToolStripMenuItem();
             this.ItemAnimationCarretera = new System.Windows.Forms.ToolStripMenuItem();
-            this.animación3DToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.texturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaUnicolor = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaBicolor = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaDegradado1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaDegradado2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tapeteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tapete1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Tapete2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.TapeteInvierno = new System.Windows.Forms.ToolStripMenuItem();
+            this.TapeteVerano = new System.Windows.Forms.ToolStripMenuItem();
+            this.TapeteOtonno = new System.Windows.Forms.ToolStripMenuItem();
+            this.TapetePrimavera = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaMadera = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaCesped = new System.Windows.Forms.ToolStripMenuItem();
+            this.TexturaPiedra = new System.Windows.Forms.ToolStripMenuItem();
+            this.figuras3DToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Figura3DCirculo = new System.Windows.Forms.ToolStripMenuItem();
+            this.Figura3DEspiral = new System.Windows.Forms.ToolStripMenuItem();
+            this.animacionOnda = new System.Windows.Forms.ToolStripMenuItem();
+            this.AniOnda = new System.Windows.Forms.ToolStripMenuItem();
+            this.AniOnda3D = new System.Windows.Forms.ToolStripMenuItem();
+            this.OndaInterferencia3D = new System.Windows.Forms.ToolStripMenuItem();
+            this.Onda = new System.Windows.Forms.ToolStripMenuItem();
+            this.ondaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.OndaOrigen = new System.Windows.Forms.ToolStripMenuItem();
+            this.OndaInterferencia2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.OndaInterferencia3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.Onda3D = new System.Windows.Forms.ToolStripMenuItem();
+            this.Onda2SinInter = new System.Windows.Forms.ToolStripMenuItem();
+            this.Onda2ConInter = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
@@ -94,18 +106,44 @@ namespace CC
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.rtbPaletaOnda);
+            this.groupBox1.Controls.Add(this.rbtPaleta0);
             this.groupBox1.Controls.Add(this.btnDibujar);
             this.groupBox1.Controls.Add(this.btnAnimacion);
             this.groupBox1.Location = new System.Drawing.Point(12, 34);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 338);
+            this.groupBox1.Size = new System.Drawing.Size(200, 316);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
             // 
+            // rtbPaletaOnda
+            // 
+            this.rtbPaletaOnda.AutoSize = true;
+            this.rtbPaletaOnda.Location = new System.Drawing.Point(109, 40);
+            this.rtbPaletaOnda.Name = "rtbPaletaOnda";
+            this.rtbPaletaOnda.Size = new System.Drawing.Size(84, 17);
+            this.rtbPaletaOnda.TabIndex = 46;
+            this.rtbPaletaOnda.TabStop = true;
+            this.rtbPaletaOnda.Text = "Paleta Onda";
+            this.rtbPaletaOnda.UseVisualStyleBackColor = true;
+            this.rtbPaletaOnda.CheckedChanged += new System.EventHandler(this.rtbPaletaOnda_CheckedChanged);
+            // 
+            // rbtPaleta0
+            // 
+            this.rbtPaleta0.AutoSize = true;
+            this.rbtPaleta0.Location = new System.Drawing.Point(109, 19);
+            this.rbtPaleta0.Name = "rbtPaleta0";
+            this.rbtPaleta0.Size = new System.Drawing.Size(64, 17);
+            this.rbtPaleta0.TabIndex = 45;
+            this.rbtPaleta0.TabStop = true;
+            this.rbtPaleta0.Text = "Paleta 0";
+            this.rbtPaleta0.UseVisualStyleBackColor = true;
+            this.rbtPaleta0.CheckedChanged += new System.EventHandler(this.rbtPaleta0_CheckedChanged);
+            // 
             // btnDibujar
             // 
-            this.btnDibujar.Location = new System.Drawing.Point(51, 76);
+            this.btnDibujar.Location = new System.Drawing.Point(59, 113);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(75, 23);
             this.btnDibujar.TabIndex = 32;
@@ -115,7 +153,7 @@ namespace CC
             // 
             // btnAnimacion
             // 
-            this.btnAnimacion.Location = new System.Drawing.Point(51, 137);
+            this.btnAnimacion.Location = new System.Drawing.Point(59, 184);
             this.btnAnimacion.Name = "btnAnimacion";
             this.btnAnimacion.Size = new System.Drawing.Size(75, 23);
             this.btnAnimacion.TabIndex = 29;
@@ -128,7 +166,7 @@ namespace CC
             this.lbx.FormattingEnabled = true;
             this.lbx.Location = new System.Drawing.Point(9, 19);
             this.lbx.Name = "lbx";
-            this.lbx.Size = new System.Drawing.Size(138, 134);
+            this.lbx.Size = new System.Drawing.Size(138, 186);
             this.lbx.TabIndex = 26;
             this.lbx.SelectedIndexChanged += new System.EventHandler(this.lbx_SelectedIndexChanged);
             // 
@@ -193,9 +231,9 @@ namespace CC
             // 
             this.groupBox4.Controls.Add(this.btnDeleteFigure);
             this.groupBox4.Controls.Add(this.lbx);
-            this.groupBox4.Location = new System.Drawing.Point(9, 378);
+            this.groupBox4.Location = new System.Drawing.Point(9, 356);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 196);
+            this.groupBox4.Size = new System.Drawing.Size(200, 218);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Lista de elementos";
@@ -203,7 +241,7 @@ namespace CC
             // btnDeleteFigure
             // 
             this.btnDeleteFigure.Image = global::CC.Properties.Resources.trash;
-            this.btnDeleteFigure.Location = new System.Drawing.Point(160, 19);
+            this.btnDeleteFigure.Location = new System.Drawing.Point(153, 36);
             this.btnDeleteFigure.Name = "btnDeleteFigure";
             this.btnDeleteFigure.Size = new System.Drawing.Size(30, 30);
             this.btnDeleteFigure.TabIndex = 5;
@@ -213,260 +251,112 @@ namespace CC
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
             this.verToolStripMenuItem,
             this.animaciónToolStripMenuItem,
-            this.animación3DToolStripMenuItem});
+            this.texturasToolStripMenuItem,
+            this.figuras3DToolStripMenuItem1,
+            this.animacionOnda,
+            this.Onda});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(975, 24);
             this.menuStrip1.TabIndex = 5;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.figurasToolStripMenuItem,
-            this.barridoToolStripMenuItem,
-            this.figuras3DToolStripMenuItem});
+            this.FiguraPixel,
+            this.FiguraVector,
+            this.FiguraSegmento,
+            this.FiguraCirculo,
+            this.FiguraConcentrica,
+            this.FiguraLazo,
+            this.FiguraEspiral,
+            this.FiguraTaylor,
+            this.FiguraLagrange,
+            this.FiguraInterpolacion,
+            this.FiguraParabola});
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.verToolStripMenuItem.Text = "Dibujar";
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.verToolStripMenuItem.Text = "Figuras 2D";
             // 
-            // figurasToolStripMenuItem
+            // FiguraPixel
             // 
-            this.figurasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ItemFiguraPixelRandom,
-            this.ItemFiguraVector,
-            this.ItemFiguraSegmento,
-            this.ItemFiguraCirculo,
-            this.ItemFiguraConcentrica,
-            this.ItemFiguraLazo,
-            this.ItemFiguraEspiral,
-            this.ItemFiguraTaylor,
-            this.ItemFiguraLagrange,
-            this.ItemFiguraInterpolacion,
-            this.ItemFiguraParabola});
-            this.figurasToolStripMenuItem.Name = "figurasToolStripMenuItem";
-            this.figurasToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.figurasToolStripMenuItem.Text = "Figuras";
+            this.FiguraPixel.Name = "FiguraPixel";
+            this.FiguraPixel.Size = new System.Drawing.Size(147, 22);
+            this.FiguraPixel.Text = "Pixel Random";
+            this.FiguraPixel.Click += new System.EventHandler(this.FiguraPixel_Click);
             // 
-            // ItemFiguraPixelRandom
+            // FiguraVector
             // 
-            this.ItemFiguraPixelRandom.Name = "ItemFiguraPixelRandom";
-            this.ItemFiguraPixelRandom.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraPixelRandom.Text = "Pixel Random";
-            this.ItemFiguraPixelRandom.Click += new System.EventHandler(this.ItemFiguraPixelRandom_Click);
+            this.FiguraVector.Name = "FiguraVector";
+            this.FiguraVector.Size = new System.Drawing.Size(147, 22);
+            this.FiguraVector.Text = "Vector";
+            this.FiguraVector.Click += new System.EventHandler(this.FiguraVector_Click);
             // 
-            // ItemFiguraVector
+            // FiguraSegmento
             // 
-            this.ItemFiguraVector.Name = "ItemFiguraVector";
-            this.ItemFiguraVector.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraVector.Text = "Vector";
-            this.ItemFiguraVector.Click += new System.EventHandler(this.ItemFiguraVector_Click);
+            this.FiguraSegmento.Name = "FiguraSegmento";
+            this.FiguraSegmento.Size = new System.Drawing.Size(147, 22);
+            this.FiguraSegmento.Text = "Segmento";
+            this.FiguraSegmento.Click += new System.EventHandler(this.FiguraSegmento_Click);
             // 
-            // ItemFiguraSegmento
+            // FiguraCirculo
             // 
-            this.ItemFiguraSegmento.Name = "ItemFiguraSegmento";
-            this.ItemFiguraSegmento.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraSegmento.Text = "Segmento";
-            this.ItemFiguraSegmento.Click += new System.EventHandler(this.ItemFiguraSegmento_Click);
+            this.FiguraCirculo.Name = "FiguraCirculo";
+            this.FiguraCirculo.Size = new System.Drawing.Size(147, 22);
+            this.FiguraCirculo.Text = "Círculo";
+            this.FiguraCirculo.Click += new System.EventHandler(this.FiguraCirculo_Click);
             // 
-            // ItemFiguraCirculo
+            // FiguraConcentrica
             // 
-            this.ItemFiguraCirculo.Name = "ItemFiguraCirculo";
-            this.ItemFiguraCirculo.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraCirculo.Text = "Círculo";
-            this.ItemFiguraCirculo.Click += new System.EventHandler(this.ItemFiguraCirculo_Click);
+            this.FiguraConcentrica.Name = "FiguraConcentrica";
+            this.FiguraConcentrica.Size = new System.Drawing.Size(147, 22);
+            this.FiguraConcentrica.Text = "Concéntricas";
+            this.FiguraConcentrica.Click += new System.EventHandler(this.FiguraConcentrica_Click);
             // 
-            // ItemFiguraConcentrica
+            // FiguraLazo
             // 
-            this.ItemFiguraConcentrica.Name = "ItemFiguraConcentrica";
-            this.ItemFiguraConcentrica.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraConcentrica.Text = "C. Concentricas";
-            this.ItemFiguraConcentrica.Click += new System.EventHandler(this.ItemFiguraConcentrica_Click);
+            this.FiguraLazo.Name = "FiguraLazo";
+            this.FiguraLazo.Size = new System.Drawing.Size(147, 22);
+            this.FiguraLazo.Text = "Lazo";
+            this.FiguraLazo.Click += new System.EventHandler(this.FiguraLazo_Click);
             // 
-            // ItemFiguraLazo
+            // FiguraEspiral
             // 
-            this.ItemFiguraLazo.Name = "ItemFiguraLazo";
-            this.ItemFiguraLazo.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraLazo.Text = "Lazo";
-            this.ItemFiguraLazo.Click += new System.EventHandler(this.ItemFiguraLazo_Click);
+            this.FiguraEspiral.Name = "FiguraEspiral";
+            this.FiguraEspiral.Size = new System.Drawing.Size(147, 22);
+            this.FiguraEspiral.Text = "Espiral";
+            this.FiguraEspiral.Click += new System.EventHandler(this.FiguraEspiral_Click);
             // 
-            // ItemFiguraEspiral
+            // FiguraTaylor
             // 
-            this.ItemFiguraEspiral.Name = "ItemFiguraEspiral";
-            this.ItemFiguraEspiral.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraEspiral.Text = "Espiral";
-            this.ItemFiguraEspiral.Click += new System.EventHandler(this.ItemFiguraEspiral_Click);
+            this.FiguraTaylor.Name = "FiguraTaylor";
+            this.FiguraTaylor.Size = new System.Drawing.Size(147, 22);
+            this.FiguraTaylor.Text = "Taylor";
+            this.FiguraTaylor.Click += new System.EventHandler(this.FiguraTaylor_Click);
             // 
-            // ItemFiguraTaylor
+            // FiguraLagrange
             // 
-            this.ItemFiguraTaylor.Name = "ItemFiguraTaylor";
-            this.ItemFiguraTaylor.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraTaylor.Text = "Taylor";
-            this.ItemFiguraTaylor.Click += new System.EventHandler(this.ItemFiguraTaylor_Click);
+            this.FiguraLagrange.Name = "FiguraLagrange";
+            this.FiguraLagrange.Size = new System.Drawing.Size(147, 22);
+            this.FiguraLagrange.Text = "Lagrange";
+            this.FiguraLagrange.Click += new System.EventHandler(this.FiguraLagrange_Click);
             // 
-            // ItemFiguraLagrange
+            // FiguraInterpolacion
             // 
-            this.ItemFiguraLagrange.Name = "ItemFiguraLagrange";
-            this.ItemFiguraLagrange.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraLagrange.Text = "Lagrange";
-            this.ItemFiguraLagrange.Click += new System.EventHandler(this.ItemFiguraLagrange_Click);
+            this.FiguraInterpolacion.Name = "FiguraInterpolacion";
+            this.FiguraInterpolacion.Size = new System.Drawing.Size(147, 22);
+            this.FiguraInterpolacion.Text = "Interpolación";
+            this.FiguraInterpolacion.Click += new System.EventHandler(this.FiguraInterpolacion_Click);
             // 
-            // ItemFiguraInterpolacion
+            // FiguraParabola
             // 
-            this.ItemFiguraInterpolacion.Name = "ItemFiguraInterpolacion";
-            this.ItemFiguraInterpolacion.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraInterpolacion.Text = "Interpolacion";
-            this.ItemFiguraInterpolacion.Click += new System.EventHandler(this.ItemFiguraInterpolacion_Click);
-            // 
-            // ItemFiguraParabola
-            // 
-            this.ItemFiguraParabola.Name = "ItemFiguraParabola";
-            this.ItemFiguraParabola.Size = new System.Drawing.Size(157, 22);
-            this.ItemFiguraParabola.Text = "Parábola";
-            this.ItemFiguraParabola.Click += new System.EventHandler(this.ItemFiguraParabola_Click);
-            // 
-            // barridoToolStripMenuItem
-            // 
-            this.barridoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ItemTexturaUniColor,
-            this.ItemTexturaBiColor,
-            this.ItemTextura1Degradado,
-            this.ItemTextura2Degradado,
-            this.ItemTexturaEjemplo1,
-            this.ItemTexturaEjemplo2,
-            this.ItemTexturaInvierno,
-            this.ItemTexturaPrimavera,
-            this.ItemTexturaVerano,
-            this.ItemTexturaOtonno,
-            this.ItemTexturaMadera,
-            this.ItemTexturaCesped,
-            this.ItemTexturaPiedra});
-            this.barridoToolStripMenuItem.Name = "barridoToolStripMenuItem";
-            this.barridoToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.barridoToolStripMenuItem.Text = "Textura";
-            // 
-            // ItemTexturaUniColor
-            // 
-            this.ItemTexturaUniColor.Name = "ItemTexturaUniColor";
-            this.ItemTexturaUniColor.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaUniColor.Text = "UniColor";
-            this.ItemTexturaUniColor.Click += new System.EventHandler(this.ItemTexturaUniColor_Click);
-            // 
-            // ItemTexturaBiColor
-            // 
-            this.ItemTexturaBiColor.Name = "ItemTexturaBiColor";
-            this.ItemTexturaBiColor.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaBiColor.Text = "Bicolor";
-            this.ItemTexturaBiColor.Click += new System.EventHandler(this.ItemTexturaBiColor_Click);
-            // 
-            // ItemTextura1Degradado
-            // 
-            this.ItemTextura1Degradado.Name = "ItemTextura1Degradado";
-            this.ItemTextura1Degradado.Size = new System.Drawing.Size(163, 22);
-            this.ItemTextura1Degradado.Text = "1º Degradado";
-            this.ItemTextura1Degradado.Click += new System.EventHandler(this.ItemTextura1Degradado_Click);
-            // 
-            // ItemTextura2Degradado
-            // 
-            this.ItemTextura2Degradado.Name = "ItemTextura2Degradado";
-            this.ItemTextura2Degradado.Size = new System.Drawing.Size(163, 22);
-            this.ItemTextura2Degradado.Text = "2º Degradado";
-            this.ItemTextura2Degradado.Click += new System.EventHandler(this.ItemTextura2Degradado_Click);
-            // 
-            // ItemTexturaEjemplo1
-            // 
-            this.ItemTexturaEjemplo1.Name = "ItemTexturaEjemplo1";
-            this.ItemTexturaEjemplo1.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaEjemplo1.Text = "Tapete Ejemplo 1";
-            this.ItemTexturaEjemplo1.Click += new System.EventHandler(this.ItemTexturaEjemplo1_Click);
-            // 
-            // ItemTexturaEjemplo2
-            // 
-            this.ItemTexturaEjemplo2.Name = "ItemTexturaEjemplo2";
-            this.ItemTexturaEjemplo2.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaEjemplo2.Text = "Tapete Ejemplo 2";
-            this.ItemTexturaEjemplo2.Click += new System.EventHandler(this.ItemTexturaEjemplo2_Click);
-            // 
-            // ItemTexturaInvierno
-            // 
-            this.ItemTexturaInvierno.Name = "ItemTexturaInvierno";
-            this.ItemTexturaInvierno.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaInvierno.Text = "T. Invierno";
-            this.ItemTexturaInvierno.Click += new System.EventHandler(this.ItemTexturaInvierno_Click);
-            // 
-            // ItemTexturaPrimavera
-            // 
-            this.ItemTexturaPrimavera.Name = "ItemTexturaPrimavera";
-            this.ItemTexturaPrimavera.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaPrimavera.Text = "T. Primavera";
-            this.ItemTexturaPrimavera.Click += new System.EventHandler(this.ItemTexturaPrimavera_Click);
-            // 
-            // ItemTexturaVerano
-            // 
-            this.ItemTexturaVerano.Name = "ItemTexturaVerano";
-            this.ItemTexturaVerano.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaVerano.Text = "T. Verano";
-            this.ItemTexturaVerano.Click += new System.EventHandler(this.ItemTexturaVerano_Click);
-            // 
-            // ItemTexturaOtonno
-            // 
-            this.ItemTexturaOtonno.Name = "ItemTexturaOtonno";
-            this.ItemTexturaOtonno.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaOtonno.Text = "T. Otoño";
-            this.ItemTexturaOtonno.Click += new System.EventHandler(this.ItemTexturaOtonno_Click);
-            // 
-            // ItemTexturaMadera
-            // 
-            this.ItemTexturaMadera.Name = "ItemTexturaMadera";
-            this.ItemTexturaMadera.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaMadera.Text = "Madera";
-            this.ItemTexturaMadera.Click += new System.EventHandler(this.ItemTexturaMadera_Click);
-            // 
-            // ItemTexturaCesped
-            // 
-            this.ItemTexturaCesped.Name = "ItemTexturaCesped";
-            this.ItemTexturaCesped.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaCesped.Text = "Césped";
-            this.ItemTexturaCesped.Click += new System.EventHandler(this.ItemTexturaCesped_Click);
-            // 
-            // ItemTexturaPiedra
-            // 
-            this.ItemTexturaPiedra.Name = "ItemTexturaPiedra";
-            this.ItemTexturaPiedra.Size = new System.Drawing.Size(163, 22);
-            this.ItemTexturaPiedra.Text = "Piedra";
-            this.ItemTexturaPiedra.Click += new System.EventHandler(this.ItemTexturaPiedra_Click);
-            // 
-            // figuras3DToolStripMenuItem
-            // 
-            this.figuras3DToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Item3DCirculo,
-            this.Item3DEspiral});
-            this.figuras3DToolStripMenuItem.Name = "figuras3DToolStripMenuItem";
-            this.figuras3DToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
-            this.figuras3DToolStripMenuItem.Text = "Figuras 3D";
-            // 
-            // Item3DCirculo
-            // 
-            this.Item3DCirculo.Name = "Item3DCirculo";
-            this.Item3DCirculo.Size = new System.Drawing.Size(112, 22);
-            this.Item3DCirculo.Text = "Círculo";
-            this.Item3DCirculo.Click += new System.EventHandler(this.Item3DCirculo_Click);
-            // 
-            // Item3DEspiral
-            // 
-            this.Item3DEspiral.Name = "Item3DEspiral";
-            this.Item3DEspiral.Size = new System.Drawing.Size(112, 22);
-            this.Item3DEspiral.Text = "Espiral";
-            this.Item3DEspiral.Click += new System.EventHandler(this.Item3DEspiral_Click);
+            this.FiguraParabola.Name = "FiguraParabola";
+            this.FiguraParabola.Size = new System.Drawing.Size(147, 22);
+            this.FiguraParabola.Text = "Parábola";
+            this.FiguraParabola.Click += new System.EventHandler(this.FiguraParabola_Click);
             // 
             // animaciónToolStripMenuItem
             // 
@@ -478,8 +368,8 @@ namespace CC
             this.ItemAnimationEspiral,
             this.ItemAnimationCarretera});
             this.animaciónToolStripMenuItem.Name = "animaciónToolStripMenuItem";
-            this.animaciónToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
-            this.animaciónToolStripMenuItem.Text = "Animación";
+            this.animaciónToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
+            this.animaciónToolStripMenuItem.Text = "Animación 2D";
             // 
             // ItemAnimationDiagonal
             // 
@@ -522,11 +412,241 @@ namespace CC
             this.ItemAnimationCarretera.Text = "Carretera (No funca)";
             this.ItemAnimationCarretera.Click += new System.EventHandler(this.ItemAnimationCarretera_Click);
             // 
-            // animación3DToolStripMenuItem
+            // texturasToolStripMenuItem
             // 
-            this.animación3DToolStripMenuItem.Name = "animación3DToolStripMenuItem";
-            this.animación3DToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
-            this.animación3DToolStripMenuItem.Text = "Animación 3D";
+            this.texturasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TexturaUnicolor,
+            this.TexturaBicolor,
+            this.TexturaDegradado1,
+            this.TexturaDegradado2,
+            this.tapeteToolStripMenuItem,
+            this.TexturaMadera,
+            this.TexturaCesped,
+            this.TexturaPiedra});
+            this.texturasToolStripMenuItem.Name = "texturasToolStripMenuItem";
+            this.texturasToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.texturasToolStripMenuItem.Text = "Texturas";
+            // 
+            // TexturaUnicolor
+            // 
+            this.TexturaUnicolor.Name = "TexturaUnicolor";
+            this.TexturaUnicolor.Size = new System.Drawing.Size(146, 22);
+            this.TexturaUnicolor.Text = "UniColor";
+            this.TexturaUnicolor.Click += new System.EventHandler(this.TexturaUnicolor_Click);
+            // 
+            // TexturaBicolor
+            // 
+            this.TexturaBicolor.Name = "TexturaBicolor";
+            this.TexturaBicolor.Size = new System.Drawing.Size(146, 22);
+            this.TexturaBicolor.Text = "Bicolor";
+            this.TexturaBicolor.Click += new System.EventHandler(this.TexturaBicolor_Click);
+            // 
+            // TexturaDegradado1
+            // 
+            this.TexturaDegradado1.Name = "TexturaDegradado1";
+            this.TexturaDegradado1.Size = new System.Drawing.Size(146, 22);
+            this.TexturaDegradado1.Text = "1º Degradado";
+            this.TexturaDegradado1.Click += new System.EventHandler(this.TexturaDegradado1_Click);
+            // 
+            // TexturaDegradado2
+            // 
+            this.TexturaDegradado2.Name = "TexturaDegradado2";
+            this.TexturaDegradado2.Size = new System.Drawing.Size(146, 22);
+            this.TexturaDegradado2.Text = "2º Degradado";
+            this.TexturaDegradado2.Click += new System.EventHandler(this.TexturaDegradado2_Click);
+            // 
+            // tapeteToolStripMenuItem
+            // 
+            this.tapeteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Tapete1,
+            this.Tapete2,
+            this.TapeteInvierno,
+            this.TapeteVerano,
+            this.TapeteOtonno,
+            this.TapetePrimavera});
+            this.tapeteToolStripMenuItem.Name = "tapeteToolStripMenuItem";
+            this.tapeteToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.tapeteToolStripMenuItem.Text = "Tapete";
+            // 
+            // Tapete1
+            // 
+            this.Tapete1.Name = "Tapete1";
+            this.Tapete1.Size = new System.Drawing.Size(127, 22);
+            this.Tapete1.Text = "Ejemplo 1";
+            this.Tapete1.Click += new System.EventHandler(this.Tapete1_Click);
+            // 
+            // Tapete2
+            // 
+            this.Tapete2.Name = "Tapete2";
+            this.Tapete2.Size = new System.Drawing.Size(127, 22);
+            this.Tapete2.Text = "Ejemplo 2";
+            this.Tapete2.Click += new System.EventHandler(this.Tapete2_Click);
+            // 
+            // TapeteInvierno
+            // 
+            this.TapeteInvierno.Name = "TapeteInvierno";
+            this.TapeteInvierno.Size = new System.Drawing.Size(127, 22);
+            this.TapeteInvierno.Text = "Invierno";
+            this.TapeteInvierno.Click += new System.EventHandler(this.TapeteInvierno_Click);
+            // 
+            // TapeteVerano
+            // 
+            this.TapeteVerano.Name = "TapeteVerano";
+            this.TapeteVerano.Size = new System.Drawing.Size(127, 22);
+            this.TapeteVerano.Text = "Verano";
+            this.TapeteVerano.Click += new System.EventHandler(this.TapeteVerano_Click);
+            // 
+            // TapeteOtonno
+            // 
+            this.TapeteOtonno.Name = "TapeteOtonno";
+            this.TapeteOtonno.Size = new System.Drawing.Size(127, 22);
+            this.TapeteOtonno.Text = "Otoño";
+            this.TapeteOtonno.Click += new System.EventHandler(this.TapeteOtonno_Click);
+            // 
+            // TapetePrimavera
+            // 
+            this.TapetePrimavera.Name = "TapetePrimavera";
+            this.TapetePrimavera.Size = new System.Drawing.Size(127, 22);
+            this.TapetePrimavera.Text = "Primavera";
+            this.TapetePrimavera.Click += new System.EventHandler(this.TapetePrimavera_Click);
+            // 
+            // TexturaMadera
+            // 
+            this.TexturaMadera.Name = "TexturaMadera";
+            this.TexturaMadera.Size = new System.Drawing.Size(146, 22);
+            this.TexturaMadera.Text = "Madera";
+            this.TexturaMadera.Click += new System.EventHandler(this.TexturaMadera_Click);
+            // 
+            // TexturaCesped
+            // 
+            this.TexturaCesped.Name = "TexturaCesped";
+            this.TexturaCesped.Size = new System.Drawing.Size(146, 22);
+            this.TexturaCesped.Text = "Césped";
+            this.TexturaCesped.Click += new System.EventHandler(this.TexturaCesped_Click);
+            // 
+            // TexturaPiedra
+            // 
+            this.TexturaPiedra.Name = "TexturaPiedra";
+            this.TexturaPiedra.Size = new System.Drawing.Size(146, 22);
+            this.TexturaPiedra.Text = "Piedra";
+            this.TexturaPiedra.Click += new System.EventHandler(this.TexturaPiedra_Click);
+            // 
+            // figuras3DToolStripMenuItem1
+            // 
+            this.figuras3DToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Figura3DCirculo,
+            this.Figura3DEspiral});
+            this.figuras3DToolStripMenuItem1.Name = "figuras3DToolStripMenuItem1";
+            this.figuras3DToolStripMenuItem1.Size = new System.Drawing.Size(74, 20);
+            this.figuras3DToolStripMenuItem1.Text = "Figuras 3D";
+            // 
+            // Figura3DCirculo
+            // 
+            this.Figura3DCirculo.Name = "Figura3DCirculo";
+            this.Figura3DCirculo.Size = new System.Drawing.Size(112, 22);
+            this.Figura3DCirculo.Text = "Círculo";
+            this.Figura3DCirculo.Click += new System.EventHandler(this.Figura3DCirculo_Click);
+            // 
+            // Figura3DEspiral
+            // 
+            this.Figura3DEspiral.Name = "Figura3DEspiral";
+            this.Figura3DEspiral.Size = new System.Drawing.Size(112, 22);
+            this.Figura3DEspiral.Text = "Espiral";
+            this.Figura3DEspiral.Click += new System.EventHandler(this.Figura3DEspiral_Click);
+            // 
+            // animacionOnda
+            // 
+            this.animacionOnda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AniOnda,
+            this.AniOnda3D,
+            this.OndaInterferencia3D});
+            this.animacionOnda.Name = "animacionOnda";
+            this.animacionOnda.Size = new System.Drawing.Size(109, 20);
+            this.animacionOnda.Text = "Animación Onda";
+            // 
+            // AniOnda
+            // 
+            this.AniOnda.Name = "AniOnda";
+            this.AniOnda.Size = new System.Drawing.Size(157, 22);
+            this.AniOnda.Text = "Onda";
+            this.AniOnda.Click += new System.EventHandler(this.AniOnda_Click);
+            // 
+            // AniOnda3D
+            // 
+            this.AniOnda3D.Name = "AniOnda3D";
+            this.AniOnda3D.Size = new System.Drawing.Size(157, 22);
+            this.AniOnda3D.Text = "Onda 3D";
+            this.AniOnda3D.Click += new System.EventHandler(this.AniOnda3D_Click);
+            // 
+            // OndaInterferencia3D
+            // 
+            this.OndaInterferencia3D.Name = "OndaInterferencia3D";
+            this.OndaInterferencia3D.Size = new System.Drawing.Size(157, 22);
+            this.OndaInterferencia3D.Text = "Interferencia 3D";
+            this.OndaInterferencia3D.Click += new System.EventHandler(this.OndaInterferencia3D_Click);
+            // 
+            // Onda
+            // 
+            this.Onda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ondaToolStripMenuItem1,
+            this.OndaOrigen,
+            this.OndaInterferencia2,
+            this.OndaInterferencia3,
+            this.Onda3D,
+            this.Onda2SinInter,
+            this.Onda2ConInter});
+            this.Onda.Name = "Onda";
+            this.Onda.Size = new System.Drawing.Size(48, 20);
+            this.Onda.Text = "Onda";
+            // 
+            // ondaToolStripMenuItem1
+            // 
+            this.ondaToolStripMenuItem1.Name = "ondaToolStripMenuItem1";
+            this.ondaToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.ondaToolStripMenuItem1.Text = "Onda";
+            this.ondaToolStripMenuItem1.Click += new System.EventHandler(this.ondaToolStripMenuItem1_Click);
+            // 
+            // OndaOrigen
+            // 
+            this.OndaOrigen.Name = "OndaOrigen";
+            this.OndaOrigen.Size = new System.Drawing.Size(204, 22);
+            this.OndaOrigen.Text = "Con diferente origen";
+            this.OndaOrigen.Click += new System.EventHandler(this.OndaOrigen_Click);
+            // 
+            // OndaInterferencia2
+            // 
+            this.OndaInterferencia2.Name = "OndaInterferencia2";
+            this.OndaInterferencia2.Size = new System.Drawing.Size(204, 22);
+            this.OndaInterferencia2.Text = "Interferencia 2 ondas";
+            this.OndaInterferencia2.Click += new System.EventHandler(this.OndaInterferencia2_Click);
+            // 
+            // OndaInterferencia3
+            // 
+            this.OndaInterferencia3.Name = "OndaInterferencia3";
+            this.OndaInterferencia3.Size = new System.Drawing.Size(204, 22);
+            this.OndaInterferencia3.Text = "Interferencia 3 ondas";
+            this.OndaInterferencia3.Click += new System.EventHandler(this.OndaInterferencia3_Click);
+            // 
+            // Onda3D
+            // 
+            this.Onda3D.Name = "Onda3D";
+            this.Onda3D.Size = new System.Drawing.Size(204, 22);
+            this.Onda3D.Text = "Onda 3D";
+            this.Onda3D.Click += new System.EventHandler(this.Onda3D_Click);
+            // 
+            // Onda2SinInter
+            // 
+            this.Onda2SinInter.Name = "Onda2SinInter";
+            this.Onda2SinInter.Size = new System.Drawing.Size(204, 22);
+            this.Onda2SinInter.Text = "2 Ondas sin Interferencia";
+            this.Onda2SinInter.Click += new System.EventHandler(this.Onda2SinInter_Click);
+            // 
+            // Onda2ConInter
+            // 
+            this.Onda2ConInter.Name = "Onda2ConInter";
+            this.Onda2ConInter.Size = new System.Drawing.Size(204, 22);
+            this.Onda2ConInter.Text = "2 Ondas Interferencia";
+            this.Onda2ConInter.Click += new System.EventHandler(this.Onda2ConInter_Click);
             // 
             // Form1
             // 
@@ -543,6 +663,7 @@ namespace CC
             this.Name = "Form1";
             this.Text = "Gráficos";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -568,48 +689,60 @@ namespace CC
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnDeleteFigure;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem archivoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem barridoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem figurasToolStripMenuItem;
         private System.Windows.Forms.Button btnAnimacion;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.ToolStripMenuItem animaciónToolStripMenuItem;
         private System.Windows.Forms.Button btnDibujar;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraPixelRandom;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraVector;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraSegmento;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraCirculo;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraConcentrica;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraLazo;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraEspiral;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraParabola;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraInterpolacion;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraLagrange;
-        private System.Windows.Forms.ToolStripMenuItem ItemFiguraTaylor;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaUniColor;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaBiColor;
-        private System.Windows.Forms.ToolStripMenuItem ItemTextura1Degradado;
-        private System.Windows.Forms.ToolStripMenuItem ItemTextura2Degradado;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaEjemplo1;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaEjemplo2;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaInvierno;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaPrimavera;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaVerano;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaOtonno;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaMadera;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaCesped;
-        private System.Windows.Forms.ToolStripMenuItem ItemTexturaPiedra;
-        private System.Windows.Forms.ToolStripMenuItem figuras3DToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem Item3DCirculo;
-        private System.Windows.Forms.ToolStripMenuItem Item3DEspiral;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimationDiagonal;
-        private System.Windows.Forms.ToolStripMenuItem animación3DToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem animacionOnda;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimationLinealX;
         private System.Windows.Forms.ToolStripMenuItem ej3NoImplementadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimationParabola;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimationEspiral;
         private System.Windows.Forms.ToolStripMenuItem ItemAnimationCarretera;
+        private System.Windows.Forms.RadioButton rtbPaletaOnda;
+        private System.Windows.Forms.RadioButton rbtPaleta0;
+        private System.Windows.Forms.ToolStripMenuItem figuras3DToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem texturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem TexturaBicolor;
+        private System.Windows.Forms.ToolStripMenuItem TexturaDegradado1;
+        private System.Windows.Forms.ToolStripMenuItem TexturaDegradado2;
+        private System.Windows.Forms.ToolStripMenuItem tapeteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Tapete1;
+        private System.Windows.Forms.ToolStripMenuItem Tapete2;
+        private System.Windows.Forms.ToolStripMenuItem TapeteInvierno;
+        private System.Windows.Forms.ToolStripMenuItem TapeteVerano;
+        private System.Windows.Forms.ToolStripMenuItem TapeteOtonno;
+        private System.Windows.Forms.ToolStripMenuItem TexturaUnicolor;
+        private System.Windows.Forms.ToolStripMenuItem TexturaMadera;
+        private System.Windows.Forms.ToolStripMenuItem TexturaCesped;
+        private System.Windows.Forms.ToolStripMenuItem TexturaPiedra;
+        private System.Windows.Forms.ToolStripMenuItem TapetePrimavera;
+        private System.Windows.Forms.ToolStripMenuItem FiguraPixel;
+        private System.Windows.Forms.ToolStripMenuItem FiguraVector;
+        private System.Windows.Forms.ToolStripMenuItem FiguraSegmento;
+        private System.Windows.Forms.ToolStripMenuItem FiguraCirculo;
+        private System.Windows.Forms.ToolStripMenuItem FiguraConcentrica;
+        private System.Windows.Forms.ToolStripMenuItem FiguraLazo;
+        private System.Windows.Forms.ToolStripMenuItem FiguraEspiral;
+        private System.Windows.Forms.ToolStripMenuItem FiguraTaylor;
+        private System.Windows.Forms.ToolStripMenuItem FiguraLagrange;
+        private System.Windows.Forms.ToolStripMenuItem FiguraInterpolacion;
+        private System.Windows.Forms.ToolStripMenuItem FiguraParabola;
+        private System.Windows.Forms.ToolStripMenuItem Figura3DCirculo;
+        private System.Windows.Forms.ToolStripMenuItem Figura3DEspiral;
+        private System.Windows.Forms.ToolStripMenuItem AniOnda;
+        private System.Windows.Forms.ToolStripMenuItem AniOnda3D;
+        private System.Windows.Forms.ToolStripMenuItem OndaInterferencia3D;
+        private System.Windows.Forms.ToolStripMenuItem Onda;
+        private System.Windows.Forms.ToolStripMenuItem ondaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem OndaOrigen;
+        private System.Windows.Forms.ToolStripMenuItem OndaInterferencia2;
+        private System.Windows.Forms.ToolStripMenuItem OndaInterferencia3;
+        private System.Windows.Forms.ToolStripMenuItem Onda3D;
+        private System.Windows.Forms.ToolStripMenuItem Onda2SinInter;
+        private System.Windows.Forms.ToolStripMenuItem Onda2ConInter;
     }
 }
 

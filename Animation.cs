@@ -19,6 +19,11 @@ namespace CC
         double t;
         double tn;
         double dt = 0.1; //incremento
+        Color[] paleta;
+        public Color[] Paleta { 
+            get { return paleta; } 
+            set { paleta = value; }
+        }
         public Animation (PictureBox pictureBox)
         {
             this.pictureBox = pictureBox;
@@ -147,13 +152,29 @@ namespace CC
         double t0 = 0;
         public void Timer_Onda(object sender, EventArgs e)
         {
-            //this.bitmap = new Onda3D().Onda2(t0).Bmp;
             this.bitmap?.Dispose();
-            this.bitmap = new Onda().GrafOnda(t).Bmp;
-            //this.bitmap = new Onda3D().Interferencia2(t0).Bmp;
+            this.bitmap = new Onda().DrawOnda(paleta,t).Bmp;
             this.pictureBox.Image = this.bitmap;
             t += dt;
-            if(t > 2)
+            if(t > 3)
+                Stop();
+        }
+        public void Timer_Onda3D(object sender, EventArgs e)
+        {
+            this.bitmap?.Dispose();
+            this.bitmap = new Onda3D().Onda(t).Bmp;
+            this.pictureBox.Image = this.bitmap;
+            t += 0.01;
+            if (t > 7)
+                Stop();
+        }
+        public void Timer_Interferencia3D(object sender, EventArgs e)
+        {
+            this.bitmap?.Dispose();
+            this.bitmap = new Onda3D().Interferencia2(t).Bmp;
+            this.pictureBox.Image = this.bitmap;
+            t += 0.01;
+            if (t > 7)
                 Stop();
         }
     }

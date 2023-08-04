@@ -16,12 +16,12 @@ namespace CC
 
         //CORRDENADOS DE MODELO, PUNTO DE VISTA NO TRANSFORMADO
         //Ventana real
-        public static double x1 = -16;//-8 //-16   //8 -> 6.15
-        public static double x2 = 16;//8          //16 -> 12.3
+        public static double x1 = -8;//-8 //-16   //8 -> 6.15
+        public static double x2 = 8;//8          //16 -> 12.3
                                                 //2 -> 1.54
                                                 // -1 , 3 -> -1.54, 1.54
-        public static double y1 = -12.3;//-7//-6.15
-        public static double y2 = 12.3;//12.3
+        public static double y1 = -6.15;//-7//-6.15
+        public static double y2 = 6.15;//12.3
 
         public static void Transforma(double sx, double sy, out double x, out double y)
         {
@@ -33,18 +33,16 @@ namespace CC
             sx = (int)(((x - x1) / (x1 - x2)) * (sx1 - sx2)) + sx1;
             sy = (int)(((y - y2) / (y2 - y1)) * (sy1 - sy2)) + sy1;
         }
-        public static void FourierC(double x, out double fou)
+        public static void Fourier(double x, out double fou)
         {
             double an, bn, sumF;
-            double l = 2;//[1,3]
             sumF = 0;
-            for(int k = 0; k <= 18; k++)
+            fou = 0;
+            for(int n = 0; n <= 18;  n++)
             {
-                ///an = (0.333) * (k * f(1) * Math.Sin(k * Math.PI * 0.5) * f(2) * Math.Sin(k * Math.PI * 1));
-                //an = an * 2 / l;
-                ///bn = (0.333) * (4 * g(1) * Math.Sin(k * Math.PI * 1))
+                //an = (0.5/6) * (4 * )
             }
-            fou = sumF;
+           
         }
     }
 }
