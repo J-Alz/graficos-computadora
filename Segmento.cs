@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace CC
 {
@@ -24,6 +25,20 @@ namespace CC
             b = calcularInterseccion(x,y);
             Console.WriteLine(b);
             maximo = (Geometria.y2 - b) / m;
+        }
+        public Segmento(double xi, double yi, double xf, double yf)
+        {
+            X0 = xi;
+            Y0 = yi;
+            double tx = 0.000001;
+            for (double t = 0; t <= 1; t += tx)
+            {
+                //X0 = X0 + (xf - X0) * t;
+                //Y0 = Y0 + (yf - Y0) * t;
+                X0 = (X0 * (1 - t)) + (xf * t);
+                Y0 = (Y0 * (1 - t)) + (yf * t);
+                Encender(Color.Blue);
+            }
         }
         public Segmento() { }
         private double calcularPendiente(double angulo)
@@ -74,6 +89,18 @@ namespace CC
             //{
             //    Console.WriteLine("X: " + x + " Y: " + y);
             //}
+            return this;
+        }
+        public Segmento Line(double xi, double yi,double xf, double yf)
+        {
+            X0 = xi;
+            Y0 = yi;
+            for(double t = 0; t <= 1; t += Dx)
+            {
+                X0 = (X0 * (1 - t)) + (xf * t);
+                Y0 = (Y0 * (1 - t)) + (yf * t);
+                Encender(Color.Blue);
+            }
             return this;
         }
         

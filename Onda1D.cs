@@ -11,9 +11,6 @@ namespace CC
     {
         //posicion inicial
         //velocidad inicial
-
-
-
         private double f(int k)
             => Math.Sin(k * Math.PI * 0.5);
         private double g(int k)

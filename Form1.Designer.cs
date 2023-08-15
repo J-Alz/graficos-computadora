@@ -32,11 +32,11 @@ namespace CC
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.rtbPaletaOnda = new System.Windows.Forms.RadioButton();
             this.rbtPaleta0 = new System.Windows.Forms.RadioButton();
             this.btnDibujar = new System.Windows.Forms.Button();
             this.btnAnimacion = new System.Windows.Forms.Button();
-            this.lbx = new System.Windows.Forms.ListBox();
             this.btnShowAxis = new System.Windows.Forms.Button();
             this.btnColor = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -44,8 +44,6 @@ namespace CC
             this.colorDialog = new System.Windows.Forms.ColorDialog();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnDeleteFigure = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.FiguraPixel = new System.Windows.Forms.ToolStripMenuItem();
@@ -97,15 +95,17 @@ namespace CC
             this.Onda2SinInter = new System.Windows.Forms.ToolStripMenuItem();
             this.Onda2ConInter = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnDraw = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).BeginInit();
             this.groupBox3.SuspendLayout();
-            this.groupBox4.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnDraw);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.rtbPaletaOnda);
             this.groupBox1.Controls.Add(this.rbtPaleta0);
             this.groupBox1.Controls.Add(this.btnDibujar);
@@ -116,6 +116,23 @@ namespace CC
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Opciones";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.comboBox1.Location = new System.Drawing.Point(35, 250);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 47;
             // 
             // rtbPaletaOnda
             // 
@@ -143,7 +160,7 @@ namespace CC
             // 
             // btnDibujar
             // 
-            this.btnDibujar.Location = new System.Drawing.Point(59, 113);
+            this.btnDibujar.Location = new System.Drawing.Point(35, 76);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(75, 23);
             this.btnDibujar.TabIndex = 32;
@@ -153,22 +170,13 @@ namespace CC
             // 
             // btnAnimacion
             // 
-            this.btnAnimacion.Location = new System.Drawing.Point(59, 184);
+            this.btnAnimacion.Location = new System.Drawing.Point(35, 114);
             this.btnAnimacion.Name = "btnAnimacion";
             this.btnAnimacion.Size = new System.Drawing.Size(75, 23);
             this.btnAnimacion.TabIndex = 29;
             this.btnAnimacion.Text = "Animacion";
             this.btnAnimacion.UseVisualStyleBackColor = true;
             this.btnAnimacion.Click += new System.EventHandler(this.btnAnimacion_Click);
-            // 
-            // lbx
-            // 
-            this.lbx.FormattingEnabled = true;
-            this.lbx.Location = new System.Drawing.Point(9, 19);
-            this.lbx.Name = "lbx";
-            this.lbx.Size = new System.Drawing.Size(138, 186);
-            this.lbx.TabIndex = 26;
-            this.lbx.SelectedIndexChanged += new System.EventHandler(this.lbx_SelectedIndexChanged);
             // 
             // btnShowAxis
             // 
@@ -202,7 +210,6 @@ namespace CC
             this.btnClear.TabIndex = 1;
             this.toolTip.SetToolTip(this.btnClear, "Borrar contenido");
             this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ventana
             // 
@@ -226,27 +233,6 @@ namespace CC
             this.groupBox3.Size = new System.Drawing.Size(42, 540);
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnDeleteFigure);
-            this.groupBox4.Controls.Add(this.lbx);
-            this.groupBox4.Location = new System.Drawing.Point(9, 356);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 218);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Lista de elementos";
-            // 
-            // btnDeleteFigure
-            // 
-            this.btnDeleteFigure.Image = global::CC.Properties.Resources.trash;
-            this.btnDeleteFigure.Location = new System.Drawing.Point(153, 36);
-            this.btnDeleteFigure.Name = "btnDeleteFigure";
-            this.btnDeleteFigure.Size = new System.Drawing.Size(30, 30);
-            this.btnDeleteFigure.TabIndex = 5;
-            this.btnDeleteFigure.UseVisualStyleBackColor = true;
-            this.btnDeleteFigure.Click += new System.EventHandler(this.btnDeleteFigure_Click);
             // 
             // menuStrip1
             // 
@@ -648,6 +634,16 @@ namespace CC
             this.Onda2ConInter.Text = "2 Ondas Interferencia";
             this.Onda2ConInter.Click += new System.EventHandler(this.Onda2ConInter_Click);
             // 
+            // btnDraw
+            // 
+            this.btnDraw.Location = new System.Drawing.Point(35, 167);
+            this.btnDraw.Name = "btnDraw";
+            this.btnDraw.Size = new System.Drawing.Size(121, 49);
+            this.btnDraw.TabIndex = 48;
+            this.btnDraw.Text = "button1";
+            this.btnDraw.UseVisualStyleBackColor = true;
+            this.btnDraw.Click += new System.EventHandler(this.btnDraw_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -655,7 +651,6 @@ namespace CC
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(975, 586);
             this.Controls.Add(this.ventana);
-            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.menuStrip1);
@@ -667,7 +662,6 @@ namespace CC
             ((System.ComponentModel.ISupportInitialize)(this.ventana)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -685,9 +679,6 @@ namespace CC
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnShowAxis;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListBox lbx;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Button btnDeleteFigure;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;
         private System.Windows.Forms.Button btnAnimacion;
@@ -743,6 +734,8 @@ namespace CC
         private System.Windows.Forms.ToolStripMenuItem Onda3D;
         private System.Windows.Forms.ToolStripMenuItem Onda2SinInter;
         private System.Windows.Forms.ToolStripMenuItem Onda2ConInter;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btnDraw;
     }
 }
 

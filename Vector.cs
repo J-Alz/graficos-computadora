@@ -37,6 +37,8 @@ namespace CC
         //    get => color;
         //    set => color = value;
         //}
+        //Graphics g = Graphics.FromImage(bmp);
+             
         public double Dx
         {
             get => dx;

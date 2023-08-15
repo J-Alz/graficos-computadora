@@ -13,6 +13,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 
 namespace CC
@@ -95,16 +96,6 @@ namespace CC
             }
         }
 
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            ventana.Image = null;
-            bmp = new Bitmap(WIDTH, HEIGHT);
-            lbx.Items.Clear();
-            foreach (Vector elemento in lista)
-                elemento.Dispose();
-            lista.Clear();
-        }
-
         private void rbtPaleta0_CheckedChanged(object sender, EventArgs e)
         {
             paleta = Paleta.paleta0;
@@ -122,15 +113,6 @@ namespace CC
             RefreshImage();
         }
 
-        private void lbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!(lbx.SelectedItems == null))
-            {
-                btnDeleteFigure.Enabled = true;
-            }
-            //lbx.SelectedItem.ToString();
-            //lbx.Items.Add(lbx.SelectedIndex.ToString());
-        }
 
 
         #region VENTANA
@@ -358,21 +340,15 @@ namespace CC
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
-            //lista.Add(new Reflexion(1,0,6.15).segmentoXf());
+            lista.Add(new Cuerda());
 
-            //lista.Add(new Segmento(60,1,0).Dibujar());
-            //lista.Add(new Segmento(300, 1, 0).Dibujar());
-            //double x = 1, y = 0;
-            //lista.Add(new Segmento().D(ref x, ref y, 60));
-            //Console.WriteLine("X: " + x + " Y: " + y);
-            //lista.Add(new Segmento().Linea(0,3,3,0));
-            lista.Add(new Onda1D().Graphic());
             RefreshImage();
         }
         private void btnAnimacion_Click(object sender, EventArgs e)
         {
-            animation = new Animation(ventana);
-            animation.Start(animation.Timer_Onda, 0);
+            //animation = new Animation(ventana);
+            //animation.Paleta = paleta;
+            //animation.Start(animation.Timer_Onda, 0);
         }
 
         #region Ondas
@@ -427,6 +403,8 @@ namespace CC
             animation.Start(animation.Timer_Onda, 0);
         }
 
+        
+
         private void AniOnda3D_Click(object sender, EventArgs e)
         {
             animation = new Animation(ventana);
@@ -441,6 +419,15 @@ namespace CC
 
         #endregion
 
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
+            //lista.Add(new Cuerda().GraficarC());
+            //lista.Add(new Segmento().Line(3,-3));
+            //lista.Add(new Segmento().Line(-5, 4, 7, 1));
+            //lista.Add(new Segmento(-5, 4, 7, 1));
+            lista.Add(new Fuerzas().e(9));
+            RefreshImage();
+        }
 
 
     }

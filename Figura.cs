@@ -68,12 +68,15 @@ namespace CC
         }
         public Figura segmento(double x0, double y0, double xf, double yf)
         {
+            color = Color.Black;
             X0 = x0;
             Y0 = y0;
             for(double t = 0; t <= 1; t+= Dx)
             {
                 X0 = X0 + (xf - X0) * t;
                 Y0 = Y0 + (yf - Y0) * t;
+                //X0 = X0 * (1 - t) + xf * t;
+                //Y0 = Y0 * (1 - t) + yf * t;
                 Encender(color);
             }
             return this;
@@ -271,5 +274,6 @@ namespace CC
             }
             return this;
         }
+
     }
 }
