@@ -185,13 +185,17 @@ namespace CC
         }
         public Figura PuntoParabola(double x, double y)
         {
-            if (y <= (49 - Math.Pow(x, 2)) / 15)
+            Graphics g = Graphics.FromImage(Bmp);
+            double yf = (49 - Math.Pow(x, 2)) / 15;
+            if (y <= yf)
             {
-                Bmp = Circulo(Color.Black, 0.2, x, y).Bmp;
-                Encender(Color.Black);
-                //Reparar se recorta, por alguna razón
-                segmento(x, y, x, (49 - Math.Pow(x, 2)) / 15);//Luz
-                segmento(x, (49 - Math.Pow(x, 2)) / 15, 0, -0.48);//Rebote
+                g.DrawImageUnscaled(Circulo(Color.Black, 0.1, x, y).Bmp, 0, 0);
+                g.DrawImageUnscaled(new Segmento(x, y, x, yf).Bmp, 0, 0);
+                //Console.WriteLine("x: " + x);
+                //Console.WriteLine("yf: " + yf);
+                //Console.WriteLine("m: " + (-0.13 * x));
+                g.DrawImageUnscaled(new Segmento(x,yf,-0.13 * x).Bmp, 0, 0);
+                g.DrawImageUnscaled(new Segmento(x,yf,0,-0.48).Bmp,0,0);
             }
             return this;
         }

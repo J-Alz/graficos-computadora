@@ -42,6 +42,7 @@ namespace CC
         public double Dx
         {
             get => dx;
+            set => dx = value;
         }
         public Vector(double x0, double y0, Color color)
         {

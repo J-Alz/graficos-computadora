@@ -425,7 +425,8 @@ namespace CC
             //lista.Add(new Segmento().Line(3,-3));
             //lista.Add(new Segmento().Line(-5, 4, 7, 1));
             //lista.Add(new Segmento(-5, 4, 7, 1));
-            lista.Add(new Fuerzas().e(9));
+            //lista.Add(new Fuerzas().e(6));
+            lista.Add(new Segmento(0,0,0.1));
             RefreshImage();
         }
 
