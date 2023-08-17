@@ -340,7 +340,7 @@ namespace CC
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
-            lista.Add(new Cuerda());
+            lista.Add(new Cuerda3D());
 
             RefreshImage();
         }

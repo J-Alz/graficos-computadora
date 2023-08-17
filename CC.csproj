@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Animation.cs" />
     <Compile Include="Cuerda.cs" />
+    <Compile Include="Cuerda3D.cs" />
     <Compile Include="Figura3D.cs" />
     <Compile Include="Figura.cs" />
     <Compile Include="Form1.cs">
