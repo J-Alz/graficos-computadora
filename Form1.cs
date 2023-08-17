@@ -39,6 +39,7 @@ namespace CC
             //figuras.Reverse();
             //figuras3d.Reverse();
             //texturas.Reverse();
+            
             using ( Graphics g = Graphics.FromImage(bmp))
             {
                 foreach (Vector elemento in lista)
@@ -106,10 +107,12 @@ namespace CC
             paleta = Paleta.paletaOnda();
         }
         #endregion
-
-        private void btnDeleteFigure_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            
+            //No funca
+            lista.Clear();
+            bmp = new Bitmap(WIDTH, HEIGHT);
+            ventana.CreateGraphics().DrawImageUnscaled(bmp, 0, 0);
             RefreshImage();
         }
 
@@ -447,6 +450,8 @@ namespace CC
             lista.Add(new Fuerzas().e(5));
             RefreshImage();
         }
+
+        
 
         private void AniCuerda2D_Click(object sender, EventArgs e)
         {

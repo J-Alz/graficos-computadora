@@ -227,6 +227,7 @@ namespace CC
             this.btnClear.TabIndex = 1;
             this.toolTip.SetToolTip(this.btnClear, "Borrar contenido");
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // ventana
             // 
