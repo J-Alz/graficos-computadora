@@ -10,10 +10,11 @@ namespace CC
     internal class Cuerda3D: Vector3D
     {
         double C = 0.6;
-        double L = 9;
         double T = 0;
-        public Cuerda3D()
+        double L = 9;
+        public Cuerda3D(double T)
         {
+            this.T = T;
             for (double x = -5; x <= 5; x += Dx)
             {
                 Y0 = x;

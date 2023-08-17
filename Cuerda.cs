@@ -12,8 +12,9 @@ namespace CC
         double C = 0.6;
         double L = 9;
         double T = 0;
-        public Cuerda()
+        public Cuerda(double T)
         {
+            this.T = T;
             for (double x = -5; x <= 5; x += Dx)
             {
                 X0 = x;

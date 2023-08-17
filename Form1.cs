@@ -340,15 +340,24 @@ namespace CC
 
         private void btnDibujar_Click(object sender, EventArgs e)
         {
-            lista.Add(new Cuerda3D());
+            lista.Add(new Cuerda3D(9));
 
             RefreshImage();
         }
         private void btnAnimacion_Click(object sender, EventArgs e)
         {
-            //animation = new Animation(ventana);
-            //animation.Paleta = paleta;
-            //animation.Start(animation.Timer_Onda, 0);
+            animation = new Animation(ventana);
+            animation.Start(animation.Timer_Cuerda, 0);
+        }
+        private void btnDraw_Click(object sender, EventArgs e)
+        {
+            //lista.Add(new Cuerda().GraficarC());
+            //lista.Add(new Segmento().Line(3,-3));
+            //lista.Add(new Segmento().Line(-5, 4, 7, 1));
+            //lista.Add(new Segmento(-5, 4, 7, 1));
+            //lista.Add(new Fuerzas().e(6));
+            lista.Add(new Segmento(0, 0, 0.1));
+            RefreshImage();
         }
 
         #region Ondas
@@ -411,6 +420,7 @@ namespace CC
             animation.Start(animation.Timer_Onda3D, 0);
         }
 
+
         private void OndaInterferencia3D_Click(object sender, EventArgs e)
         {
             animation = new Animation(ventana);
@@ -419,17 +429,36 @@ namespace CC
 
         #endregion
 
-        private void btnDraw_Click(object sender, EventArgs e)
+        #region CUERDA
+        private void cuerda2D_Click(object sender, EventArgs e)
         {
-            //lista.Add(new Cuerda().GraficarC());
-            //lista.Add(new Segmento().Line(3,-3));
-            //lista.Add(new Segmento().Line(-5, 4, 7, 1));
-            //lista.Add(new Segmento(-5, 4, 7, 1));
-            //lista.Add(new Fuerzas().e(6));
-            lista.Add(new Segmento(0,0,0.1));
+            lista.Add(new Cuerda(0));
             RefreshImage();
         }
 
+        private void cuerda3D_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Cuerda3D(0));
+            RefreshImage();
+        }
 
+        private void fuerza_Click(object sender, EventArgs e)
+        {
+            lista.Add(new Fuerzas().e(5));
+            RefreshImage();
+        }
+
+        private void AniCuerda2D_Click(object sender, EventArgs e)
+        {
+            animation = new Animation(ventana,1);
+            animation.Start(animation.Timer_Cuerda, 0);
+        }
+
+        private void AniCuerda3D_Click(object sender, EventArgs e)
+        {
+            animation = new Animation(ventana,1);
+            animation.Start(animation.Timer_Cuerda3D, 0);
+        }
+        #endregion
     }
 }

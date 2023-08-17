@@ -31,6 +31,13 @@ namespace CC
             this.timer = new System.Windows.Forms.Timer();
             this.timer.Interval = 5;
         }
+        public Animation(PictureBox pictureBox, int interval)
+        {
+            this.pictureBox = pictureBox;
+            this.bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
+            this.timer = new System.Windows.Forms.Timer();
+            this.timer.Interval = interval;
+        }
 
         public void Start(EventHandler e, double t0)
         {
@@ -175,6 +182,24 @@ namespace CC
             this.pictureBox.Image = this.bitmap;
             t += 0.01;
             if (t > 7)
+                Stop();
+        }
+        public void Timer_Cuerda(object sender, EventArgs e)
+        {
+            this.bitmap?.Dispose();
+            this.bitmap = new Cuerda(t).Bmp;
+            this.pictureBox.Image = this.bitmap;
+            t += dt;
+            if (t > 25)
+                Stop();
+        }
+        public void Timer_Cuerda3D(object sender, EventArgs e)
+        {
+            this.bitmap?.Dispose();
+            this.bitmap = new Cuerda3D(t).Bmp;
+            this.pictureBox.Image = this.bitmap;
+            t += dt;
+            if ( t > 25)
                 Stop();
         }
     }

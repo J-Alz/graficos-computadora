@@ -66,7 +66,6 @@
     <Compile Include="Fuerzas.cs" />
     <Compile Include="Geometria.cs" />
     <Compile Include="Onda.cs" />
-    <Compile Include="Onda1D.cs" />
     <Compile Include="Onda3D.cs" />
     <Compile Include="Paleta.cs" />
     <Compile Include="Program.cs" />
